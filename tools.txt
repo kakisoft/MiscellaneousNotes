@@ -1,0 +1,8 @@
+## Postman
+https://www.getpostman.com/
+
+
+## Chrome拡張
+Instant Translate（右クリック）
+Google 翻訳（ページ単位。URLの右にアイコンが出る）
+weblioポップアップ英和辞典

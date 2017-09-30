@@ -1,0 +1,104 @@
+## ホスト名やインスタンス名を確認
+select * from v$instance
+
+## 接続ユーザ確認
+select * from v$session
+
+## リサイクルビン削除
+purge recyclebin
+
+## case
+,case
+   when  COLUMN1 = '1'  then  'data1'
+   when  COLUMN1 = '2'  then  'data2'
+   when  COLUMN1 = '3'  then  'data3'
+   else ' '
+ end  as  "STATUS"
+
+## 重複列を抽出
+select
+    COLUMN1
+from
+    TABLE1
+group by
+    COLUMN2
+having 
+    COUNT(*) >= 2
+
+## 特定列を集計
+select               
+    TABLE1.PROD_NO         
+   ,sum(decode(TABLE2.CATEGORY,'1',TABLE1.SALES                 ,0              ))  as  SALES
+   ,sum(decode(TABLE2.CATEGORY,'2',round(TABLE1.PAYMENT / 1.08 ), TABLE1.PAYMENT))  as  PAYMENT
+from                 
+    TABLE1             
+    left join TABLE2 on TABLE1.CATEGORY_CD = TABLE2.CATEGORY_CD
+where  1=1
+  and  TABLE1.COLUMN1 = 'CD'
+group by
+    TABLE1.PROD_NO
+
+
+
+## 複数UPDATE
+update  TABLE1
+   set  COLUMN1 = (select COLUMN1 from TABLE2 where  1=1 
+                                                and  TABLE1.ID = TABLE2.ID
+               )
+where  1=1
+  and  TABLE1.COLUMN2 in ('01','02')
+  and  TABLE1.ID in (
+                       select
+                           TABLE1.ID
+                       from
+                           TABLE1
+                           left join TABLE2 on TABLE1.ID = TABLE2.ID
+                       where  1=1
+                         and  TABLE1.COLUMN2 in ('01','02')
+                         and  TABLE2.COLUMN3 is not null
+                    )
+
+
+
+## インサート or アップデート
+merge into TABLE1
+using
+(
+   select
+        'Param1'        as  COLUMN1
+       ,'Param2'        as  COLUMN2
+       ,'UpdateParam1'  as  UPDATE_COLUMN1
+       ,'UpdateParam2'  as  UPDATE_COLUMN2
+   from
+       dual
+) DUMMY on (
+                   1=1
+              and  TABLE1.COLUMN1 = DUMMY.COLUMN1
+              and  TABLE1.COLUMN2 = DUMMY.COLUMN2
+           )
+-- 既存レコードの更新
+when MATCHED then
+  update set
+      UPDATE_COLUMN1 = DUMMY.UPDATE_COLUMN1
+     ,UPDATE_COLUMN2 = UPDATE_COLUMN2 + DUMMY.UPDATE_COLUMN2
+-- 新規レコードの作成
+when not MATCHED then
+  insert
+  (
+      ID
+     ,COLUMN1
+     ,COLUMN2
+     ,UPDATE_COLUMN1
+     ,UPDATE_COLUMN2
+  )
+  values
+  (
+      TABLE1SEQ.NEXTVAL
+     ,DUMMY.COLUMN1
+     ,DUMMY.COLUMN2
+     ,DUMMY.UPDATE_COLUMN1
+     ,DUMMY.UPDATE_COLUMN2
+   )
+
+
+

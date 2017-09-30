@@ -1,0 +1,59 @@
+## カラム追加
+alter table TABLE1 add
+(
+    COLUMN1    VARCHAR2(8) DEFAULT ' ' NOT NULL
+   ,COLUMN2    NUMBER(4,3) DEFAULT 0   NOT NULL
+);
+COMMENT ON COLUMN TABLE1.COLUMN1 IS 'カラム1のコメント';
+COMMENT ON COLUMN TABLE1.COLUMN2 IS 'カラム2のコメント';
+
+
+## カラム削除
+alter table TABLE1 DROP
+(
+    COLUMN1
+   ,COLUMN2
+);
+
+## カラム定義変更
+alter table TABLE1 modify
+(
+    COLUMN1               VARCHAR2(10)      DEFAULT '1' 
+);
+
+## 主キー追加（一度削除した後に、再作成）※indexも合わせて削除する事！
+alter table <テーブル名> drop constraint <主キー制約名>;
+drop index <主キー制約名>; --（不要かも）
+alter table <テーブル名> add constraint <主キー制約名> primary key <列名>;
+
+
+## テーブルスペースファイル作成
+create tablespace <TABLESPACE_NAME>
+datafile 'E:\app\Administrator\oradata\TABLE_SPACE1.DBF' size 5m autoextend on
+
+
+## テーブルスペース削除
+drop tablespace SW_TABLET
+※DBFファイルは手動で削除
+
+
+## ユーザ作成
+※最近のバージョンでは非推奨のオプション有り
+
+CREATE USER <USER_NAME>
+IDENTIFIED BY <PASSWORD>
+DEFAULT TABLESPACE <TABLESPACE_NAME>
+TEMPORARY TABLESPACE TEMP
+PROFILE DEFAULT;
+GRANT CONNECT TO <USER_NAME>;
+GRANT RESOURCE TO <USER_NAME>;
+GRANT CREATE ANY VIEW TO <USER_NAME>;
+GRANT CREATE LIBRARY TO <USER_NAME>;
+GRANT DEBUG CONNECT SESSION TO <USER_NAME>;
+GRANT DELETE ANY TABLE TO <USER_NAME>;
+GRANT INSERT ANY TABLE TO <USER_NAME>;
+GRANT SELECT ANY DICTIONARY TO <USER_NAME>;
+GRANT SELECT ANY SEQUENCE TO <USER_NAME>;
+GRANT SELECT ANY TABLE TO <USER_NAME>;
+GRANT UNLIMITED TABLESPACE TO <USER_NAME>;
+GRANT UPDATE ANY TABLE TO <USER_NAME>;

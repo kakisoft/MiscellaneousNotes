@@ -1,0 +1,100 @@
+━━━＜無線＞━━━
+## RF（Radio Frequency/高周波）
+比較的周波数の高いもの
+
+
+## Ir（InfraRed ray）
+赤外線。IrDA(InfraRed Data Association)は規格団体。
+
+
+## IEEE 802.11
+無線LANの規格。
+b/g/n 等があり、bとgは互換性がある。
+bとgは通信速度が大幅に違うので、機器が対応していないなどの理由が無い限り、gの使用をお勧め。
+bは低速のため、「pingは飛ぶのに、データが取得できない（実際は時間がめちゃくちゃかかっているだけ）」という現象が発生する事があります。
+
+
+## ESSID (Extended Service Set Identifier)
+無線LANアクセスポイントに付ける識別子。
+SSIDもほぼ同じ意味で使われる。
+
+
+## RSSI(Receive Signal Strength Indication)
+受信している電波信号の強さを数値化したもの。
+AP（アクセスポイント）からの発信する時の強度ではなく、端末で受信した時の強度。
+-30dBm～-40dBmが安定値。マイナスが大きくなるほど悪くなる。
+
+
+## WEP（Wired Equivalent Privacy）
+無線LAN初期の規格。
+
+
+## WPA（Wi-Fi Protected Access）
+無線LANの暗号化規格の1つ。WEPの脆弱性を改良。Wi-Fi Allianceが制定
+
+
+## WPA2（Wi-Fi Protected Access 2）
+WPAのセキュリティ強化版。
+
+
+## PSKモード(Pre-Shared Key。事前鍵共有)
+パーソナルモードとも。
+アクセスポイント側に事前にパスワードを設定しておき、端末側でそのパスワードを打つ事で接続を開始する。
+
+
+## EAPモード
+エンタープライズモードとも。
+RADIUS認証サーバを使ってEAP(Extensible Authentication Protocol)の認証によりPPP接続する。
+
+
+## RADIUS（Remote Authentication Dial In User Service）
+ネットワーク利用の可否の判断（認証）と、利用の事実の記録を、サーバに一元化することを目的としたプロトコル。
+
+
+## EAP（Extensible Authentication Protocol。拡張認証プロトコル）
+どの認証方式を用いるか指定できるプロトコル。
+
+
+## PPP（Point-to-Point Protocol）
+2点間を接続してデータ通信を行うための通信プロトコル。
+
+
+## PPPoE（Point-to-Point Protocol over Ethernet）
+PPPをEthernet上で使うためのプロトコル。
+
+
+## PoE（Power over Ethernet）
+LANケーブルから電源供給できる仕組み。
+電源の確保が困難な場所（倉庫の天井など）で使用する。
+
+
+## アドホックモード
+アクセスポイントを経由することなく端末機器間で直接通信を行う方式。
+
+
+## インフラストラクチャモード
+各端末が無線LANのアクセスポイントを経由して通信を行う方式。
+
+
+## ローミング（無線LAN）
+複数の無線LANが設置されていて、現在接続中のアクセスポイントの電波強度が弱くなった場合、自動で別のアクセスポイントに接続する仕組み。
+設定方法は機器によって異なる。
+
+
+## BGS（Back Ground Scan）
+設定した閾値を基に、ローミングチェックスキャンをする事。
+特定メーカーでのみ使用している用語？
+
+━━━＜有線＞━━━
+## 信号に起きる障害
+ * 減衰
+      * 抵抗
+      * 拡散
+ * ノイズ<信号の形が崩れる>
+      * すぐ隣の銅線に信号が流れている（クロストーク）
+      * 熱雑音
+      * AC電源がそばにある
+      * 雷や無線、蛍光灯などがそばにある（EMI/RFI）
+ * 衝突
+      * ケーブル上を２つのデータが同時に流れる
+

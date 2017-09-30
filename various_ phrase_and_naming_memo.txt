@@ -1,0 +1,3 @@
+on click：クリック時
+explicit：明示的な
+implicit：暗黙の

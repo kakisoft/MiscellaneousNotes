@@ -1,0 +1,47 @@
+# ディストリ確認
+(debian）cat /etc/issue
+(redhat) cat /etc/redhat-release
+(Amazon) cat /etc/system-release
+
+# sshログイン
+ssh -i <AccessKey> UserName@<IPアドレス>
+chmod 600 <AccessKey>
+
+# 検索
+sudo find / -name "filename"
+locate "filename"　　　※updatedb。ファイル名データベースから検索。
+
+# 解凍
+tar zxvf asterisk-1.8.8.1.tar.gz
+
+# ファイルの内容を１画面ごとに表示
+～～ | more
+
+# 文字コードを識別
+file -i <FILE-NAME>
+nkf -g <FILE-NAME>
+※半角英数のみで構成されたファイルの場合、「ASCII」と推測される。
+
+# 文字コード変換
+nkf -e file.txt > euc.txt
+nkf -w --overwrite readme.txt
+nkf -Ew 対象ファイル
+
+ファイルの文字コードを指定する	
+J … JIS
+E … EUC-JP
+S … SJIS
+W … UTF-8
+変換後の文字コードを指定する	
+j … JIS
+e … EUC-JP
+s … SJIS
+w … UTF-8
+
+
+# 接続端末のデバイスファイル名を表示
+tty
+
+http://kakistamp.hatenadiary.jp/entry/2016/08/06/010736
+
+

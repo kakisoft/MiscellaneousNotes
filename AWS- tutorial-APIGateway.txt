@@ -1,0 +1,87 @@
+[POST]: 主に子リソースの作成に使用されます。
+PUT：既存のリソースを更新するために主に使用します (推奨はされませんが、子リソースの作成にも使用できます)。
+DELETE: リソースの削除に使用されます。
+[PATCH]: リソースの更新に使用されます。
+[HEAD]: テストシナリオで主に使用します。GET と同じですが、リソースの表現を返しません。
+OPTIONS:対象サービスに使用できる通信オプションに関する情報を取得するために呼び出し元が使用できます。
+
+
+## API Gateway
+チュートリアル
+http://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/api-gateway-create-api-from-example.html
+
+Integrated Request
+　API Gatewayからの実行、Lamdaからの実行 etc..が
+　ここに集約される。
+
+
+Create API
+　　・新しいAPI
+　　・既存のAPIからクローン
+　　・Swaggerからインポート
+　　・APIの例（チュートリアルで使用）
+
+
+メソッドの実行
+　・雷のマーク
+　・{"type": "dog","price": 249.99}
+
+
+デプロイ
+　・アクション
+　　　→APIのデプロイ
+　　　　　　デプロイされるステージ：[新しいステージ]
+　　　　　　ステージ名：test
+　　　　　　ステージの説明：test stage
+　　　　　　デプロイメントの説明：sample API first deployment
+　・ステージエディター
+　　　　『URLの呼び出し元』が表示される。
+　　　　　　
+　　　　　　
+https://jpxrdnwa3e.execute-api.us-west-2.amazonaws.com/test
+https://jpxrdnwa3e.execute-api.us-west-2.amazonaws.com/test2
+https://jpxrdnwa3e.execute-api.us-west-2.amazonaws.com/test3
+
+
+＜構文＞
+https://{api-id}.execute-api.{region}.amazonaws.com/test/pets/{petId}
+（入力例）
+https://jpxrdnwa3e.execute-api.us-west-2.amazonaws.com/test/pets/1
+
+
+新しいAPI
+アクション→リソースの作成
+　アクション→メソッドの作成→GET→[チェック]
+　　【GET-セットアップ】
+　　　　統合タイプ：Lamda(Lamdaスクリプトを呼び出した結果をレスポンスとする)
+　　　　　　　　　　HTTP（特定のURLをレスポンスとする。S3と組み合わせる事も可）
+　　　　　　　　　　Mock（静的レスポンスとして自由にレスポンスの内容を記載できる）
+　　　　　　　　　　AWSサービス（Lamdaを利用せず、直接AWSサービスを呼び出す）
+エンドポイントURL
+http://petstore-demo-endpoint.execute-api.com/petstore/pets
+
+http://petstore-demo-endpoint.execute-api.com/petstore/pets
+http://petstore-demo-endpoint.execute-api.com/petstore/pets?type=cat&page=2
+
+
+・Test（テスト）
+テストリクエストを実施
+
+・Method Request（メソッドリクエスト）
+リクエスト方式を設定する。認証やURLパラメータ、リクエストヘッダ等を設定する。
+
+・Integration Request（統合リクエスト）
+受け取ったリクエストに対する処理を設定する。Lamdaの関数などが設定できる。
+
+・Integration Response（統合レスポンス）
+APIのレスポンス内容を決定するための処理を設定する
+
+・Method Response
+実際のレスポンスを設定する。ステータスコードやヘッダを設定可能。
+
+
+＜モック作成＞
+統合レスポンス→本文マッピングテンプレート→「application/json」
+{
+  "message":"fookaaaa"
+}
