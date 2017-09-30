@@ -110,3 +110,17 @@ git config --global alias.st status
 git config --global alias.br branch
 git config --global alias.ci commit
 git config -l    #リストアップ
+
+
+## git push origin master の意味は？
+push = アップロード
+origin = リモートのサーバ名
+master = デフォルトのブランチ名 (svnでのtrunkと同じ)
+
+「ローカルのコードを、originというリモートサーバに対してアップロード。指定するブランチはmaster。」
+masterをpushするときは"-u"は不要。
+ローカルのブランチhogeをリモートの同名ブランチhogeにpushしたいときも"-u"は不要。
+
+
+## git remote add origin git@github.com:reponame/sample.git
+URLに"origin"という短縮名を付ける
