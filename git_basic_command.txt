@@ -124,3 +124,10 @@ masterをpushするときは"-u"は不要。
 
 ## git remote add origin git@github.com:reponame/sample.git
 URLに"origin"という短縮名を付ける
+
+
+## git pullについて
+git fecth + git merge 
+## git pull --rebase
+git fetch + git rebase
+
