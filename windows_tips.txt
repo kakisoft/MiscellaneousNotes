@@ -13,6 +13,10 @@ Windowsキー + X　→ A
 ## ネットワークドライブのパスを調べる
 net use
 
+## コマンドの場所を表示
+where <コマンド>　　
+（使用例：where ping）
+
 ## SmartScreen
 Internet Explorer8以降またはWindows8・Windows RT以降にてソフトウェアの信頼性を評価するシステム
 
