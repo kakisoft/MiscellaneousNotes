@@ -1,8 +1,8 @@
-## ���b�N
+## ロック
 V$LOCK
-��type�́A
+のtypeは、
 V$LOCK_TYPE
-�ɏڍׂ������Ă���B
+に詳細が書いてある。
 
 
 
