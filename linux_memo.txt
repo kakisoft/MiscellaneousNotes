@@ -43,6 +43,11 @@ w … UTF-8
 --f
 とかで、強制インストール/アンインストール（エラーを無視して実行）できるコマンドがある。
 
+## kill
+kill -9 <PID>
+9：Killシグナルによるプロセスの終了
+http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230806/?rt=nocnt
+
 # 接続端末のデバイスファイル名を表示
 tty
 
