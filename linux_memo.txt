@@ -17,6 +17,9 @@ tar zxvf asterisk-1.8.8.1.tar.gz
 # ファイルの内容を１画面ごとに表示
 ～～ | more
 
+# IPアドレス確認
+ip a
+
 # 文字コードを識別
 file -i <FILE-NAME>
 nkf -g <FILE-NAME>
