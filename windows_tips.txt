@@ -4,6 +4,9 @@ ncpa.cpl
 ## サービスマネージャ起動
 services.msc
 
+## スタートアップのアプリ
+shell:startup
+
 ## 管理者権限でコマンドプロンプトを実行
 Windowsキー + X　→ A
 
