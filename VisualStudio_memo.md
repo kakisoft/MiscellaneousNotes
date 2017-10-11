@@ -1,4 +1,4 @@
-# Visual Studio Code メモ
+# Visual Studio メモ
 
 #### ショートカット
 
