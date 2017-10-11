@@ -14,4 +14,17 @@
 | インテリセンス                        |  Ctrl + Space              |
 
 
-
+ファイル→基本設定→キーボードショートカット
+「高度なカスタマイズを～」keybinding.json
+```
+    // 大文字に変換
+    {
+        "key": "ctrl+u",
+        "command": "editor.action.transformToUppercase"
+    },
+    // 小文字に変換
+    {
+        "key": "ctrl+shift+u",
+        "command": "editor.action.transformToLowercase"
+    }
+```
