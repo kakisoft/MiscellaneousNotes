@@ -7,6 +7,11 @@ select * from v$session
 ## リサイクルビン削除
 purge recyclebin
 
+## 複数のバージョンが共存する場合
+Oracle Universal Installer
+にて、どちらを優先して使うか選択可能。（どちらかを無効する事も出来る。）
+コンパクトインストール時にはInstallerが入らないので、その場合はインストーラを起動。
+
 ## case
 ,case
    when  COLUMN1 = '1'  then  'data1'
