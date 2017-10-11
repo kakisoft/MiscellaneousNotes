@@ -1,3 +1,7 @@
 on click：クリック時
 explicit：明示的な
 implicit：暗黙の
+
+
+プレビューを表示する：show_preview
+レポートを印刷する：print_report
