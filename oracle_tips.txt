@@ -1,3 +1,6 @@
+## ログオンせずに SQL*Plus を起動
+sqlplus /nolog
+
 ## ホスト名やインスタンス名を確認
 select * from v$instance
 
