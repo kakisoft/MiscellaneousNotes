@@ -14,6 +14,7 @@
 | インテリセンス                         |  Ctrl + Space              |
 | タブを閉じる                           |  Ctrl + w                 |
 | タブ切替                               |  Ctrl + ↑ or ↓            |
+| ターミナルを表示                        |  Ctrl + Shift @            |
 
   
 　  
