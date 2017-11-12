@@ -1,0 +1,21 @@
+## WordPress開始の選択肢
+・WordPress.com
+無料プランあり
+収益化まで考えるなら、プレミアム（月額983円）が妥当か。
+
+・AWS
+　　・WordPress用のAMIを使用する
+　　　　　m3.medium   $0.067/時間  月額 5500円程度
+　　　　　t2.micro    $0.012/時間  月額 1000円弱
+　　　　　t2.nano     $0.006/時間  月額 500円弱
+　　・CloudFormationのWordPressテンプレートを使用する
+　　・手動でEC2+RDSを構築する
+AWS Amazon EC2 + Amazon RDSを使ってWordPressを構築する
+https://tsuchikazu.net/aws_amazon_ec2_rds_wordpress/
+
+・さくらのクラウド
+月額 1900円くらい？
+
+・Azure
+
+

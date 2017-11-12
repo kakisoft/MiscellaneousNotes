@@ -19,6 +19,7 @@ tar zxvf asterisk-1.8.8.1.tar.gz
 
 # IPアドレス確認
 ip a
+ifconfig  （inet addr:xxxx の部分）
 
 # 文字コードを識別
 file -i <FILE-NAME>
