@@ -56,3 +56,15 @@ HOME→mnt→sdcard
 　　・ON
 
 
+
+
+【AudioManager】
+|   ストリームの種類     |           説明            |
+|:----------------------:| :------------------------:| 
+| STREAM_ALARM           | アラーム音量              |
+| STREAM_DTMF            | ダイヤル音量              |
+| STREAM_MUSIC           | 音楽再生音量              |
+| STREAM_NOTIFICATION    | 通知音量                  |
+| STREAM_RING            | 着信音量                  |
+| STREAM_SYSTEM          | システムメッセージ音量    |
+| STREAM_VOICE_CALL      | 通話音量                  |
