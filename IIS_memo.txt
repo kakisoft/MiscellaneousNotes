@@ -28,3 +28,8 @@ Default Web Site：詳細設定（右端のメニュー）→仮想パス設定�
 デフォルトではSSL接続しか受け付けない。
 SSL接続をサポートしていないFTPクライアントの場合、非SSL接続も許可する。
 　下段の「機能ビュー」タブ → FTPのSSL → SSL接続を許可する
+
+
+## MIMEの種類→追加
+.apk
+application/vnd.android.package-archive
