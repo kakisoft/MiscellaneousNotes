@@ -56,6 +56,10 @@ HOME→mnt→sdcard
 　　・ON
 
 
+## IISにてapkダウンロード可にする設定
+MIMEの種類→追加
+.apk
+application/vnd.android.package-archive
 
 
 【AudioManager】
