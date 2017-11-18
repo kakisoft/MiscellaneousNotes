@@ -44,3 +44,11 @@ http://qiita.com/shuntaro_tamura/items/db1aef9cf9d78db50ffe
 https://www.slideshare.net/ikdysfm/5gitrefspec
 
 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+コメント命名規約参考
+http://postd.cc/gitlab-flow/
+
+機能追加
+future/[issue番号]_[概要]
+修正
+fix/[issue番号]_[概要] (edited)
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
