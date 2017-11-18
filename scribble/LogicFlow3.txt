@@ -1,0 +1,72 @@
+準備
+ * LINEアカウント
+ * LINE Developerアカウント
+ * Azureサブスクリプションまたは
+   Flowアカウント(Microsoftアカウント)
+
+https://goo.gl/pxwBH9
+からスキーマ定義をDL
+
+
+Flowアカウントの登録  
+https://japan.flow.microsoft.com/ja-jp/
+
+
+LINE Developeraアカウント
+https://developers.line.me/ja/
+
+
+
+# ハンズオン
+
+プロバイダ名
+KakiLogic
+
+アプリ名
+KakiLogicApp01
+
+#
+マイフロー
+→１から作成
+
+
+HTTP POST の URL
+
+
+Webhook URL ※SSLのみ対応
+は、必ず
+『Webhook が正常ではない HTTP ステータスを返しました。』
+となる。
+
+
+方法：POST
+URI：https://api.line.me/v2/bot/message/reply
+Authorization:Bearer {long life token}
+                     ↑
+                     実際の入力では、{}は外す。
+
+replyTokenは、右下から選択できる。
+
+
+items('Apply_to_each')?['message']?['text']
+
+
+  "text": "Hello World"
+  ってな感じで、テキストを直書きできる。
+
+  
+
+https://1dv.ms/p/s!Apc-SN5d
+
+
+スタンプは使用できるが、デフォルトのみ。
+
+サムネイル
+
+音声
+
+位置情報
+
+
+
+
