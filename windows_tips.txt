@@ -1,3 +1,6 @@
+## hostsファイルのパス
+C:\Windows\System32\drivers\etc\hosts
+
 ## ネットワーク接続設定呼び出し
 ncpa.cpl
 
