@@ -176,7 +176,7 @@ ___
 
 
 
-（参考サイト）
+（参考サイト）  
 http://server.change.jp/5-minibird/5-minibird_5/  
 http://wa3.i-3-i.info
 
