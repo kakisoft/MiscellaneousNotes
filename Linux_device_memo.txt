@@ -1,0 +1,88 @@
+ALSA(Advanced Linux Sound Architecture)
+
+sudo apt-get remove alsa-utils
+sudo apt-get remove alsamixer
+sudo apt-get install alsa-utils
+sudo apt-get install alsamixer
+
+
+
+sudo aptitude install alsa-utils
+sudo aptitude install alsamixer
+
+
+
+<ここから>
+sudo apt-get purge alsa-utils
+sudo apt-get purge alsamixer
+
+sudo aptitude install alsa-utils
+sudo aptitude install gnome-alsamixer
+
+
+aplay --version
+
+
+uskaki101@pckaki101:/etc/modprobe.d$ aplay -l
+aplay: device_list:268: サウンドカードが見つかりません...
+
+
+
+
+＜ここから part2＞
+sudo apt-get purge alsa-utils
+sudo apt-get purge alsamixer
+
+sudo aptitude install alsa-utils
+sudo aptitude install gnome-alsamixer
+
+
+＜ここから part3＞
+https://askubuntu.com/questions/426648/how-to-reinstall-pulseaudio-ubuntu-12-04
+
+
+
+
+
+ーーー
+cat /etc/group
+
+http://kazmax.zpp.jp/linux_beginner/etc_group.html
+hoge_group	グループ名
+x	「 x 」という文字か、暗号化されたパスワード。「 x 」はシャドウパスワードを使用している事を意味します。
+501	グループID( GID )
+hoge_user3,hoge_user2	サブグループとして所属しているユーザーアカウントのリスト。カンマ区切り。
+
+
+
+
+
+グループとか
+https://begi.net/read/base/07.html
+・メイングループ
+・サブグループ
+
+id
+で確認。
+
+
+
+https://eng-entrance.com/linux-group
+groupaddコマンド
+
+グループを追加するにはgroupaddコマンドを使う。
+
+groupmodコマンド
+
+グループを編集するにはgroupmodコマンドだ。必ずオプションと共に使うコマンドになっている。
+
+groupdelコマンド
+
+グループを削除するにはgroupdelコマンドを使う。
+
+
+ーーー
+uskaki101@pckaki101:~$ aplay -l
+aplay: device_list:268: サウンドカードが見つかりません...
+
+
