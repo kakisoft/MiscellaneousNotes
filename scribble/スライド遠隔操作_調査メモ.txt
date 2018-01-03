@@ -1,0 +1,26 @@
+Syncslide
+　→一番よさそう。
+　　が、MacとiPhoneのみ？公式サイトは見れず。更新停止？Windowsから見れない？
+
+
+Office Remote for Android
+　→スマホとPCをBluetoothで同期させる。
+　　そこまでしたいか？　んで、見せるのは結局PowerPoint　
+　　http://gigazine.net/news/20150421-office-remote-for-android-review/
+　　けど、やる価値はありそう。
+
+
+なんか色々
+　　http://scrmble.jp/459/
+
+
+Node.js で実現する方法
+　　http://yuriken27.hatenablog.com/entry/2015/03/01/220706
+
+
+Mobile Mouse
+　　→iPhone向け
+
+
+
+
