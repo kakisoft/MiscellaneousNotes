@@ -1,3 +1,7 @@
+Xamarin.Froms でパズルゲームを作る
+http://www.moonmile.net/blog/archives/5892
+
+
 ＜Xamarin BarCode＞
 https://qiita.com/ytabuchi/items/3e14dcb5b9a11aaf14a9
 http://ytabuchi.hatenablog.com/entry/2016/03/10/212502
