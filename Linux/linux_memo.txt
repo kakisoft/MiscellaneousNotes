@@ -7,8 +7,8 @@
 ssh -i <AccessKey> UserName@<IPアドレス>
 chmod 600 <AccessKey>
 
-# 検索
-sudo find / -name "filename"
+# ファイル検索
+sudo find / -name "filename" 
 locate "filename"　　　※updatedb。ファイル名データベースから検索。
 
 # 解凍
@@ -20,6 +20,80 @@ tar zxvf asterisk-1.8.8.1.tar.gz
 # IPアドレス確認
 ip a
 ifconfig  （inet addr:xxxx の部分）
+
+# デフォルトゲートウェイ確認
+ip route show
+
+# DNS確認
+cat /etc/resolv.conf
+
+# viを読み取り専用で開く
+view <ファイル名>
+
+# debパッケージインストール
+dpkg -i <ファイル名>
+
+# シンボリックリンク作成
+ln -s <リンク先ディレクトリ名 or ファイル名> <作成するリンク名>
+
+内容確認は　ls -l
+
+# シンボリックリンク削除
+unlink <リンク名>
+
+# シンボリックリンクのコピー
+ln -s <リンク先ディレクトリ名 or ファイル名> <作成するリンク名>
+
+# chmodメモ：ugo  rwx     a全ユーザ
+
+# ログ見るときはlessよりもtailコマンドが便利
+
+# パスの確認
+echo $PATH
+
+/usr/local/sbin
+/usr/local/bin
+/usr/sbin
+等はデフォルトで入ってる。
+
+# リモート端末のファイルをコピー
+（下記は ec2への接続）
+scp -i secret_key.pem ec2-user@hostname:/home/ec2-user/file_name.txt ~/
+
+# リモート端末のディレクトリをコピー
+（下記は ec2への接続）
+scp -r -i secret_key.pem ec2-user@hostname:/home/ec2-user/dir_name/ ~/
+
+# 中身ごとディレクトリを中身削除
+rm -rf
+
+# ログインユーザ確認
+whoami 
+
+# 現在の作業をバックグラウンドに移動
+[ctrl] + z
+復帰する場合
+fg
+
+# 画面を分割して作業
+＜tmux＞
+無ければ apt-get や yum でインストール。
+起動後
+[ctrl] + B → [Shift] + 2
+
+・フォーカス画面の切り替え 
+[ctrl] + B → 矢印キー
+分割を解除
+分割された画面にて exit
+
+# Windowsのメモ帳チックなエディタ起動
+gegit
+
+# 再起動
+sudo shutdown -r now
+
+# SSHログイン
+ssh -i <AccessKey> UserName@<IPアドレス>
 
 # 文字コードを識別
 file -i <FILE-NAME>
@@ -63,10 +137,18 @@ tty
 
 http://kakistamp.hatenadiary.jp/entry/2016/08/06/010736
 
-______
+______________________________________________________________
 
+容量確認
 
-□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+- Dashを起動
+
+- 検索ボックスに baobab または、 ディスクの使用量と解析 と入力します。
+- 日本語の入力ができない場合は、以下のリンクを参照ください。
+
+http://linux.just4fun.biz/Ubuntu/GUI%E3%81%A7%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AF%E3%81%AE%E4%BD%BF%E7%94%A8%E9%87%8F%E3%83%BB%E7%A9%BA%E3%81%8D%E5%AE%B9%E9%87%8F%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%E3%83%BBbaobab.html
+
+______________________________________________________________
 
 apt-get
 aptitude
