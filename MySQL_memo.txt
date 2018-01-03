@@ -1,0 +1,70 @@
+レプリケーション機能（レプリカを別にサーバに作成。）
+　　スケールアップでなく、スケールアウトがしやすい。
+
+
+OLTP（シンプルなSQLをたくさん捌く用途には強い）
+　→MySQL
+
+――――――――――――――――――――――――――――――――――――
+
+Windows (x86, 32-bit), MSI Installer
+Windows (x86, 32-bit), MSI Installer
+
+(mysql-installer-web-community-5.7.13.0.msi) → web
+(mysql-installer-community-5.7.13.0.msi) → インストールパッケージ
+
+win → TCP/IP
+linux → ソケットファイル(こっちが高速)
+を使って接続
+
+
+
+General log → 全部のログをとる。デバッグ用。運用ではOFF
+Slow Query log → 実行に時間がかかったクエリのログを取る。(0.1秒単位もいける）
+Bin log → 更新処理を全部ログを取る。<Server Id: 実行するサーバのID>
+
+
+バルクinsert
+
+----------------------
+ps -ef | grep mysqld
+----------------------
+
+
+mysql> show
+
+
+create database test2;
+
+use test;
+
+
+show global variables like ''
+
+doesn't exist
+
+
+opt  管理情報(DB単位)
+frm  テーブル定義
+ibd  実データ
+
+ibdata1  inodbの表領域
+
+クラッシュリカバリした時のための仕組み
+ib_logfiel0
+
+
+
+mysql ur root -p
+
+
+MySQL workbenchi
+ワークベンチ
+
+------------------------------------------
+
+binlog_format=ROW
+
+100万行変えたら、before afterの200万行
+
+statementなら、update文 1つ

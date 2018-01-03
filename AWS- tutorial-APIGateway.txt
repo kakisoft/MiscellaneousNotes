@@ -85,3 +85,9 @@ APIのレスポンス内容を決定するための処理を設定する
 {
   "message":"fookaaaa"
 }
+
+
+________________________________
+
+API Gatewayでjsonを返す時Chrome拡張のJSON Viewerとか使うと日本語が文字化けしたんだけど、
+API GatewayのレスポンスヘッダにContent-Type: 'application/json; charset=UTF-8'にしたら日本語を表示してくれるようになった。
