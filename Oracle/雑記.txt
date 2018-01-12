@@ -1,0 +1,477 @@
+DBMS_OUTPUT.PUT_LINE('12345678901234567890');
+
+on commit delete rows
+トランザクション終了時にデータを削除する
+
+on commit preserve rows
+セッション終了時にデータを削除する
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+on commit delete rows
+トランザクション終了時にデータを削除する
+
+on commit preserve rows
+セッション終了時にデータを削除する
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+meare join
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+
+アンバインドサービス
+
+v$resouce_limit
+
+□□□□□□□□□□□□□□□□□□□□□□□□□
+
+【 接続セッション確認 】
+
+select * from v$license;
+
+
+こっちはSQLPLUSで。
+show parameter SESSIONS;
+show parameter PROCESSES;
+
+
+---------------------------------------
+この方法は間違い。
+select 
+--*
+count(*)
+from
+ v$session
+where  1=1
+  and  USERNAME = 'TB_SIWA3'
+--  and  PROGRAM = 'aspnet_wp.exe'
+---------------------------------------
+□□□□□□□□□□□□□□□□□□□□□□□□□
+
+オラクル権限メモ
+http://www.ne.jp/asahi/hishidama/home/tech/oracle/grant.html
+
+http://www.shift-the-oracle.com/sql/grant.html
+
+=====================================================================================
+
+http://oracle.se-free.com/plsql/d8_write.html
+
+
+ファイルオープンで、FOPENの第３引数に指定する書き込みモードは下記の２種類ある。
+　'w' ・・・　上書きモード
+　'a'　・・・　追加モード
+
+=====================================================================================
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+
+http://d.hatena.ne.jp/haradago/20120227/p1
+
+
+■[oracle]tnsnames.oraが上書き禁止
+
+
+Windows 7でtnsnames.oraを書き換えようとすると以下のようなメッセージが表示されることがある
+他のプロセスで使用しているため編集不可（上書き禁止）
+
+
+
+これはUACの設定レベルがデフォルトのままだと発生するので以下の手順でUACの設定レベルを低くすることで書き換え可能となる。
+コントロールパネル→ユーザーアカウント→ユーザーアカウント制御設定の変更→設定レベルを最低にする
+
+なお、設定を適用するには再起動する必要がある。
+また、tnsnames.oraを書き換えたあとは元に戻しておくのが好ましい。
+
+
+
+
+動作確認環境:Windows 7,Oracle 11g
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+
+
+実行計画
+MARGE JOIN
+ハッシュ結合
+
+
+
+B-Tree index
+http://www.hi-ho.ne.jp/tsumiki/doc_1.html
+
+
+
+■ B-Treeインデックスが有効に動作するデータ取得量
+
+B-Treeインデックスが有効に動作するのは、取得するデータの量が表全体の5%～15%以下の場合となる。
+一概には言えないが、それ以上のデータを取得する場合や、
+検索する表の容量が小さい場合は、インデックスを使用しないで全表走査
+(表のすべての行を読み込んでWHERE条件を判定)した方が高速となる。
+
+
+
+
+■ B-Treeインデックスの選択性
+
+重複しているキー値が少なければ選択性が高く、インデックスは有効に働く。
+たとえば誕生日を表す列は選択性が優れていますが、性別を表す列は選択性は悪い。
+
+選択性の優れているインデックスは特定のキー値で対象となるデータを
+絞り込めるので効率的に機能する。
+
+ユニークインデックスやプライマリキー(NULLを許可しないユニークインデックス)は
+最も選択性の高いインデックスとなる。たとえ膨大な量のデータが存在する表でも、
+プライマリキーを使用した一意検索であれば1秒以下の応答が期待できます。
+
+なお、OracleなどのDBMSでは選択性の悪い列に対して効果を発揮するビットマップ
+インデックスというインデックスがサポートされている。
+
+
+
+■ 結合インデックス
+
+
+
+■ !=(Not Equals)の使用
+
+!=又は<>を使用した場合、テーブルの全走査が行われることがある。
+これはすべての行からある値に一致する行を除くときに、たいていの場合、
+テーブルの全走査をした方が速いからです。
+
+!=の使用で十分な結果が得られない場合、INやORで条件を置き換えることに
+よってテーブルの全走査を回避することが必要になります。
+ 
+ 
+
+■ 列に対する関数や演算子の使用
+
+WHERE句で列に対して関数や演算子が使われるとインデックスを利用できなくなる。
+たとえば、
+
+SELECT
+　　*
+FROM
+　　tsumiki_sales
+ WHERE
+　　val * 2 > 2000
+
+のようなSQL文ではvalに設定されているインデックスは使用されない。
+関数や演算子の使用で十分な結果が得られない場合、それと意味的に等価な
+SQL文に置き換えられないか検討する必要がある。
+
+上記のSQLは次のようにするとインデックスが使用されるようになる。
+
+SELECT
+　　*
+FROM
+　　tsumiki_sales
+ WHERE
+　　val > 2000 / 2
+
+なお、DBMSによっては、この問題を回避するために関数インデックスという
+
+ インデックスがサポートされている場合があります。
+
+
+
+
+■ LIKE句の使用
+
+ワイルドカードを使った一致検索にLIKE句を使うことができますが、
+ワイルドカードで始まるLIKE検索を行う場合、インデックスを使用することは出来ない。
+
+これはB-Treeインデックスの構造上の限界です。
+
+
+
+
+■ ソートの使用
+
+ORDER BY句にインデックスがある場合、インデックス内で既にデータがソートされているため、
+実質ソート処理が行われない。そのため、非常に高速なレスポンスが期待できる。
+ただし、ORDER BY句の列はNOT NULLである必要があります。
+
+明示的にソートを行う場合ORDER BY句を指定するが、DISTINCT句を指定すると、
+重複した行を除外するためにDBMS内部で自動的にソート処理が行われる。
+
+慣例的にDISTINCT句を使用している場合は、極力DISTINCT句を使用しない方が
+パフォーマンスは向上する。
+
+また、UNION演算をおこなう場合にもDISTINCTと同様に、重複する行を除外するため
+ソートが行われる。重複する行を除外する必要がない場合はUNION ALLを使った
+方がいい。
+
+
+＜チューニング＞
+http://www.oracle.com/technetwork/jp/ondemand/branch/120118-tuning-1503676-ja.pdf
+https://blogs.oracle.com/oracle4engineer/oracle-v107
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+
+データファイル情報の確認方法
+
+
+表領域名やデータファイル名、ステータス、サイズ、自動拡張設定などの情報を
+参照するには、データディクショナリの dba_data_files を確認する。
+
+
+SQL>
+set lines 120
+set pages 100
+set term off
+clear col
+col TABLESPACE_NAME  format a10
+col FILE_NAME        format a35
+col STATUS           format a10
+col MBYTES           format 9,999,990
+col INCRE            format 9,999,990
+col AUTOEXTENSIBLE   format a5
+col ONLINE_STATUS    format a6
+select
+  tablespace_name,
+  file_name,
+  status,
+  bytes/1024/1024 mbytes,
+  increment_by,
+  autoextensible,
+  online_status
+from
+  dba_data_files
+/
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+DBCA(Database Config Assistant)
+
+http://it-memo.info/?p=1061
+http://otndnld.oracle.co.jp/easy/oracle11gr1/windows/1st/
+http://rina.jpn.ph/~rance/oracle10g/dbca.html
+
+
+
+インストールの概要
+ 
+Oracleソフトウェアをインストールするには、Oracle Universal Installer（OUI）を使用します。Oracle Universal Installerは、マシンにすでにインストールされているOracleソフトウェアの表示、新しいOracleソフトウェアのインストールおよび使用しないOracleソフトウェアの削除を実行できるGraphical User Interface（GUI）ツールです。インストール手順の参照には、オンライン・ヘルプを使用できます。
+
+Windows 系の場合には UNIX 系と異なり、レジストリにも情報が残っている可能性があるので DBCA(Database Config Assistant)を使用して削除した方がよいと思う。(DBCA がどこまで削除するかまでは調査していません)
+
+DATABASEはオラクルの最も基本的な部分です。
+オラクルデータベースは、DATABASEを作成してその中にTABLESPACEという領域を作成して、
+さらにその中にTABLEとかINDEXなどを作成するという造りになります。 
+
+http://30ruby.hatenablog.com/entry/2014/11/01/030505
+
+http://knman.sakura.ne.jp/wordpress/?p=1144
+
+http://websae.net/framework-20141119/
+
+
+
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+		
+■ トレースファイル整形方法		
+		
+	コマンドプロンプトにて、以下を実行。	
+		
+	tkprof  <トレースファイル名>  <整形後のファイル名>	
+		
+	（実行例）	
+	tkprof C:\kaki\tmp2\orcl_j000_3124.trc test001.txt	
+		
+	※Client環境でOKです。	
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+□□□□□□□□□□□□□□□□□□□□□□
+
+Win7：ORA-03114
+
+XP：ORA-12571
+
+キープアライブ
+
+
+ORA-03114
+ORA-12571
+
+tnsnames.ora に enable=broken を記述して無効な接続を破棄する 
+
+keepaliveを有効にする 
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+---------------------------------------------------------
+①一時表領域に新しいデータファイルＡを一時的に追加する
+ALTER TABLESPACE TEMP ADD TEMPFILE ‘/oracle/A.dbf’ SIZE 128M AUTOEXTEND OFF;
+
+②現在使用中のデータファイルＢをオフラインにする
+ALTER DATABASE TEMPFILE ‘/oracle/B.dbf’ OFFLINE;
+
+③オフラインにしたデータファイルＢを削除
+ALTER DATABASE TEMPFILE ‘/oracle/B.dbf’ DROP INCLUDING DATAFILES;
+
+④使用したい一時表領域のデータファイルＣを作成しなおす
+ALTER TABLESPACE TEMP ADD TEMPFILE ‘/oracle/C.dbf’ SIZE 5120M AUTOEXTEND OFF;
+
+⑤一時的に作成したデータファイルＡをオフラインにする
+ALTER DATABASE TEMPFILE ‘/oracle/A.dbf’ OFFLINE;
+
+⑥一時的に作成したデータファイルＡを削除
+ALTER DATABASE TEMPFILE ‘/oracle/A.dbf’ DROP INCLUDING DATAFILES;
+
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+
+
+バックアップ
+・パラメータ（初期設定）ファイル
+・制御（コントロール）ファイル
+・データファイル
+・ＲＥＤＯログファイル
+・アーカイブログファイル
+
+
+
+
+set ORACLE_SID=orcl
+
+emctl start dbconsole
+
+https://localhost:1158/em
+
+
+
+
+C:\>emctl start dbconsole
+OC4J Configuration issue. E:\oracle\product\10.2.0\db_1/oc4j/j2ee/OC4J_DBConsole
+_SVKIKOUTEST_orcl not found.
+
+
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+sqlplusで接続にdefと入力すると、SIDやユーザなどを確認できる。
+
+
+http://www.tooljp.com/database/Oracle/Oracle-SID-INSTANCE/Oracle-SID-INSTANCE.html
+【  インスタンス名(INSTANCE_NAME)  】
+select instance_name from v$instance
+にて確認できる。
+
+
+【  システム識別子(SID)  】
+tnsnames.ora
+に記載された内容。
+
+
+ORCL_DNET =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 131.145.1.64)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = orcl)
+    )
+  )
+
+sqlplus USERNAME/PASSWORD@ORCL_DNET
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+
+
+
+
+
+
+
+【手順1】 空きのあるディスク(フォルダ)に一時表領域を作成する
+
+　ALTER TABLESPACE TEMP ADD TEMPFILE '/tmp/tempxx.dbf' SIZE 128M AUTOEXTEND OFF;
+
+※ファイル名は何でもよい。ここでは「/tmp/tempxx.dbf」としている。
+
+
+【手順2】 ディスク圧迫している一時表領域のデータファイルを削除するためオフラインにする
+　ALTER DATABASE TEMPFILE '/usr/oracle/app/oradata/db01/temp01.dbf' OFFLINE
+
+※ここではディスク圧迫している一時表領域のデータファイルを「/usr/oracle/app/oradata/db01/temp01.dbf」としている。
+
+
+【手順3】 手順2でオフラインにしたデータファイルを削除する
+　ALTER DATABASE TEMPFILE '/usr/oracle/app/oradata/db01/temp01.dbf' DROP INCLUDING DATAFILES
+
+削除できない場合はアプリが使用している可能性があるので下記SQLでプロセスを確認し、対象のプロセスを終了させてから再度削除を試みる。
+
+
+select
+  s.username, s.osuser, s.machine, s.terminal, s.program,
+from
+  v$session s, v$process p
+where
+  s.paddr = p.addr;
+
+
+
+【手順4】 削除した一時表領域のデータファイルを再作成する
+　ALTER TABLESPACE TEMP ADD TEMPFILE '/usr/oracle/app/oradata/db01/temp01.dbf' SIZE 2048M AUTOEXTEND OFF
+
+
+【手順5】 手順1で作成したデータファイルを削除するためオフラインにする
+　ALTER DATABASE TEMPFILE '/tmp/tempxx.dbf' OFFLINE
+
+
+【手順6】 手順5でオフラインにしたデータファイルを削除する
+　ALTER DATABASE TEMPFILE '/tmp/tempxx.dbf' DROP INCLUDING DATAFILES
+
+
+
+１．
+ALTER TABLESPACE TEMP ADD TEMPFILE 'F:/ORA_TMP/tempxx.dbf' SIZE 128M AUTOEXTEND OFF
+２．
+ALTER DATABASE TEMPFILE 'E:/oracle/product/10.2.0/oradata/orcl/temp01.dbf' OFFLINE
+３．
+ALTER DATABASE TEMPFILE 'E:/oracle/product/10.2.0/oradata/orcl/temp01.dbf' DROP INCLUDING DATAFILES
+４．
+ALTER TABLESPACE TEMP ADD TEMPFILE 'E:/oracle/product/10.2.0/oradata/orcl/temp01.dbf' SIZE 1024M AUTOEXTEND OFF
+５．
+ALTER DATABASE TEMPFILE 'F:/ORA_TMP/tempxx.dbf' OFFLINE
+６．
+ALTER DATABASE TEMPFILE 'F:/ORA_TMP/tempxx.dbf' DROP INCLUDING DATAFILES
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+
+
+
+
