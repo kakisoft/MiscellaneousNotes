@@ -1,8 +1,99 @@
 @…変数
 $…通常の文字。PL/SQLでは「.」が使えるが、T-SQLでは使えない。
- 　コンバート時に、この文字に置換される。
+　 コンバート時に、この文字に置換される。
 
-ssma.oracle_xxxx … PL/SQLからコンバートした時、該当するファンクションが無い時に付く接
-頭語。
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ssma_oracle.xxxxx … PL/SQLからコンバートした時、該当するファンクションが無い時に付く
+接頭語。
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【 @@変数 】
+
+一部の Transact-SQL システム関数の名前には、2 つのアット マーク (@@) で始まるものがあ
+ります。
+初期のバージョンの Microsoft SQL Server では、@@ 関数がグローバル変数と呼ばれていまし
+たが、これらは変数ではなく、変数とは違った動作をします。
+@@ 関数はシステム関数であり、構文の用法は関数の規則に従います。
+
+＜システム関数＞
+https://msdn.microsoft.com/ja-jp/library/ms187786(v=sql.120).aspx
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【 @@FETCH_STATUS 】
+
+https://docs.microsoft.com/ja-jp/sql/t-sql/functions/fetch-status-transact-sql
+@@FETCH_STATUS … 接続によって現在オープンされているカーソルに対して最後に実行した FET
+CH ステートメントの状態を返します。 
+
+| 戻り値 | Description                                                             | 
+|:-------|:------------------------------------------------------------------------|
+|    0   | FETCH ステートメントは正常に実行されました。                            | 
+|   -1   | FETCH ステートメントが失敗したか、または行が結果セットに収まりません。  |
+|   -2   | 取り出した行がありません。                                              | 
+|   -9   | カーソルがフェッチ操作を実行しません。                                  | 
+
+
+
+@@CURSOR_ROWS  … 接続で最後にオープンされたカーソルに現在取得されている行数を返します。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【 FETCH 】
+
+https://docs.microsoft.com/ja-jp/sql/t-sql/language-elements/fetch-transact-sql
+FETCH ［カーソル名］ INTO ［変数リスト］
+
+FETCH NEXT FROM ［カーソル名］ INTO ［変数リスト］
+
+
+| 戻り値 | Description                                                                
+   | 
+|:-------|:------------------------------------------------------------------------------|
+| NEXT   | 規定。現在位置を返す。（仕様上の定義は、現在の行の直後にある行、らしい。） 
+   | 
+| PRIOR  | 直前の行を返す。先頭行の位置は変更なし。                                   
+   |
+| FIRST  | 取り出した行がありません。                                                 
+   | 
+| LAST   | カーソルがフェッチ操作を実行しません。                                     
+   | 
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【 OPEN-CLOSE 】
+
+DECLARE Employee_Cursor CURSOR FOR  
+
+SELECT EmployeeID, Title FROM AdventureWorks2012.HumanResources.Employee;  
+
+OPEN Employee_Cursor;  
+
+FETCH NEXT FROM Employee_Cursor;  
+WHILE @@FETCH_STATUS = 0  
+   BEGIN  
+      FETCH NEXT FROM Employee_Cursor;  
+   END;  
+
+CLOSE Employee_Cursor;  
+
+DEALLOCATE Employee_Cursor;  
+GO 
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【 DEALLOCATE 】
+カーソルの割当てを削除する
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【 外部のストアドを実行 】
+
+EXEC @return_value = PROCEDURE_NAME @arg1, @arg2, @arg3
+※()とか書かない
+
+
+戻り値が欲しい場合は、多分、こんな感じ。
+EXEC PROCEDURE_NAME @arg1, @arg2, @arg3, @return_value
+※@return_valueは、呼び出し先にて、「OUTPUT」が付与
+
+
+これでも可。
+SELECT dbo.GetTestData('0001','0002','0003') AS RESULT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

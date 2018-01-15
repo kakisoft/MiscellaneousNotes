@@ -1,0 +1,16 @@
+--＜ストアドプロシージャ検索＞
+select
+ objects.type
+,objects.name
+,sql_modules.definition
+from
+ sys.sql_modules
+ inner join sys.objects on sql_modules.object_id = objects.object_id
+where  1=1
+--  and  objects.type in ('FN','P')
+--  and  name like 'TargetName%'
+--  and  sql_modules.definition like '%SearchString%'
+order by
+ 1,2
+
+
