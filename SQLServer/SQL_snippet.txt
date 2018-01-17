@@ -13,4 +13,56 @@ where  1=1
 order by
  1,2
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+--＜with副問い合わせ＞
+
+with alias1 as (
+                  select
+                   *
+                  from
+                   database.table1
+               )
+    ,alias2 as (
+                  select
+                   *
+                  from
+                   database.table2
+               )
+select
+    *
+from
+    alias1
+    left join alias2 on alias1.code_a = alias2.code_a
+where  1=1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+DECLARE @return_status int;  
+EXEC @return_status = checkstate '2';  
+SELECT 'Return Status' = @return_status;  
+GO 
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+begin try
+ select 1/0 as DivideByZero
+end try
+
+begin catch
+  throw;
+end catch
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+create procedure uspErrorMessageTest1
+as
+begin
+  select 1/0;
+end
+-------------------------------
+exec uspErrorMessageTest1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 
