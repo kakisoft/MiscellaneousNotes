@@ -22,6 +22,10 @@ select
 ,convert(varchar, getdate(), 11) as "yy/mm/dd"
 ,convert(varchar, getdate(), 111) as "yyyy/mm/dd"
 
+,convert(datetime, left(convert(varchar, dateadd(month, 0, getdate()), 112),
+ 6) + '01') as "月初1"
+,dateadd( day,1-datepart(day, getdate()), getdate()) as "月初2"
+,eomonth(getdate()) as "月末"
 
 
 /*
@@ -52,3 +56,4 @@ float [ (n) ]
 
 
 */
+
