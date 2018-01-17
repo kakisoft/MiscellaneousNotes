@@ -2,3 +2,14 @@ NUMBER        38桁の浮動小数点型
 NUMBER(n)     n桁の整数型。nは 1～38
 NUMBER(n ,m)  n桁の小数型。mは小数部の桁数。nは 1～38、mは-84～127。
               『NUMBER(7,2) 』の場合、整数部 5桁、小数部 2桁。
+
+
+with句も、「副問い合わせ」と呼称する、みたい。
+
+
+＜月の頭～末＞
+select 
+ trunc(sysdate, 'MM') as "今月1日" 
+,last_day(sysdate)    as "最終日"
+from 
+ dual
