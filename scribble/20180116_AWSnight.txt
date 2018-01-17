@@ -1,0 +1,51 @@
+https://dev.classmethod.jp/news/aws-deep-night-in-fukuoka/
+AWS Deep Night in 福岡
+
+新聞記事を読ませて、ポジティブ・ネガティブな記事か判定したり
+
+Twitterのつぶやきを食わせて、トレンドをはかったり
+
+
+## Amazon Translate
+PollyやLexとの連携による多言語サービス
+
+APIは、まだ貧弱。これから。
+
+## Amazon Transcribe
+音声→テキスト
+S3に格納された音声データの処理もサポート
+
+音声→S3に保存。
+解析。
+
+コールセンターの音声データの可視化
+
+
+GreenGrass
+
+
+## mockmock
+
+
+##
+Lets Encrypt
+
+SSL
+共通鍵
+
+
+１．ドメイン取得　　Route53
+２．証明書発行　　Certificate Manager　※自動更新してくれるので便利
+３．証明書のインストール
+　　　　Cloud Front
+        API Gateway
+       Elastic load Balancer
+　　　　が対象。
+
+
+## Cloud Front
+キャッシュサービス
+
+goofys
+
+
