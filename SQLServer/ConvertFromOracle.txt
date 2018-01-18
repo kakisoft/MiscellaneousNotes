@@ -1,0 +1,38 @@
+【 SSMA for Oracle 】
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+『SQL Server Migration Assistant for Oracle』
+を使用して、Oracle→SQL Server にコンバートできる。
+
+※OracleとSQL Serverに接続できるものとする。
+
+
+【１．】
+起動→File→New Project
+保存先を選択。
+
+【２．】
+Connect to Oracle
+を選択→Oracle接続情報を入力
+
+【３．】
+Connect to SQL Server
+を選択→SQL Server接続情報を入力
+
+【４．】
+コンバート対象のテーブルやファンクションにチェックを入れ、
+Convert Shema
+を選択。
+
+【５．】
+完了。
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+＜取りこぼしがあった場合＞
+
+何らかの原因で、特定のファンクションが変換対象から漏れてしまう事がありました。
+その場合、
+右クリック→Save as Script
+でスクリプト生成ファイルを出力し、手動で実行します。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
