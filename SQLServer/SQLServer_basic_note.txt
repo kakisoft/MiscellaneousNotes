@@ -5,7 +5,16 @@ select
 ,cast(getdate() as varchar) as "本日の日付"
 ,cast('2018/01/01' as datetime)  as "datetime"  --ミリ秒まで
 ,cast('2018/01/01' as datetime2) as "datetime2" -- マイクロ秒まで
+
+,convert(datetime, left(convert(varchar, dateadd(month, 0, getdate()), 112),
+ 6) + '01') as "月初1"
+,dateadd( day,1-datepart(day, getdate()), getdate()) as "月初2"
 ,eomonth(getdate()) as "月末の日にち"
+
+,convert(varchar(5), 12345) as "convert1"
+,convert(varchar, getdate(), 112) as "yyyymmdd"
+,convert(varchar, getdate(), 11) as "yy/mm/dd"
+,convert(varchar, getdate(), 111) as "yyyy/mm/dd"
 
 ,right('   ' + '1' , 4) as "先頭スペース埋め"
 ,left('12' + '   ' , 4) as "後方スペース埋め"
@@ -17,29 +26,27 @@ select
 ,cast('1' as varchar) + '1' as "結果：11"  -- 連結させたい場合、文字列である
 事を明示する
 
-,convert(varchar(5), 12345) as "convert1"
-,convert(varchar, getdate(), 112) as "yyyymmdd"
-,convert(varchar, getdate(), 11) as "yy/mm/dd"
-,convert(varchar, getdate(), 111) as "yyyy/mm/dd"
+,convert(varchar(2),'あいうえお')  as  "byte単位で切り出し" --型変換を利用し
+て、擬似的に実現する
+,convert(varchar(10),reverse('あいうえお'))  as "末尾から切り出し"
+,substring(cast('あいうえお' as text), 3, 4)  as "途中からバイト単位で切り出
+し" --(先頭は1)
 
-,convert(datetime, left(convert(varchar, dateadd(month, 0, getdate()), 112),
- 6) + '01') as "月初1"
-,dateadd( day,1-datepart(day, getdate()), getdate()) as "月初2"
-,eomonth(getdate()) as "月末"
+,LEN('あいうえお') as "長さ" -- 5
+,DATALENGTH('あいうえお') as "バイト長" --10
+
+
 
 
 /*
 
 varchar
-　可変長の半角文字列。
-　英語の商品名や、ローマ字の氏名など。
-
+　Unicodeでない可変長の文字列。
+  (最大 8000byte)
 
 nvarchar
-　可変長い全角文字列。
-　日本語商品名や漢字の氏名。
-　長さの定義を省略すると 30桁。
-
+　Unicode可変長文字列。
+  (最大 8000byte)
 
 float [ (n) ] 
 （n の既定値は 53 ）
@@ -55,5 +62,69 @@ float [ (n) ]
 ※有効桁数…小数部、整数部をひっくるめた桁数。
 
 
+text
+  Unicodeでない可変長の文字列。
+  (最大 2G)
+
+ntext
+  Unicodeでない可変長の文字列。
+  (最大 2G)
+
+image
+  バイナリ
+
+bit
+  1, 0, NULL のどれか
+
+table
+  SELECT文実行結果のテーブルを格納可能
+
+XML
+  XMLデータを格納可能
+
+uniqueidentifier
+  16バイトのGUID(グローバルユニークID)
+
+https://kaya-soft.com/sqlserver2008-toranomaki/beginner/columntype/
+
 */
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+--＜with副問い合わせ＞
+
+with alias1 as (
+                  select
+                   *
+                  from
+                   database.table1
+               )
+    ,alias2 as (
+                  select
+                   *
+                  from
+                   database.table2
+               )
+select
+    *
+from
+    alias1
+    left join alias2 on alias1.code_a = alias2.code_a
+where  1=1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+--＜結合前にテーブルのレコードを絞る＞
+from
+   table1   
+   left join table2 on table1.code_A  = table2.code_A
+                   and table1.code_B  = table2.code_B
+                   and table2.colomn1 = '0000'
+                   and table2.colomn2 = 0
+
+-- Oracleの
+--    table2.colomn1(+) = '0000'
+-- に相当。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
 

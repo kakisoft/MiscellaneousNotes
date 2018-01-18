@@ -179,4 +179,31 @@ THROW の severity は常に 16 で、error_number には 50000 以上で 214748
 下の整数を設定できます。 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+DECLARE @return_status int;  
+EXEC @return_status = checkstate '2';  
+SELECT 'Return Status' = @return_status;  
+GO 
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+begin try
+ select 1/0 as DivideByZero
+end try
+
+begin catch
+  throw;
+end catch
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+create procedure uspErrorMessageTest1
+as
+begin
+  select 1/0;
+end
+-------------------------------
+exec uspErrorMessageTest1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 
