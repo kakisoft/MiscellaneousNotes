@@ -95,6 +95,8 @@ GO
 EXEC @return_value = PROCEDURE_NAME @arg1, @arg2, @arg3
 ※()とか書かない
 
+EXEC SYSNAME.PROCEDURE_NAME @arg1 = @param1, @arg2 = @param2 OUTPUT
+（※@param2 は OUTPUT）
 
 戻り値が欲しい場合は、多分、こんな感じ。
 EXEC PROCEDURE_NAME @arg1, @arg2, @arg3, @return_value
