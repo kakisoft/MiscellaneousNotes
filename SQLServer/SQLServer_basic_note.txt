@@ -4,12 +4,14 @@ select
 ,cast(12345 as varchar) as "文字列に変換"
 ,cast(getdate() as varchar) as "本日の日付"
 ,cast('2018/01/01' as datetime)  as "datetime"  --ミリ秒まで
-,cast('2018/01/01' as datetime2) as "datetime2" -- マイクロ秒まで
+,cast('2018/01/01' as datetime2) as "datetime2" -- マイクロ秒まで		
 
 ,convert(datetime, left(convert(varchar, dateadd(month, 0, getdate()), 112),
  6) + '01') as "月初1"
 ,dateadd( day,1-datepart(day, getdate()), getdate()) as "月初2"
 ,eomonth(getdate()) as "月末の日にち"
+,datediff(month, cast('2018/01/01' as date), cast('2018/05/15' as date))  as
+  "月の差分"  --(結果：4)
 
 ,convert(varchar(5), 12345) as "convert1"
 ,convert(varchar, getdate(), 112) as "yyyymmdd"
@@ -47,6 +49,11 @@ varchar
 nvarchar
 　Unicode可変長文字列。
   (最大 8000byte)
+
+decimal(p, s)
+numeric(p, s)
+  p：全体の桁数　s：小数点以下の桁数
+  両方同じ。ただのエイリアス。
 
 float [ (n) ] 
 （n の既定値は 53 ）
@@ -88,6 +95,10 @@ uniqueidentifier
 https://kaya-soft.com/sqlserver2008-toranomaki/beginner/columntype/
 
 */
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SET @string1 = N'UniCodeの文字列'
+SET @string2 = '非UniCodeの文字列'
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 --＜with副問い合わせ＞
