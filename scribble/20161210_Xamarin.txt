@@ -1,20 +1,20 @@
-JXAG(ƒWƒFƒCƒUƒO)
+JXAG(ã‚¸ã‚§ã‚¤ã‚¶ã‚°)
 ---------------------------------------
 
 mBaase
 mobile Backend as a service
-uƒAƒvƒŠ‚ÌƒoƒbƒNƒGƒ“ƒh‚ÍŽ©•ª‚Åì‚ç‚È‚¢v
+ã€Œã‚¢ãƒ—ãƒªã®ãƒãƒƒã‚¯ã‚¨ãƒ³ãƒ‰ã¯è‡ªåˆ†ã§ä½œã‚‰ãªã„ã€
 ---------------------------------------
 Sakenomy
 --------------------------------------
 
-ƒn[ƒh‚ÉˆË‘¶‚·‚é•”•ª‚Í‹¤’Ê‰»‚Å‚«‚È‚¢
+ãƒãƒ¼ãƒ‰ã«ä¾å­˜ã™ã‚‹éƒ¨åˆ†ã¯å…±é€šåŒ–ã§ããªã„
 
 Xamarin.Forms
 
 --------------------------------------
 
-Xamarin‹tˆø‚«Tips
+Xamariné€†å¼•ãTips
 
 Recipes 
 
@@ -22,17 +22,17 @@ Recipes
 
 	
 
-             
+â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡
 
 Azure Mobile Apps
 
-             
+â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡
 
 
 CocosSharp
-NuGet‚ÅƒvƒƒWƒFƒNƒg“±“ü‰ÂB
+NuGetã§ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆå°Žå…¥å¯ã€‚
 
-                                    
+â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡
 
 https://githum.com/chomado/xamalin
 
@@ -42,8 +42,8 @@ F:\Xamarin\20161210_3\dev-days-labs-master\dev-days-labs-master\HandsOnLab\Start
 
 
 ObservableCollection
-ƒCƒxƒ“ƒgŒŸ’m
-@@ƒRƒŒƒNƒVƒ‡ƒ“‚Ì’Ç‰ÁAƒNƒŠƒAA•ÏX‚ª‚ ‚Á‚½Žž‚ÉƒR[ƒ‹
+ã‚¤ãƒ™ãƒ³ãƒˆæ¤œçŸ¥
+ã€€ã€€ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã®è¿½åŠ ã€ã‚¯ãƒªã‚¢ã€å¤‰æ›´ãŒã‚ã£ãŸæ™‚ã«ã‚³ãƒ¼ãƒ«
 
 
 
@@ -53,7 +53,7 @@ ObservableCollection
     <Button Text="Sync Speakers" Command="{Binding GetSpeakersCommand}"/>
     <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
 
-ƒRƒ“ƒgƒ[ƒ‹@ƒeƒLƒXƒg="xxx"
+ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€€ãƒ†ã‚­ã‚¹ãƒˆ="xxx"
 
 
 
@@ -66,15 +66,15 @@ ObservableCollection
                                              
                                              
 [assembly: Dependency(typeof(AzureService))]
-‘¼‚ÌƒNƒ‰ƒX‚©‚çˆø‚Á’£‚Á‚Ä‚­‚é
+ä»–ã®ã‚¯ãƒ©ã‚¹ã‹ã‚‰å¼•ã£å¼µã£ã¦ãã‚‹
 
 
 
 
 
 
-ƒvƒŠƒYƒ€
-ƒUƒ}ƒŠƒ“ƒtƒH[ƒ€[‰æ–Ê‘JˆÚ‚ðŠÈ’P‚É‘‚¯‚é
+ãƒ—ãƒªã‚ºãƒ 
+ã‚¶ãƒžãƒªãƒ³ãƒ•ã‚©ãƒ¼ãƒ ãƒ¼ç”»é¢é·ç§»ã‚’ç°¡å˜ã«æ›¸ã‘ã‚‹
 
 
 

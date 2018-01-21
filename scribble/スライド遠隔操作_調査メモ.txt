@@ -1,25 +1,25 @@
 Syncslide
-@¨ˆê”Ô‚æ‚³‚»‚¤B
-@@‚ªAMac‚ÆiPhone‚Ì‚İHŒö®ƒTƒCƒg‚ÍŒ©‚ê‚¸BXV’â~HWindows‚©‚çŒ©‚ê‚È‚¢H
+ã€€â†’ä¸€ç•ªã‚ˆã•ãã†ã€‚
+ã€€ã€€ãŒã€Macã¨iPhoneã®ã¿ï¼Ÿå…¬å¼ã‚µã‚¤ãƒˆã¯è¦‹ã‚Œãšã€‚æ›´æ–°åœæ­¢ï¼ŸWindowsã‹ã‚‰è¦‹ã‚Œãªã„ï¼Ÿ
 
 
 Office Remote for Android
-@¨ƒXƒ}ƒz‚ÆPC‚ğBluetooth‚Å“¯Šú‚³‚¹‚éB
-@@‚»‚±‚Ü‚Å‚µ‚½‚¢‚©H@‚ñ‚ÅAŒ©‚¹‚é‚Ì‚ÍŒ‹‹ÇPowerPoint@
-@@http://gigazine.net/news/20150421-office-remote-for-android-review/
-@@‚¯‚ÇA‚â‚é‰¿’l‚Í‚ ‚è‚»‚¤B
+ã€€â†’ã‚¹ãƒãƒ›ã¨PCã‚’Bluetoothã§åŒæœŸã•ã›ã‚‹ã€‚
+ã€€ã€€ãã“ã¾ã§ã—ãŸã„ã‹ï¼Ÿã€€ã‚“ã§ã€è¦‹ã›ã‚‹ã®ã¯çµå±€PowerPointã€€
+ã€€ã€€http://gigazine.net/news/20150421-office-remote-for-android-review/
+ã€€ã€€ã‘ã©ã€ã‚„ã‚‹ä¾¡å€¤ã¯ã‚ã‚Šãã†ã€‚
 
 
-‚È‚ñ‚©FX
-@@http://scrmble.jp/459/
+ãªã‚“ã‹è‰²ã€…
+ã€€ã€€http://scrmble.jp/459/
 
 
-Node.js ‚ÅÀŒ»‚·‚é•û–@
-@@http://yuriken27.hatenablog.com/entry/2015/03/01/220706
+Node.js ã§å®Ÿç¾ã™ã‚‹æ–¹æ³•
+ã€€ã€€http://yuriken27.hatenablog.com/entry/2015/03/01/220706
 
 
 Mobile Mouse
-@@¨iPhoneŒü‚¯
+ã€€ã€€â†’iPhoneå‘ã‘
 
 
 
