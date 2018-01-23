@@ -52,6 +52,9 @@ https://docs.microsoft.com/ja-jp/sql/relational-databases/stored-procedures/modi
 ・特定のデータベースオブジェクトの選択
 ・オブジェクトごとに１つのファイル
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【トリガー】
+テーブルの下の階層にある。
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
