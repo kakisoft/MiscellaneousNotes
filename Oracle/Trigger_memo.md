@@ -6,8 +6,7 @@ CREATE [ OR REPLACE ] TRIGGER トリガー名
   { BEFORE | AFTER | INSTEAD OF }
   { INSERT | UPDATE [OF 列名,...] | DELETE }
     [OR {INSERT | UPDATE [OF 列名,...] | DELETE }]
-    [ REFERENCING OLD AS old_alias NEW AS new_alias PARENT AS parent_alias
-] 
+    [ REFERENCING OLD AS old_alias NEW AS new_alias PARENT AS parent_alias] 
       ON テーブル名
     [ FOR EACH ROW ]
     [ WHEN 条件式 ]
