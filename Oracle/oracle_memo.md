@@ -15,33 +15,13 @@ reg query "HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE" /s
 ## 接続確認
 nsping <net_service_name> [ try_count ]
 
-
-ora	<< 前へ | 次へ >>
-Oracle：<ORA-12514> ある日、突然リスナー異常が発生して繋がらなくなった。
-
-正常稼働していたが、ある日突然繋がらなくなった。
-
-
-### クライアントから接続した時のエラー内容
-```
-ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+## DBA権限の確認
+```sql
+select * from DBA_ROLE_PRIVS order by GRANTEE
 ```
 
-### サーバから接続した時のエラー内容
-```
-ORA-01034: ORACLE not available
-ORA-27101: shared memory realm does not exist
-```
-
-あれ？エラーの内容が違う。
-よく調べてたら、DBFを保存しているドライブがパンパンになっていて、SGA（共有メモリ）へ正常にアクセスできなかったのが原因だったみたい。
-
-ディスク容量を空けた後、マシン再起動で解決した。
-
-
-### 参考情報
-DBFの保存先は、以下のコマンドで確認できる。
-```
+## DBFの保存先確認
+```sql
 select TABLESPACE_NAME, FILE_NAME from DBA_DATA_FILES
 ```
 
