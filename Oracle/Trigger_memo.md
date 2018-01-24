@@ -6,8 +6,7 @@ CREATE [ OR REPLACE ] TRIGGER トリガー名
   { BEFORE | AFTER | INSTEAD OF }
   { INSERT | UPDATE [OF 列名,...] | DELETE }
     [OR {INSERT | UPDATE [OF 列名,...] | DELETE }]
-    [ REFERENCING OLD AS old_alias NEW AS new_alias PARENT AS parent_alias
-] 
+    [ REFERENCING OLD AS old_alias NEW AS new_alias PARENT AS parent_alias] 
       ON テーブル名
     [ FOR EACH ROW ]
     [ WHEN 条件式 ]
@@ -56,10 +55,10 @@ oldまたはnewと、名前がバッティングする時、エイリアスを�
 
 ### ＜バインド変数（ホスト変数）＞
 トリガー内で更新前後の値を参照できる。
-
-:old.列名
+　  
+:old.列名  
 :new.列名
-
+　  
 値が参照できるのは行トリガーのみで文トリガーは参照できない。
 また、起動イベントによりold/newに格納される値が異なる。
 
