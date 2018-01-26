@@ -2,6 +2,17 @@
 非公開のネットワークの場合、「ネットワークを追加」等のメニューから、SSIDを入力。
 
 
+## Windows：ネットワークに繋がっているけど、pingが通らない
+以下の手順でpingが通るようになります。
+
+コントロールパネル→Windowsファイアウォール→詳細設定→受信の規制
+ファイルとプリンターの共有（エコー要求・ICMPv4 受信）を有効化。
+「ローカルサブネット」
+
+ICMP（Internet Control Message Protocol）は、pingで使用される、ネットワーク
+の通信状態を確認する時に使用するプロトコルです。
+
+
 ## NetBIOS（NetBEUI）有効
 
 NetBIOS over TCP/IP
