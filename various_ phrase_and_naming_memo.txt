@@ -4,4 +4,5 @@ implicit：暗黙の
 
 
 プレビューを表示する：show_preview
-レポートを印刷する：print_report
+レポートを印刷する：print_report、create_report
+
