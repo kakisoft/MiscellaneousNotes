@@ -1,0 +1,212 @@
+
+＜SQLiteOpenHelper＞
+AndroidでSQLiteデータベースを作成するときは、SQLiteOpenHelperクラスを使います。
+http://androidhacker.blog94.fc2.com/blog-entry-83.html
+
+＜SQLiteDatabase＞
+SQLiteDatabaseクラスはSQLiteデータベースを操作するためのメソッド群を持つクラスです。
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+import android.widget.Toast;
+
+Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+
+
+【 キーストア 】
+
+exe配布する時に、端末ごとのキーが振られる。
+（事実上、exeを作成できる端末は１つ。）
+違う端末で作った場合、再インストールで対応（１度アンインストール）
+
+
+--------------------------------------------------------------
+
+【 ペアリング 】
+
+設定→Blue Tooth  →ONにする
+
+キーボードみたいなマークを押す。MACアドレスみたいなやつ
+ペアリングの時の数字を打ち込む。
+
+該当数字のバーコードを読み込ませたあと、エンターを読む。
+
+
+
+あとは通信確認
+
+ビープ音の調整は、バーコード読ませるだけでOK。
+
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□ｖ
+
+『 ondestory 呼ばれない 』
+
+
+http://www.limy.org/program/android/life_cycle.html
+
+
+Process の強制終了 システムは、onPause() や onStop() の処理が終わった後、
+いつでもその Process を強制的に終了させることができます。
+
+
+つまり、onStop() と onDestroy() は、呼び出されない可能性があります。
+プロセスが破棄される前に確実に実行させたい処理は onPause() に記述する必要があります。
+
+
+
+
+http://andante.in/i/android%E3%82%A2%E3%83%97%E3%83%AAtips/activity%E3%81%AE%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E8%80%83%E3%81%88%E3%82%8B/
+
+
+
+
+レシーバ
+http://libro.tuyano.com/index3?id=296001&page=4
+
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+＝＝＝＝＝＝＝＝＝＝＝
+
+ファイル名の拡張子        .apk
+MIMEの種類                application/vnd.android.package-archive
+
+
+関連付けられた拡張子      .apk
+コンテンツの種類(MIME)    application/vnd.android.package-archive
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+SVNバージョン確認
+
+http://172.16.24.201/svn/Android/SiwaTablet/trunk/SiwaTabletClient
+
+
+
+
+GooglePlayストアにWifiアナライザというソフトがあるので
+インストールして福配で何db出るか試して欲しい。
+70以上が、ハンディのエクセレントと同じ。
+
+また、ネットワーク設定で自動ローミングというのがあるので
+設定して切り替わるか試して欲しい。
+↑アクセスポイントを自動で切り替える設定
+
+
+
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+
+
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+Android SQLiteデータベースを作成する（SQL文をリソースファイルに定義する） 
+http://yan-note.blogspot.jp/2010/09/android-sqlitesql.html
+
+
+
+Androidアプリで使用するSQLiteのテーブル作成時の注意点
+http://android.roof-balcony.com/shori/strage/createtable/
+
+
+
+http://androidhacker.blog94.fc2.com/blog-entry-83.html
+
+SQLiteOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version)
+
+
+引数は、1番目がContext型インスタンスで、どのアプリケーションか指示します。
+
+2番目は、データベース名を指示します。nullにするとメモリ上にデータベースが作成され、ファイル名を指定した場合は
+　　　　 /data/data/パッケージ名/database/ファイル名 
+に、データベースファイルが作成されます。
+
+3番目はcursorオブジェクトを作るのに使いますが、デフォルトではnullを指定します。
+
+4番目はバージョン情報です。
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+Log.d("○○のデバッグ", "ここを通過したよ！");
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+
+
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+    private void getPairedDevices() {
+        // *** ペアリングされたBluetoothデバイスの取得
+        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();　
+        // If there are paired devices, add each one to the ArrayAdapter
+         if (pairedDevices.size() < 1) {
+             showAlert(HbMsgIdConstants.C007);
+         }
+    }
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+android 内部ストレージ ファイル 保存
+
+★１
+http://techbooster.org/android/application/16004/
+
+
+http://androidapp.blog.jp/archives/2030738.html
+
+
+http://www50.atpages.jp/hipgipfip/?p=30
+
+★２
+http://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13118635933
+
+
+
+
+
+
+Environment.getExternalStorageDirectory().getPath();
+Environment.getExternalStorageDirectory()
+
+
+store
+
+
+storePath
+
+
+
+
+『ddms フォルダ作成』
+
+
+java.io.BufferedWriter
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+
+android スライドメニュー
+ナビゲーションドローアー
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
