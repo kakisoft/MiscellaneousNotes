@@ -1,0 +1,11 @@
+ls | ForEach-Object -Process { "$_"; Get-ChildItem -Path "$_" -Recurse -Force | ForEach-Object -Begin { $Len = 0 } -Process { $Len = $Len + $_.Length } -End { $Len / 1024 / 1024 / 1024 }; " " }
+dir /S
+dir /s /a-d  > hoge.txt
+
+
+## リソースキット
+（win 7）
+https://www.microsoft.com/en-us/download/details.aspx?id=12616
+
+
+diruse
