@@ -1,0 +1,19 @@
+Poor Man's T-SQL Formatter 
+http://gomocool.net/gomokulog/?p=389
+
+http://architectshack.com/PoorMansTSqlFormatter.ashx#Download_5
+
+
+Trailing Commas
+後続カンマ
+
+ツール→オプション→テキストエディター→すべての言語
+<インデント>
+　　・ブロック：直前の行のインデントと同じ位置まで自動的にインデントされる。
+　　・スマート：コンテキストに応じて決定される。
+
+<タブ>
+　　・空白の挿入：\t の代わりに、\s を挿入
+
+
+https://msdn.microsoft.com/ja-jp/library/ms189009.aspx

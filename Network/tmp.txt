@@ -1,0 +1,4 @@
+traceroute（tracert）
+route print
+nslookup ホスト名
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

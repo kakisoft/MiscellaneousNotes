@@ -1,0 +1,2 @@
+PageSpeed Insights
+モバイル ネットワークでは 1秒が目標値。

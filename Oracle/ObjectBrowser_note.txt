@@ -1,0 +1,8 @@
+【 insertデータ生成 】
+
+右クリック→スクリプト出力→テーブルスクリプト出力時、データも出力(INSERT文)
+https://products.sint.co.jp/siob/blog/five-ways-output-table-data
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+

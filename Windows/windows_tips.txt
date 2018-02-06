@@ -1,17 +1,8 @@
 ## hostsファイルのパス
 C:\Windows\System32\drivers\etc\hosts
 
-## ネットワーク接続設定呼び出し
-ncpa.cpl
-
-## サービスマネージャ起動
-services.msc
-
 ## スタートアップのアプリ
 shell:startup
-
-## 管理者権限でコマンドプロンプトを実行
-Windowsキー + X　→ A
 
 ## リモート接続を有効化
 システムのプロパティ→リモート→このコンピュータへの接続を許可する
