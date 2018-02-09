@@ -20,3 +20,6 @@ APIにアクセスするためのURI
 あるいは、こうか？
 " URN：社会保障番号xxxxxxxxxxの人
 " URL：ニューヨーク市○○通り××ビル305号室の人
+
+## TSV（Tab Separated Values ）
+tab版 csv
