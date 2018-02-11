@@ -1,6 +1,9 @@
 【公式サイト】
 https://git-scm.com/
 
+メモ
+http://kakistamp.hatenadiary.jp/entry/2017/04/17/032953
+
 ## 用語など
 HEAD      最新コミットの目印（現在使用しているブランチの先頭）
 HEAD~　　　ヘッドの１つ前
