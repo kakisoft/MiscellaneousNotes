@@ -1,5 +1,6 @@
 # FUKUOKA Engineers Day 2018
 https://engineers-day.connpass.com/event/74240/?utm_campaign=event_reminder&utm_source=notifications&utm_medium=email&utm_content=detail_btn
+#edayfuk
 
 ## Azure Functionsでサーバーレスアプリケーション構築
 https://www.slideshare.net/r_matsumura/azure-functions-87655373/r_matsumura/azure-functions-87655373
