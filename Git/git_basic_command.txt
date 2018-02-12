@@ -37,9 +37,9 @@ git remote add <name> <url>
 git remote add origin /c/kaki/Git/ourweb.git
 ```git config -l``` で設定内容確認。
 
-その後、
+その後、commitし、一度、「git pull」を実行する。その後に、
 git merge --allow-unrelated-histories origin/master
-※エラーが出たら？
+
 
 ## プッシュ（リモートリポジトリへ反映）
 git push <name> <branch> 

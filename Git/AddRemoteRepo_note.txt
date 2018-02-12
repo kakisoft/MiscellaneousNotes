@@ -1,0 +1,12 @@
+## リモート追加
+git init
+git remote add origin https://github.com/kakisoft/test003.git
+git pull origin master
+
+※以下、最低１回、コマンドラインで実行しておく。
+git add .
+git commit -m "xxx"
+git push -u origin master
+
+以降、vsCodeから、通常使用できるようになる。
+
