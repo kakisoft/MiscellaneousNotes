@@ -47,3 +47,12 @@ lsnrctl stop <リスナー名>
 lsnrctl start <リスナー名>
 ```
 
+## DBの文字コードをチェック
+```
+select 
+ *
+from 
+ NLS_DATABASE_PARAMETERS
+where  1=1
+  and  PARAMETER in ('NLS_CHARACTERSET','NLS_NCHAR_CHARACTERSET')
+```
