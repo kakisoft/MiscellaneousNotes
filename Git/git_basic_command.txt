@@ -1,6 +1,9 @@
 【公式サイト】
 https://git-scm.com/
 
+メモ
+http://kakistamp.hatenadiary.jp/entry/2017/04/17/032953
+
 ## 用語など
 HEAD      最新コミットの目印（現在使用しているブランチの先頭）
 HEAD~　　　ヘッドの１つ前
@@ -34,11 +37,15 @@ git remote add <name> <url>
 git remote add origin /c/kaki/Git/ourweb.git
 ```git config -l``` で設定内容確認。
 
+その後、commitし、一度、「git pull」を実行する。その後に、
+git merge --allow-unrelated-histories origin/master
+
 
 ## プッシュ（リモートリポジトリへ反映）
 git push <name> <branch> 
 git push origin master   #originに向かって、masterの内容を突っ込む
-
+または、
+git push -u origin master
 
 ## プル
 git pull origin master

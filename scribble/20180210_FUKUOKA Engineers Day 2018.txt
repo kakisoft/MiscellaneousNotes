@@ -1,0 +1,85 @@
+# FUKUOKA Engineers Day 2018
+https://engineers-day.connpass.com/event/74240/?utm_campaign=event_reminder&utm_source=notifications&utm_medium=email&utm_content=detail_btn
+#edayfuk
+
+## Azure Functionsでサーバーレスアプリケーション構築
+https://www.slideshare.net/r_matsumura/azure-functions-87655373/r_matsumura/azure-functions-87655373
+
+「Azure Functionsでお手軽slack bot」
+
+Azure Free Trial
+12ヶ月
+勝手に課金されることは無い。
+
+
+## AWSのサービスを使ったサーバーレスアプリケーションの構築
+
+・AWS CloudFormation
+YAML/JSON で、インフラを管理。
+
+・AWS SAM
+サーバレスアプリケーションを構築するためのモデル
+
+
+## Web Componentsの現在地
+☆
+https://speakerdeck.com/honda/web-componentsfalsexian-zai-di
+
+
+## サーバーサイドエンジニアがモバイルアプリを作った話
+同じ機能　≠　同じ振る舞い
+
+同じ振る舞いをする意味は、特にない。
+
+
+## Androidでカモフラージュアプリを作ってみた
+
+
+## コンピューターはミュージシャンの違いを区別できるか？
+
+
+## ipa解析論2
+
+
+## Visual Studio App Center 概要
+
+
+## Progressive Web Apps Overview
+
+
+## ARKit+Vuforia+UNETでマルチプレイAR
+
+
+## About Turi Create 強化版
+http://slides.com/gupuru/about-turi-create-japanese#/
+
+
+## ネイティブ拡張を使わずにブラウザ・Node.jsでC/C++実装のライブラリを使う
+zstandard
+sql.js
+
+
+## Ruboty と自作 Golang ツールで朝会のタスク整理を時間短縮してる話
+
+
+## インフラ系の仕事してるけどフリーソフトを作ってみたよ♪
+ThrowScreenShot
+
+## フルマネージドK8sで始めるコンテナークラスター
+K8S:Kubernetes
+
+
+## 氷河を目指してたのに、気づいたらCLIで毛刈りを始めてた話
+Node.js v7.6以降は、async/await 使用可能。
+
+
+## Strings and Characters in Swift
+SwiftのStringは、Unicode標準に準拠。
+
+
+##  GraphcoolとVue.jsでちょっとしたサービスを作ってみた話
+https://speakerdeck.com/foxtrackjp/graphcooltovue-dot-jstetiyotutositasahisuwozuo-tutemitahua
+
+Graphcool
+超簡単に GraphQL環境を作ってくれる。
+

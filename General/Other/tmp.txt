@@ -542,22 +542,6 @@ http://el.jibun.atmarkit.co.jp/skillstandard/2008/09/post-771b.html
 
 
 
-
-データベース経由でプロセス間通信(IPC)(Database-as-IPC):軽量なプロセス間通信方式を使用すべき場面で、データベースをプロセス間通信のメッセージキューとして使ってしまうこと 
-
-
-
-魔法のボタン(Magic pushbutton) 
-抽象化を行わず、インタフェースコードの中でロジックを実装してしまうこと 
-
-
-
-貧血ドメインモデル(Anemic Domain Model) 
-ビジネスロジックが欠けたドメインモデル。オブジェクトは属性と振る舞いを持たなければならないので、
-オブジェクト指向プログラミングではない 
-
-
-
 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 
 
@@ -835,14 +819,6 @@ https://www.amazon.com/all-new-amazon-echo-speaker-with-wifi-alexa-heather-gray/
 
 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 
-☆☆☆☆☆☆☆☆☆☆
-http://blog.wackwack.net/entry/2016/09/17/221810
-
-http://rina.jpn.ph/rance/index.php?OracleMaster11g%E8%AC%9B%E5%BA%A7%20%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E5%A0%B1%E5%91%8A
-☆☆☆☆☆☆☆☆☆☆
-
-
-□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
 http://piro-shiki.dreamlog.jp/archives/42210334.html
 http://taka-2.hatenablog.jp/entry/20091005/p1
 http://rina.jpn.ph/~rance/oracle10g/start2.html

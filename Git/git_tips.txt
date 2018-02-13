@@ -21,6 +21,19 @@ git reset
 http://d.hatena.ne.jp/hnw/20121221
 
 
+## git pull エラー対処
+```
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+```
+以下で実行。
+```
+git pull origin master --allow-unrelated-histories
+```
+
 
 https://www.google.co.jp/search?q=git+%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81+%E6%89%80%E5%B1%9E&oq=git+%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81+%E6%89%80%E5%B1%9E&aqs=chrome..69i57j69i64.5722j0j8&sourceid=chrome&ie=UTF-8
 https://qa.atmarkit.co.jp/q/2318
@@ -28,7 +41,8 @@ http://qiita.com/Ratty27/items/a5725b01eb60e9940998
 http://qiita.com/Ratty27/items/7ebfe9a4933eba7630dc
 
 
-
+リモートリポジトリについて
+https://qiita.com/forest1/items/db5ac003d310449743ca
 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
 git branch -u origin/my_branch
