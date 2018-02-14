@@ -5,7 +5,7 @@ git pull origin master
 
 ※以下、最低１回、コマンドラインで実行しておく。
 git add .
-git commit -m "xxx"
+git commit -m "first commit"
 git push -u origin master
 
 以降、vsCodeから、通常使用できるようになる。
