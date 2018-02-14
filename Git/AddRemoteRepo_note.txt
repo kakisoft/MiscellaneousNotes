@@ -12,7 +12,7 @@ git push -u origin master
 
 
 
-＜Visual Studio 2017＞
+━━━＜Visual Studio 2017＞━━
 プロジェクト作成後
 git remote add origin https://github.com/kakisoft/tmp01.git
 git pull origin master
