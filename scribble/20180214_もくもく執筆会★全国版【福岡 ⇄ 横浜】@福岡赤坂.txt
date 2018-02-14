@@ -1,0 +1,58 @@
+もくもく執筆会★全国版【福岡 ⇄ 横浜】@福岡赤坂
+https://cdg.connpass.com/event/78007/?utm_campaign=event_reminder&utm_source=notifications&utm_medium=email&utm_content=title_link
+
+
+https://goo.gl/Ey1AdX
+
+
+ScrapBox
+
+
+https://scrapbox.io/techbook
+
+
+#FF6407
+255,100,7
+
+
+＜ToDo＞
+・テーマを選ぶ
+・ロゴを作る
+・CSSちょっと変えたい。（h）
+
+【テーマについて】
+ベースカラーはオレンジ
+使う色は、オレンジと白の２色ぐらいにする予定。
+
+＜試したテーマ＞
+CONTENTS
+→ベースが青。少しずつ変えていくも、全体的に硬い感じがしたのでやめた。
+
+CSSカスタマイズについては、以下のサイトが参考になった。
+http://www.notitle-weblog.com/entry/2016/02/17/144908
+https://www.yukigao.com/entry/blog-customize
+
+FlatGreen
+→ベースが緑。CSSカスタマイズしていくも、量が多くなりすぎてやめた。
+
+このあたりから、テーマを独自に作成した方が手っ取り早い気がしてきた。
+
+→とりあえず、一番カラーが近いテーマを選ぶことにした。納得のいくカスタマイズはまた後日。
+
+はてなブログテーマ制作の手引き
+http://help.hatenablog.com/entry/theme/custom-theme
+
+## ロゴ作成はこれ
+http://brandmark.io/
+
+## ロゴに使用する文字はこちらから
+https://www.bannerkoubou.com/photoeditor/character
+モトヤLマルベリ３等幅（丸ゴシック）
+文字色：FF6407
+線の太さ：5　　色：#FFFF99
+
+
+## 画像編集はこれ
+https://pixlr.com/editor/
+
+
