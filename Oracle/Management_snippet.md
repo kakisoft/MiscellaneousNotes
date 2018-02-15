@@ -5,7 +5,7 @@ V$LOCK_TYPE
 に詳細が書いてある。
 
 ## 設定ファイルのパス
-sqlnet.ora
+sqlnet.ora  
 tnsnames.ora
 ``` 
 $ORACLE_HOME/network/admin/ 
