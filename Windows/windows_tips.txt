@@ -4,6 +4,9 @@ C:\Windows\System32\drivers\etc\hosts
 ## スタートアップのアプリ
 shell:startup
 
+## UAC（User Account Control）
+コンパネ→ユーザアカウント→ユーザ アカウント制御設定の変更
+
 ## リモート接続を有効化
 システムのプロパティ→リモート→このコンピュータへの接続を許可する
 
