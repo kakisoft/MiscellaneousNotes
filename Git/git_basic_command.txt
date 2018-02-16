@@ -7,7 +7,7 @@ http://kakistamp.hatenadiary.jp/entry/2017/04/17/032953
 ## ユーザ名を指定してclone
 git clone https://username:password@github.com/kakisoft/tmp001.git
 パスワードは省略可。（ダイアログが出る）
-何回かミスると、一定時間ダイアログは出ない？（Login Dinied扱い）
+何回かミスると、一定時間ダイアログは出ない？（not found扱い）
 
 ## 用語など
 HEAD      最新コミットの目印（現在使用しているブランチの先頭）
