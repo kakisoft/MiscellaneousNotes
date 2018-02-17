@@ -134,5 +134,9 @@ http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230806/?rt=nocnt
 
 # 接続端末のデバイスファイル名を表示
 tty
+
+
+## curl
+curl -X POST http://kakiaaa.herokuapp.com/challenge_users -d name=tanaka -d email=tanaka@gmail.com
 ______________________________________________________________
 
