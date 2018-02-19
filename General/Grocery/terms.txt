@@ -30,3 +30,6 @@ F5アタックなど。
 
 ## DDOS（distributed denial of service attack：分散サービス拒否攻撃）
 みんなでDos攻撃
+
+## C&Cサーバー（Command and Control server）
+乗っ取ったサーバのコントロール役
