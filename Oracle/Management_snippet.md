@@ -60,11 +60,13 @@ where  1=1
 ## テーブル一覧をコメント付きで出力
 ```
 select
- *
+    USER_TABLES.TABLE_NAME
+   ,USER_TAB_COMMENTS.COMMENTS
 from
- USER_TAB_COMMENTS
+    USER_TABLES
+    left join USER_TAB_COMMENTS on USER_TABLES.TABLE_NAME = USER_TAB_COMMENTS.TABLE_NAME
 where  1=1
-order by 1,2,3
+order by 1
 ```
 
 ## カラム一覧をコメント付きで出力
