@@ -23,3 +23,18 @@ APIにアクセスするためのURI
 
 ## TSV（Tab Separated Values ）
 tab版 csv
+
+## DoS攻撃（Denial of Services Attack）
+F5アタックなど。  
+通常通りサービスを運用を困難にさせるための攻撃。
+
+## DDOS（distributed denial of service attack：分散サービス拒否攻撃）
+みんなでDos攻撃
+
+## C&Cサーバー（Command and Control server）
+乗っ取ったサーバのコントロール役
+
+## ベースラインアプローチ（セキュリティ）
+既存の標準や基準をもとにベースライン（自組織の対策基準）を策定し、チェックしていく方法。
+簡単にできる方法であるが、選択する標準や基準によっては求める対策のレベルが高すぎたり、低すぎたりする場合がある
+

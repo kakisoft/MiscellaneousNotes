@@ -57,5 +57,12 @@ https://docs.microsoft.com/ja-jp/sql/relational-databases/stored-procedures/modi
 テーブルの下の階層にある。
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【 出力結果を、列名を含めてコピー】
+[ツール]→[オプション]→[クエリ結果]→[SQL Server]→[全般をグリッドに表示]
+→「結果のコピーまたは保存時に列のヘッダーを含める」にチェック
+http://www.ilovex.co.jp/Division/ITD/archives/2008/04/sqlsever2005_sq.html
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 
 
