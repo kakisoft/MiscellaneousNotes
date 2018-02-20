@@ -81,7 +81,8 @@ from
     left join USER_COL_COMMENTS on USER_TAB_COLUMNS.TABLE_NAME  = USER_COL_COMMENTS.TABLE_NAME
                                and USER_TAB_COLUMNS.COLUMN_NAME = USER_COL_COMMENTS.COLUMN_NAME
 where  1=1
-  and  USER_TAB_COLUMNS.TABLE_NAME in ('table_name') --テーブル名を指定
+  and  USER_TAB_COLUMNS.TABLE_NAME in ('table_name') --テーブル名を指定
 order by
-    USER_TAB_COLUMNS.COLUMN_ID
+    USER_TAB_COLUMNS.TABLE_NAME
+   ,USER_TAB_COLUMNS.COLUMN_ID
 ```
