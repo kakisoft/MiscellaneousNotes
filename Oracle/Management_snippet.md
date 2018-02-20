@@ -56,3 +56,23 @@ from
 where  1=1
   and  PARAMETER in ('NLS_CHARACTERSET','NLS_NCHAR_CHARACTERSET')
 ```
+
+## テーブル一覧をコメント付きで出力
+```
+select
+ *
+from
+ USER_TAB_COMMENTS
+where  1=1
+order by 1,2,3
+```
+
+## カラム一覧をコメント付きで出力
+```
+select
+ *
+from
+ USER_COL_COMMENTS
+where  1=1
+order by 1,2,3
+```
