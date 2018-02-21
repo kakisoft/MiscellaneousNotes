@@ -5,7 +5,7 @@ UNDOログにはレコードの「更新前の状態」が保存される。
 　  
 ## REDOログ
 DBの障害発生時に、データを復旧するために使用する。  
-REDOログは、あるレコードにUPDATEが行われた場合に、そのUPDATEの命令が保存される。
+REDOログは、あるレコードにUPDATEが行われた場合に、そのUPDATEの命令が保存される。  
 　  
 （参考）  
 http://replication.hatenablog.com/entry/2015/05/08/093000
