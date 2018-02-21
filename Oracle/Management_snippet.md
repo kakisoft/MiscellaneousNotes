@@ -13,7 +13,30 @@ reg query "HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE" /s
 ```
 
 ## 接続確認
-nsping <net_service_name> [ try_count ]
+```
+tnsping <net_service_name> [ try_count ]
+```
+
+## ホスト名やインスタンス名を確認
+```sql
+select * from v$instance
+```
+
+## 接続ユーザ確認
+```sql
+select * from v$session
+```
+
+## リサイクルビン削除
+```
+purge recyclebin
+```
+
+## 複数のバージョンが共存する場合
+Oracle Universal Installer
+にて、どちらを優先して使うか選択可能。（どちらかを無効する事も出来る。）
+コンパクトインストール時にはInstallerが入らないので、その場合はインストーラを起動。
+
 
 ## DBA権限の確認
 ```sql
