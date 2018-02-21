@@ -1,0 +1,8 @@
+【 Visual Studio 2017 】
+（ODTインストール後）
+表示→サーバエクスプローラ→データ接続
+にて右クリックし、「接続の追加」
+
+http://www.oracle.com/technetwork/jp/topics/oracle-dotnet-tutorial-350896-ja.pdf
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
