@@ -13,7 +13,30 @@ reg query "HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE" /s
 ```
 
 ## 接続確認
-nsping <net_service_name> [ try_count ]
+```
+tnsping <net_service_name> [ try_count ]
+```
+
+## ホスト名やインスタンス名を確認
+```sql
+select * from v$instance
+```
+
+## 接続ユーザ確認
+```sql
+select * from v$session
+```
+
+## リサイクルビン削除
+```
+purge recyclebin
+```
+
+## 複数のバージョンが共存する場合
+Oracle Universal Installer
+にて、どちらを優先して使うか選択可能。（どちらかを無効する事も出来る。）
+コンパクトインストール時にはInstallerが入らないので、その場合はインストーラを起動。
+
 
 ## DBA権限の確認
 ```sql
@@ -74,14 +97,17 @@ order by 1
 select
     USER_TAB_COLUMNS.COLUMN_ID
    ,USER_TAB_COLUMNS.TABLE_NAME
+   ,USER_TAB_COMMENTS.COMMENTS
    ,USER_TAB_COLUMNS.COLUMN_NAME
    ,USER_COL_COMMENTS.COMMENTS
 from
     USER_TAB_COLUMNS
+    left join USER_TAB_COMMENTS on USER_TAB_COLUMNS.TABLE_NAME = USER_TAB_COMMENTS.TABLE_NAME
     left join USER_COL_COMMENTS on USER_TAB_COLUMNS.TABLE_NAME  = USER_COL_COMMENTS.TABLE_NAME
                                and USER_TAB_COLUMNS.COLUMN_NAME = USER_COL_COMMENTS.COLUMN_NAME
 where  1=1
   and  USER_TAB_COLUMNS.TABLE_NAME in ('table_name') --テーブル名を指定
+--  and  lower(USER_TAB_COLUMNS.COLUMN_NAME) like '%column_name%' --カラム検索内容
 order by
     USER_TAB_COLUMNS.TABLE_NAME
    ,USER_TAB_COLUMNS.COLUMN_ID
