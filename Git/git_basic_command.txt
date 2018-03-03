@@ -4,6 +4,9 @@ https://git-scm.com/
 メモ
 http://kakistamp.hatenadiary.jp/entry/2017/04/17/032953
 
+## 直前のコミットを取り消し
+git reset --hard HEAD^
+
 ## ユーザ名を指定してclone
 git clone https://username:password@github.com/kakisoft/tmp001.git
 パスワードは省略可。（ダイアログが出る）
