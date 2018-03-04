@@ -33,7 +33,7 @@
 
 .markdown-body pre {
     font-family: Monaco,Consolas,Courier New,Courier,monospace,sans-serif;
-    padding: 10px;
+    padding: 5px;
     margin: 1em 0;
     border: 2px solid #454545;
     border-radius: 10px;
@@ -42,7 +42,7 @@
 
 .markdown-body pre blockquote {
     font-family: Monaco,Consolas,Courier New,Courier,monospace,sans-serif;
-    padding: 10px;
+    padding: 5px;
     margin: 1em 0;
     border: 2px solid #454545;
     border-radius: 10px;
