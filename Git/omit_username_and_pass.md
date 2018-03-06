@@ -1,13 +1,3 @@
-## githubでユーザー名とパスワードを毎回聞かれる問題解消
-https://qiita.com/non0311/items/03e3e7a042f70f072286
-## git pull や git push 時にユーザ ID やパスワードの入力を省きたい
-https://qiita.com/ltcmdr927/items/fe8ba2e54b0b8e32d25d
-## git パスワード を毎回聞かれる問題の解決方法
-https://qiita.com/rorensu2236/items/df7d4c2cf621eeddd468
-## GitHubでユーザ名・パスワード省略（push, pull）
-https://qiita.com/azusanakano/items/8dc1d7e384b00239d4d9
-
-
 設定確認
 ```
 config --list
