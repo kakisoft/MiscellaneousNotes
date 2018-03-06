@@ -43,7 +43,7 @@ git remote set-url origin https://user%2Eid:pass%25word%24@github.com/yourname/a
 
 ## ４．git cloneするURLに埋め込む（新規でcloneする場合）
 ```
-git clone https://username@github.com/username/repository.git
+git clone https://userid:password@github.com/username/repository.git
 ```
 
 ## ~/.netrc
