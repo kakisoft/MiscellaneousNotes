@@ -22,8 +22,7 @@ select
 ,format(1, 'D4')   as "先頭0埋め2" -- 1と同じ
 
 ,cast('1' as varchar) + 1   as "結果：2"   -- 勝手に数値型に変換される
-,cast('1' as varchar) + '1' as "結果：11"  -- 連結させたい場合、文字列である
-事を明示する
+,cast('1' as varchar) + '1' as "結果：11"  -- 連結させたい場合、文字列である事を明示する
 
 ,convert(varchar(2),'あいうえお')  as  "byte単位で切り出し" --型変換を利用して、擬似的に実現する
 ,convert(varchar(10),reverse('あいうえお'))  as "末尾から切り出し"
