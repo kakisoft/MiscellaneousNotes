@@ -4,13 +4,22 @@ https://git-scm.com/
 メモ
 http://kakistamp.hatenadiary.jp/entry/2017/04/17/032953
 
+
+##　ヘルプ
+git <コマンド> --help
+git <コマンド> -h
+git help <コマンド>
+
+
 ## 直前のコミットを取り消し
 git reset --hard HEAD^
+
 
 ## ユーザ名を指定してclone
 git clone https://username:password@github.com/kakisoft/tmp001.git
 パスワードは省略可。（ダイアログが出る）
 何回かミスると、一定時間ダイアログは出ない？（not found扱い）
+
 
 ## 用語など
 HEAD      最新コミットの目印（現在使用しているブランチの先頭）
@@ -18,7 +27,14 @@ HEAD~　　　ヘッドの１つ前
 HEAD~~　　 ヘッドの２つ前
 HEAD~2　　 ヘッドの２つ前
 HEAD^2     ヘッドの２人目の親
+origin     clone元のリモートリポジトリ
 upstream   作業しているブランチの上流
+
+## メモ
+pull     fetch と merge をまとめて実行。
+fetch    リモートブランチ→（ローカルの）リモート追跡ブランチ　の取得
+merge    （ローカルの）リモート追跡ブランチ→ローカルブランチ　の取得
+
 
 ## コンフィグ
 git config --global user.name "kakisoft"
@@ -27,26 +43,10 @@ git config --global color.ul true
 git config -list  # 設定一覧を表示 
 
 
-##　ヘルプ
-git <コマンド> --help
-git <コマンド> -h
-git help <コマンド>
-
-
 # 初期化
 git init
 git init --bare  #共有リポジトリにする場合にはこのオプションをつけた方がいい？
 ベアリポジトリ：ワークツリーを持たず、チェックアウト、マージができないリポジトリ。
-
-
-## リモートリポジトリ追加
-git remote add <name> <url>
-（入力例）
-git remote add origin /c/kaki/Git/ourweb.git
-```git config -l``` で設定内容確認。
-
-その後、commitし、一度、「git pull」を実行する。その後に、
-git merge --allow-unrelated-histories origin/master
 
 
 ## プッシュ（リモートリポジトリへ反映）
@@ -55,12 +55,39 @@ git push origin master   #originに向かって、masterの内容を突っ込む
 または、
 git push -u origin master
 
+
+## git push origin master の意味は？
+push = アップロード
+origin = リモートのサーバ名
+master = デフォルトのブランチ名 (svnでのtrunkと同じ)
+
+「ローカルのコードを、originというリモートサーバに対してアップロード。指定するブランチはmaster。」
+masterをpushするときは"-u"は不要。
+ローカルのブランチhogeをリモートの同名ブランチhogeにpushしたいときも"-u"は不要。
+
+[-u | --set-upstream]
+-uと--set-upstreamは同じ。
+
+## git remote add origin git@github.com:reponame/sample.git
+URLに"origin"という短縮名を付ける
+
+
+## git pullについて
+git fecth + git merge 
+## git pull --rebase
+git fetch + git rebase
+
+
+
 ## プル
 git pull origin master
 
-
 ## リモートリポジトリ削除
 git remote rm origin
+
+
+
+
 
 
 ## ログ
@@ -126,23 +153,4 @@ git config --global alias.br branch
 git config --global alias.ci commit
 git config -l    #リストアップ
 
-
-## git push origin master の意味は？
-push = アップロード
-origin = リモートのサーバ名
-master = デフォルトのブランチ名 (svnでのtrunkと同じ)
-
-「ローカルのコードを、originというリモートサーバに対してアップロード。指定するブランチはmaster。」
-masterをpushするときは"-u"は不要。
-ローカルのブランチhogeをリモートの同名ブランチhogeにpushしたいときも"-u"は不要。
-
-
-## git remote add origin git@github.com:reponame/sample.git
-URLに"origin"という短縮名を付ける
-
-
-## git pullについて
-git fecth + git merge 
-## git pull --rebase
-git fetch + git rebase
 
