@@ -18,7 +18,7 @@ HEAD~　　　ヘッドの１つ前
 HEAD~~　　 ヘッドの２つ前
 HEAD~2　　 ヘッドの２つ前
 HEAD^2     ヘッドの２人目の親
-
+upstream   作業しているブランチの上流
 
 ## コンフィグ
 git config --global user.name "kakisoft"
