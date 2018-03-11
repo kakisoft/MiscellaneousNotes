@@ -1,0 +1,8 @@
+sqlite3 myapp.db < commands.sql
+
+発生場所 行:1 文字:18
++ sqlite3 myapp.db < commands.sql
++                  ~
+演算子 '<' は、今後の使用のために予約されています。
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : RedirectionNotSupported

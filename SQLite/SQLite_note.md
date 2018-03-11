@@ -3,6 +3,9 @@
 
 主キーは１つのテーブルにつき１つ
 
+フィールド名の変更・削除はできない。
+そうしたい場合、新しいテーブルを新規で用意する事になる。
+
 =====< 型 >=====
 integer    整数
 real       浮動小数点
@@ -34,7 +37,10 @@ sqlite3 myapp01
 create table tmp01 ( id, head, body );
 
 ## テーブル削除
+```
 drop table tmp01;
+drop table if exists tmp01;
+```
 
 ## テーブル一覧を確認
 .tables
@@ -58,6 +64,12 @@ CREATE table if not exists posts(
   ,other  
 );
 ```
+
+## テーブル名変更
+alter table tmp01 rename to tmp02;
+
+## カラム追加
+alter table tmp01 add column added_column01 text;
 
 
 
