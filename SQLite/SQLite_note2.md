@@ -1,3 +1,10 @@
+```
+=====< 制約 >=====
+unique      重複を許可しない
+not null    nullを許可しない
+default     デフォルト値
+check       値のチェック
+```
 ## テーブル作成
 ```
 create table table01 ( id, column01, column02 );

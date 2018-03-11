@@ -39,7 +39,33 @@ sqlite3 myapp01
 .exit
 
 ## テーブル作成
-create table table01 ( id, head, body );
+```
+create table table01 ( id, column01, column02 );
+create table table02 ( 
+                        id           integer primary key
+                       ,column_int   integer
+                       ,column_text  text 
+                       ,column_real  real 
+                       ,column_blb   blb 
+                       ,column_null 
+                     );
+
+drop table if exists users;
+create table users (
+                      id     integer primary key
+                     ,name   text    not null
+                     ,score  integer default 10 check (score >=0)
+                     ,memo   text    default 'user profile'
+                     ,email  text    unique
+                   );
+```
+=====< 制約 >=====
+```
+unique      重複を許可しない
+not null    nullを許可しない
+default     デフォルト値
+check       値のチェック
+```
 
 ## テーブル削除
 ```
