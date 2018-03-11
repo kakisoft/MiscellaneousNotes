@@ -34,7 +34,7 @@ upstream   作業しているブランチの上流
 pull     fetch と merge をまとめて実行。
 fetch    リモートブランチ→（ローカルの）リモート追跡ブランチ　の取得
 merge    （ローカルの）リモート追跡ブランチ→ローカルブランチ　の取得
-
+merge    ブランチのマージ（masterにて実行。ブランチをmasterに統合。）　・・・mergeには２種類あるの？
 
 ## コンフィグ
 git config --global user.name "kakisoft"
