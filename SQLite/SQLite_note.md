@@ -1,5 +1,18 @@
 ```
 大文字・小文字を区別しない
+
+主キーは１つのテーブルにつき１つ
+
+=====< 型 >=====
+integer    整数
+real       浮動小数点
+text       文字列
+blb        バイナリラージオブジェクト
+null       データが格納された時に動的に決まる。（文字列が入れば text型）
+-----------
+他のRDBとの互換を保つために、integerは int, tinyintとも書けるし、
+real は doubleとも書けて、text は varchar(255) とも書ける。
+
 ```
 
 ### インストール（Windows）
@@ -37,9 +50,14 @@ drop table tmp01;
 無ければ作成（以下の例は、「posts」というテーブル名）
 ```
 CREATE table if not exists posts(
-   id
-  ,title
-  ,body
+   id     integer primary key
+  ,title  text
+  ,body   text
+  ,size   real
+  ,image  blb  
+  ,other  
 );
 ```
+
+
 
