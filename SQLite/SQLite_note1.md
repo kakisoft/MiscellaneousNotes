@@ -6,6 +6,11 @@
 フィールド名の変更・削除はできない。
 そうしたい場合、新しいテーブルを新規で用意する事になる。
 
+文字列はダブルクォーテーションでなく、シングルクォーテーションで囲む。
+
+プライマリキーに指定したカラムは、insert時に何も挿入しなかった場合 or NULL を挿入した場合、
+自動で連番が入る。
+
 =====< 型 >=====
 integer    整数
 real       浮動小数点
@@ -34,17 +39,16 @@ sqlite3 myapp01
 .exit
 
 ## テーブル作成
-create table tmp01 ( id, head, body );
+create table table01 ( id, head, body );
 
 ## テーブル削除
 ```
-drop table tmp01;
-drop table if exists tmp01;
+drop table table01;
+drop table if exists table01;
 ```
 
 ## テーブル一覧を確認
 .tables
-
 ## 外部ファイル読み込み
 .read external_command_file01.sql
 <!-- sqlite3 myapp01.db < external_command_file01.sql -->
@@ -66,10 +70,12 @@ CREATE table if not exists posts(
 ```
 
 ## テーブル名変更
-alter table tmp01 rename to tmp02;
+alter table table01 rename to table02;
 
 ## カラム追加
-alter table tmp01 add column added_column01 text;
+alter table table01 add column added_column01 text;
+
+
 
 
 
