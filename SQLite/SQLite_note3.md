@@ -75,4 +75,47 @@ create view viewname1 as
 drop view if exists viewname1;
 ```
 
+## 組み込み関数
+集計
+```
+select
+    count(id)
+   ,max(score)
+   ,min(score)
+   ,avg(score)
+from
+    users;
+```
+文字列操作
+```
+select
+    name
+   ,length(name)
+   ,upper(name)
+   ,substr(name, 2, 3)
+from
+    users;
+```
+直近で挿入されたレコードのrowid
+```
+select last_insert_rowid();
+```
+ランダムに１つ抽出
+```
+select * from users order by random() limit 1;
+```
 
+## case
+```
+select
+    id
+   ,score
+   ,case
+      when score > 70 then 'A'
+      when score > 50 then 'B'
+      else 'C'
+    end as rank
+from
+    users
+;
+```
