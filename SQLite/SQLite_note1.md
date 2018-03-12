@@ -76,8 +76,14 @@ drop table if exists table01;
 ## テーブル一覧を確認
 .tables
 ## 外部ファイル読み込み
+````
+（ログイン状態から実行）
 .read external_command_file01.sql
-<!-- sqlite3 myapp01.db < external_command_file01.sql -->
+
+（ログインしない状態から実行）
+sqlite3 myapp01.db < external_command_file01.sql
+※powershellでは「<」が予約語となっているため、実行できない。
+```
 
 ## スキーマ確認
 .schema [テーブル名]

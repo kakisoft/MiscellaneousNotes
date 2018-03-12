@@ -1,28 +1,16 @@
-```
-=====< 制約 >=====
-unique      重複を許可しない
-not null    nullを許可しない
-default     デフォルト値
-check       値のチェック
-```
-## テーブル作成
-```
-create table table01 ( id, column01, column02 );
-create table table02 ( 
-                        id           integer primary key
-                       ,column_int   integer
-                       ,column_text  text 
-                       ,column_real  real 
-                       ,column_blb   blb 
-                       ,column_null 
-                     );
-```
+## Select時にヘッダを含めて表示
+.headers on
 
-## insert
-```
-insert into table01 ( column01, column02 ) values ('value01', 'value12');
-insert into table01 ( id, column01, column02 ) values ( null, 'value02', 'value12');
-insert into table01 ( id, column01, column02 ) values ( null, 'value03', 'contain'' commna');
-insert into table01 ( id, column01, column02 ) values ( null, 'value04', '改行
-                                                                          する');
-```
+## 幅を広げて表示
+.mode column
+
+## csv形式で表示
+.mode csv
+
+## 縦表示
+.mode line
+
+## html形式で表示
+.mode html    
+（その他は、.helpにて）
+
