@@ -134,3 +134,24 @@ begin transaction;
 update users set score = 0;
 rollback;
 ```
+
+## trigger
+```
+-- CREATE table if not exists messages (message);
+create trigger new_winner update of score on users when new.score > 100
+begin
+  insert into messages (message) values (
+    'name:' || new.name ||
+    ' ' || old.score ||
+    '->'  || new.score
+  );
+end;
+```
+削除
+```
+drop trigger <trigger_name>
+``
+
+
+
+
