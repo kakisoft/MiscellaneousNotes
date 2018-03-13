@@ -2,6 +2,7 @@ on click：クリック時
 explicit：明示的な
 implicit：暗黙の
 
+Trailing Commas：後続カンマ
 
 プレビューを表示する：show_preview
 レポートを印刷する：print_report、create_report
