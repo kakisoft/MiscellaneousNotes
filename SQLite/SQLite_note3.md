@@ -150,8 +150,19 @@ end;
 削除
 ```
 drop trigger <trigger_name>
-``
+```
 
-
+## index
+```
+create index score_index on users(score);
+create unique index name_index on users(name);  --重複を許可しない
+検索は早くなるが、更新・挿入は遅くなる
+```
+確認
+```
+.indices [<テーブル名>]
+.schema [<テーブル名>]
+.drop indes if exists <定義名>
+```
 
 
