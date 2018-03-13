@@ -119,3 +119,18 @@ from
     users
 ;
 ```
+
+## transaction
+```
+begin transaction;
+update users set score = score + 10 where score > 10;
+delete from users where score >= 100;
+commit;
+```
+
+## rollback
+```
+begin transaction;
+update users set score = 0;
+rollback;
+```
