@@ -85,7 +85,7 @@ select
    ,avg(score)
 from
     users;
-```
+``` 
 文字列操作
 ```
 select
