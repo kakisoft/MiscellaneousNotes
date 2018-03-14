@@ -15,6 +15,7 @@ create table table02 (
                        ,column_real  real 
                        ,column_blb   blb 
                        ,column_null 
+--                       ,created_at datetime (datetime('now', '+09:00:00')) --日付型は無いが、こう書ける？
                      );
 ```
 
@@ -163,6 +164,17 @@ create unique index name_index on users(name);  --重複を許可しない
 .indices [<テーブル名>]
 .schema [<テーブル名>]
 .drop indes if exists <定義名>
+```
+
+## 日付
+```
+select
+ datetime('now')              as "タイムゾーンを考慮しない"
+,datetime('now', '+09:00:00') as "日本時間"
+,date()
+,time()
+,date('2015-07-17', '+3 months', 'start of month', '-1 day') --２か月後の末日
+;
 ```
 
 
