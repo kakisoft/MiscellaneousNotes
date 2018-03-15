@@ -60,7 +60,7 @@ create table users (
                      ,email  text    unique
                    );
 ```
-※integer primary key => rowid
+※integer primary key => rowid    
 =====< 制約 >=====
 ```
 unique      重複を許可しない
