@@ -12,8 +12,15 @@
 sqlite3 myapp02.db < dumpfile01.sql
 ```
 
-.output dumpfile02.sql
-.dump
+## csvファイルにエクスポート
+```
+.mode csv
+.output users_out.csv
+select * from users;
+```
 
-
-sqlite3 myapp01.db < dumpfile02.sql
+## csvファイルからインポート
+```
+.mode csv
+.import users_out.csv users
+```
