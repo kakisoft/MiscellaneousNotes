@@ -78,7 +78,7 @@ drop table if exists table01;
 ## テーブル一覧を確認
 .tables
 ## 外部ファイル読み込み
-````
+```
 （ログイン状態から実行）
 .read external_command_file01.sql
 
