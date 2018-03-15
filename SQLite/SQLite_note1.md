@@ -43,7 +43,7 @@ sqlite3 myapp01
 ```
 create table table01 ( id, column01, column02 );
 create table table02 ( 
-                        id           integer primary key
+                        id           integer primary key  autoincrement
                        ,column_int   integer
                        ,column_text  text 
                        ,column_real  real 
@@ -60,6 +60,7 @@ create table users (
                      ,email  text    unique
                    );
 ```
+※integer primary key => rowid
 =====< 制約 >=====
 ```
 unique      重複を許可しない
