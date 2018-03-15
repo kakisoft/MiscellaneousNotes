@@ -61,8 +61,8 @@ create table users (
                    );
 ```
 ※integer primary key => rowid    
-=====< 制約 >=====
 ```
+=====< 制約 >=====
 unique      重複を許可しない
 not null    nullを許可しない
 default     デフォルト値
