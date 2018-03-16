@@ -9,7 +9,11 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
 
     null;
     DBMS_OUTPUT.PUT_LINE('Output to console');
-    null;
+
+    FOR i IN 1..3 LOOP
+      DBMS_OUTPUT.PUT_LINE('ループ変数 i = ' || i);
+    END LOOP;
+
 
   END MY_PROCEDURE_01;
 
