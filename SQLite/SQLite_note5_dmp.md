@@ -2,7 +2,7 @@
 ログイン後に実行
 ```
 .output dumpfile01.sql
-.dump users
+.dump [tablename]
 ```
 ※テーブル名を省略した場合、全テーブルが対象
 
