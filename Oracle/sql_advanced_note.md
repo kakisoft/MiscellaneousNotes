@@ -26,6 +26,8 @@ from
 'kana_fwkatakana'	：すべてのタイプの仮名文字を全角カタカナに変換
 'kana_hiragana'	：すべてのタイプの仮名文字を全角ひらがなに変換
 'kana_hwkatakana'	：すべてのタイプの仮名文字を半角カタカナに変換
+
+http://505056310.blogspot.jp/2015/12/oracle.html
 ```
 
 ## with
