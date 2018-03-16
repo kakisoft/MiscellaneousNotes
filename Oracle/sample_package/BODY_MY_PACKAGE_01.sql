@@ -14,6 +14,17 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
       DBMS_OUTPUT.PUT_LINE('ループ変数 i = ' || i);
     END LOOP;
 
+    ------------------------------------------
+    --  暗黙カーソル（カーソルを宣言しない）
+    ------------------------------------------
+    FOR vRec IN ( select 'data1' COLNAME1 from dual  union all
+                  select 'data2' COLNAME1 from dual
+                ) LOOP
+
+        DBMS_OUTPUT.PUT(NVL(TO_CHAR(SQL%ROWCOUNT),'NULL') || ':');
+        DBMS_OUTPUT.PUT_LINE(vRec.COLNAME1);
+    END LOOP;
+
 
   END MY_PROCEDURE_01;
 
