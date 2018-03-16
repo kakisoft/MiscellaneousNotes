@@ -40,8 +40,8 @@ sqlite3 --version
 ## ヘルプ
 .help
 
-## 起動（myapp01を起動。無ければ作成する。）
-sqlite3 myapp01
+## 起動（myapp01.dbを起動。無ければ作成する。）
+sqlite3 myapp01.db
 
 ## 終了
 .exit
