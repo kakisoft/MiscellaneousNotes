@@ -27,14 +27,17 @@ select X from OPEN_TARGET_QUERY;
 ```
 
 ## case
+```sql
 ,case
    when  COLUMN1 = '1'  then  'data1'
    when  COLUMN1 = '2'  then  'data2'
    when  COLUMN1 = '3'  then  'data3'
    else ' '
  end  as  "STATUS"
+```
 
 ## 重複列を抽出
+```sql
 select
     COLUMN1
 from
@@ -43,8 +46,10 @@ group by
     COLUMN2
 having 
     COUNT(*) >= 2
+```
 
 ## 特定列を集計
+```sql
 select               
     TABLE1.PROD_NO         
    ,sum(decode(TABLE2.CATEGORY,'1',TABLE1.SALES                 ,0              ))  as  SALES
@@ -56,10 +61,11 @@ where  1=1
   and  TABLE1.COLUMN1 = 'CD'
 group by
     TABLE1.PROD_NO
-
+```
 
 
 ## 複数UPDATE
+```sql
 update  TABLE1
    set  COLUMN1 = (select COLUMN1 from TABLE2 where  1=1 
                                                 and  TABLE1.ID = TABLE2.ID
@@ -76,10 +82,11 @@ where  1=1
                          and  TABLE1.COLUMN2 in ('01','02')
                          and  TABLE2.COLUMN3 is not null
                     )
-
+```
 
 
 ## インサート or アップデート
+```sql
 merge into TABLE1
 using
 (
@@ -118,4 +125,4 @@ when not MATCHED then
      ,DUMMY.UPDATE_COLUMN1
      ,DUMMY.UPDATE_COLUMN2
    )
-
+```
