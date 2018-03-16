@@ -1,4 +1,5 @@
 ## 大文字/小文字　半角/全角　ひらがな/カタカナ
+```sql
 select
     UPPER('a')             as  "小文字→大文字"  -- A
    ,LOWER('A')             as  "大文字→小文字"  -- a
@@ -14,13 +15,16 @@ select
    ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('Ａ')),'kana_fwkatakana') as s4 -- Ａ
 from
     dual
+```
 
 ## with
+```sql
 WITH OPEN_TARGET_QUERY AS 
 (
    select 'x' as X from dual
 )
 select X from OPEN_TARGET_QUERY;
+```
 
 ## case
 ,case
