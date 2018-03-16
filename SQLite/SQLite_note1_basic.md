@@ -34,6 +34,12 @@ choco install sqlitebrowser
 choco upgrade sqlitebrowser
 ```
 
+## サードパーティ製ライブラリ
+https://www.npmjs.com/package/sqlite3-webapi-kit
+```
+npm install sqlite3-webapi-kit
+```
+
 ## バージョン確認
 sqlite3 --version
 

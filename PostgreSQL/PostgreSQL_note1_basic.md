@@ -1,8 +1,6 @@
 ### インストール（Windows）
-choco install sqlite
 
 ### バージョン確認
-sqlite3 --version
 
 
 https://qiita.com/kaitoii11/items/7acd24cce5315792931f
