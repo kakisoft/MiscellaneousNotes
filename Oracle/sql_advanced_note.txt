@@ -1,3 +1,20 @@
+## 大文字/小文字　半角/全角　ひらがな/カタカナ
+select
+    UPPER('a')             as  "小文字→大文字"  -- A
+   ,LOWER('A')             as  "大文字→小文字"  -- a
+   ,TO_MULTI_BYTE ('a')    as  "半角→全角"      -- ａ
+   ,TO_SINGLE_BYTE ('Ａ')  as  "全角→半角"      -- A
+   -----< 大文字/小文字　半角/全角　ひらがな/カタカナ >-----
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('あ')),'kana_fwkatakana') as s1 -- ア
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('ア')),'kana_fwkatakana') as s2 -- ア
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('ｱ')),'kana_fwkatakana')  as s3 -- ア
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('a')),'kana_fwkatakana')  as s4 -- Ａ
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('A')),'kana_fwkatakana')  as s5 -- Ａ
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('ａ')),'kana_fwkatakana') as s5 -- Ａ
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('Ａ')),'kana_fwkatakana') as s4 -- Ａ
+from
+    dual
+
 ## with
 WITH OPEN_TARGET_QUERY AS 
 (
