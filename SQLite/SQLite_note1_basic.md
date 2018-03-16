@@ -24,16 +24,23 @@ real は doubleとも書けて、text は varchar(255) とも書ける。
 日時を表す型は無く、文字列や数字で管理し、関数を組み合わせてやりくりする。
 ```
 
-### インストール（Windows）
+## インストール（Windows）
 choco install sqlite
 
-### バージョン確認
+## GUI管理ツール
+DB Browser for SQLite
+```
+choco install sqlitebrowser
+choco upgrade sqlitebrowser
+```
+
+## バージョン確認
 sqlite3 --version
 
 ## ヘルプ
 .help
 
-### 起動（myapp01を起動。無ければ作成する。）
+## 起動（myapp01を起動。無ければ作成する。）
 sqlite3 myapp01
 
 ## 終了
