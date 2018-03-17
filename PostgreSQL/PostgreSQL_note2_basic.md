@@ -1,26 +1,25 @@
-## 一覧確認
+## DB一覧表
+\dt
+
+## スキーマ確認
+\d [テーブル名]
+
+## 外部ファイルからコマンドを実行
+ \i external_command_file01.sql
+
+## テーブル作成
 ```
-psql -l
-\l
-```
-
-## DB作成
-createdb blogapp01
-
-## DB削除
-dropdb blogapp01
-
-## 接続
-psql blogapp01
-
-## 終了
-\q
-
-## ヘルプ表示
-```
-help
-\?
+create table table01 (
+                        title varchar(255)
+                       ,body text
+                     );
 ```
 
-## とりあえずの動作確認にでも
-select now();
+## テーブル名変更
+alter table table01 rename to table02;
+
+## テーブル削除
+drop table table02;
+
+
+
