@@ -1,4 +1,4 @@
-## posts
+## create table：posts
 ```
 drop table if exists posts;
 create table posts (
@@ -7,7 +7,7 @@ create table posts (
   ,body   text
 );
 ```
-## comments
+## create table：comments
 ```
 drop table if exists comments;
 create table comments (

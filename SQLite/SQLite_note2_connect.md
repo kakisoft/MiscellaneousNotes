@@ -1,50 +1,6 @@
-```
-大文字・小文字を区別しない
-
-主キーは１つのテーブルにつき１つ
-
-フィールド名の変更・削除はできない。
-そうしたい場合、新しいテーブルを新規で用意する事になる。
-
-文字列はダブルクォーテーションでなく、シングルクォーテーションで囲む。
-
-プライマリキーに指定したカラムは、insert時に何も挿入しなかった場合 or NULL を挿入した場合、
-自動で連番が入る。
-
-=====< 型 >=====
-integer    整数
-real       浮動小数点
-text       文字列
-blb        バイナリラージオブジェクト
-null       データが格納された時に動的に決まる。（文字列が入れば text型）
------------
-他のRDBとの互換を保つために、integerは int, tinyintとも書けるし、
-real は doubleとも書けて、text は varchar(255) とも書ける。
------------
-日時を表す型は無く、文字列や数字で管理し、関数を組み合わせてやりくりする。
-```
-
-## インストール（Windows）
-choco install sqlite
-
-## GUI管理ツール
-DB Browser for SQLite
-```
-choco install sqlitebrowser
-choco upgrade sqlitebrowser
-```
-
-## サードパーティ製ライブラリ
-https://www.npmjs.com/package/sqlite3-webapi-kit
-```
-npm install sqlite3-webapi-kit
-```
-
 ## バージョン確認
 sqlite3 --version
 
-## ヘルプ
-.help
 
 ## 起動（myapp01.dbを起動。無ければ作成する。）
 sqlite3 myapp01.db
@@ -74,13 +30,6 @@ create table users (
                    );
 ```
 ※integer primary key => rowid    
-```
-=====< 制約 >=====
-unique      重複を許可しない
-not null    nullを許可しない
-default     デフォルト値
-check       値のチェック
-```
 
 ## テーブル削除
 ```
