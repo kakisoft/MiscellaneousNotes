@@ -20,6 +20,14 @@ su [オプション] [ユーザー名]
  -m  環境変数「USER」と「LOGNAME」を切り替え後のユーザーに引き継ぐ
  -c  ユーザーを切り替えた後で、「-c」の後に記入されたコマンドを実行する
 
+## マシン起動時に自動的にstart
+（例：apache2、mongodb）
+sysv-rc-conf apache2 on
+sudo sysv-rc-conf mongod on
+無ければ先にインストール。    
+sudo apt-get install sysv-rc-conf
+
+
 # ファイルの内容を１画面ごとに表示
 ～～ | more
 
