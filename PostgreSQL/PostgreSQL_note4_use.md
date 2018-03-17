@@ -30,8 +30,4 @@ create table table01 (
                      );
 
 
-数値：integer(int), real（小数）, serial（連番）
-文字：char（固定長）, varchar(255) 上限付き可変長、text（上限なし）
-真偽：boolean
-日付：date, time, timestamp
-https://www.postgresql.org/docs/10/static/datatype.html
+
