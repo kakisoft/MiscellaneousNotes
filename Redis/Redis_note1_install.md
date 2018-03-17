@@ -7,6 +7,10 @@ sudo apt show redis-server
 
 sudo apt install redis-server
 ```
+設定ファイルのパス
+```
+/etc/redis/redis.conf
+```
 
 ## バージョン確認
 redis-cli --version
