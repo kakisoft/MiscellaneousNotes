@@ -7,6 +7,10 @@ Trailing Commas：後続カンマ
 プレビューを表示する：show_preview
 レポートを印刷する：print_report、create_report
 
+TimeToCountDown
+elapsedTime ： 経過時間
+timeLeft：残り時間
+
 検索条件：SearchExpression
 
 ## 「検索条件」
