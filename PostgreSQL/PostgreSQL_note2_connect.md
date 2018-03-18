@@ -1,4 +1,5 @@
 ## 接続
+(su - postgres)
 psql blogapp01
 
 ## 終了

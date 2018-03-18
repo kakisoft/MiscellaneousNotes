@@ -25,3 +25,12 @@ timestamp       両方
 ＜その他は公式サイトにて＞
 https://www.postgresql.org/docs/10/static/datatype.html
 ```
+
+```
+=====< 制約 >=====
+not null
+unique
+default
+primary key(not null, unique) ※１つのテーブルに１つのみ
+check
+```
