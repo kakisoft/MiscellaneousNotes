@@ -4,4 +4,3 @@ MySQL GUI Tools
 
 MySQL Migration Toolkit 
 
-test
