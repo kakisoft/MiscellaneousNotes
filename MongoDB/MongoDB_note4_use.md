@@ -36,6 +36,8 @@ for (var i=0; i<5; i++){
   db.collection01.insert({score:Math.random()});
 }
 ```
+## ドキュメントの中身を削除
+db.collection01.remove({});
 
 ## ドキュメントの個数を確認
 db.collection01.count();
@@ -44,9 +46,26 @@ db.collection01.count();
 db.collection01.find();
 
 ## 条件を指定して検索
+```
+（name が "kaki"）
 db.collection01.find({name:"kaki"});
 
-## ドキュメントの中身を削除
-db.collection01.remove({});
+（score が 50以上）
+db.collection01.find({score: {$gte: 50}});
+
+（正規表現を使って検索）
+db.collection01.find({name: /^k/ });
+
+（フィールドにどんな値があるのか抽出）
+db.collection01.distinct("name");```
+```
+#### 条件式
+```
+$gte    Greater Than or Equal
+$gt     Greater Then
+$lte    Less Then or Equal
+$eq     Equal
+$neq    Not Equal
+```
 
 
