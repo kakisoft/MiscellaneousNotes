@@ -4,11 +4,16 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
   --          MY_PROCEDURE_01
   --===================================
   PROCEDURE MY_PROCEDURE_01 IS
-
+    privateNumber number        := 100;
+    privateString varchar2(255) := 'varchar2';
   BEGIN
 
     null;
     DBMS_OUTPUT.PUT_LINE('Output to console');
+
+    DBMS_OUTPUT.PUT_LINE('privateNumber:' || privateNumber );
+    DBMS_OUTPUT.PUT_LINE('privateString:' || privateString );
+
 
     FOR i IN 1..3 LOOP
       DBMS_OUTPUT.PUT_LINE('ループ変数 i = ' || i);
