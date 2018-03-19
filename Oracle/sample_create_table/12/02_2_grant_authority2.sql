@@ -6,5 +6,8 @@ grant execute on SYS.DBMS_LOB to PUBLIC;
 grant execute on SYS.DBMS_RANDOM to PUBLIC;
 grant execute on SYS.DBMS_DEBUG_JDWP to PUBLIC;
 
+grant execute on SYS.UTL_HTTP to PUBLIC;
+grant execute on SYS.UTL_TCP to PUBLIC;
+
 grant debug connect session to PUBLIC;
 grant debug any procedure to PUBLIC;
