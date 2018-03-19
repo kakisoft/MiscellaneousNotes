@@ -5,28 +5,61 @@ select
    ,LOWER('A')             as  "大文字→小文字"  -- a
    ,TO_MULTI_BYTE ('a')    as  "半角→全角"      -- ａ
    ,TO_SINGLE_BYTE ('Ａ')  as  "全角→半角"      -- A
-   -----< 大文字/小文字　半角/全角　ひらがな/カタカナ >-----
-   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('あ')),'kana_fwkatakana') as s1 -- ア
-   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('ア')),'kana_fwkatakana') as s2 -- ア
-   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('ｱ')),'kana_fwkatakana')  as s3 -- ア
-   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('a')),'kana_fwkatakana')  as s4 -- Ａ
-   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('A')),'kana_fwkatakana')  as s5 -- Ａ
-   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('ａ')),'kana_fwkatakana') as s5 -- Ａ
-   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('Ａ')),'kana_fwkatakana') as s4 -- Ａ
+   -- CHAR
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('a')) ,'kana_fwkatakana') as S1 -- 半角:a
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('A')) ,'kana_fwkatakana') as S2 -- 半角:A
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('ａ')),'kana_fwkatakana') as S3 -- 全角:ａ
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('Ａ')),'kana_fwkatakana') as S4 -- 全角:Ａ
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('あ')),'kana_fwkatakana') as S5 -- 全角:あ
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('ア')),'kana_fwkatakana') as S6 -- 全角:ア
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('ｱ')) ,'kana_fwkatakana') as S7 -- 半角:ｱ
+   -- NVARCHAR2
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE(to_char(substr(COL1,1,1)))),'kana_fwkatakana') as V1 -- 半角:b
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE(to_char(substr(COL2,1,1)))),'kana_fwkatakana') as V2 -- 半角:B
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE(to_char(substr(COL3,1,1)))),'kana_fwkatakana') as V3 -- 全角:ｂ
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE(to_char(substr(COL4,1,1)))),'kana_fwkatakana') as V4 -- 全角:Ｂ
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE(to_char(substr(COL5,1,1)))),'kana_fwkatakana') as V5 -- 全角:い
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE(to_char(substr(COL6,1,1)))),'kana_fwkatakana') as V6 -- 全角:イ
+   ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE(to_char(substr(COL7,1,1)))),'kana_fwkatakana') as V7 -- 半角:ｲ
+from
+    (
+       select
+            CAST('b: 半角'  as NVARCHAR2(100)) as COL1
+           ,CAST('B: 半角'  as NVARCHAR2(100)) as COL2
+           ,CAST('ｂ: 全角' as NVARCHAR2(100)) as COL3
+           ,CAST('Ｂ: 全角' as NVARCHAR2(100)) as COL4
+           ,CAST('い: 全角' as NVARCHAR2(100)) as COL5
+           ,CAST('イ: 全角' as NVARCHAR2(100)) as COL6
+           ,CAST('ｲ: 全角'  as NVARCHAR2(100)) as COL7
+       from
+           dual
+    ) TMP_VIEW01
+
 from
     dual
-    
-    
-'fwkatakana_hiragana'	：全角カタカナのみを全角ひらがなに変換
-'fwkatakana_hwkatakana'	：全角カタカナのみを半角カタカナに変換
-'hiragana_fwkatakana'	：全角ひらがなのみを全角カタカナに変換
-'hiragana_hwkatakana'	：全角ひらがなのみを半角カタカナに変換
-'hwkatakana_fwkatakana'	：半角カタカナのみを全角カタカナに変換
-'hwkatakana_hiragana'	：半角カタカナのみを全角ひらがなに変換
-'kana_fwkatakana'	：すべてのタイプの仮名文字を全角カタカナに変換
-'kana_hiragana'	：すべてのタイプの仮名文字を全角ひらがなに変換
-'kana_hwkatakana'	：すべてのタイプの仮名文字を半角カタカナに変換
 ```
+**＜出力結果＞**    
+
+| S1 | S2 | S3 | S4 | S5 | S6 | S7 | V1 | V2 | V3 | V4 | V5 | V6 | V7 |
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| Ａ | Ａ | Ａ | Ａ | ア | ア | ア | Ｂ | Ｂ | Ｂ | Ｂ | イ | イ | イ |
+
+
+|    変換名文字列           |      説明                                      |
+|:--------------------------|:-----------------------------------------------|
+|  'kana_fwkatakana'        |  すべてのタイプの仮名文字を全角カタカナに変換  |
+|  'kana_hwkatakana'        |  すべてのタイプの仮名文字を半角カタカナに変換  |
+|  'kana_hiragana'          |  すべてのタイプの仮名文字を全角ひらがなに変換  |
+|  'fwkatakana_hwkatakana'  |  全角カタカナのみを半角カタカナに変換          |
+|  'fwkatakana_hiragana'    |  全角カタカナのみを全角ひらがなに変換          |
+|  'hwkatakana_fwkatakana'  |  半角カタカナのみを全角カタカナに変換          |
+|  'hwkatakana_hiragana'    |  半角カタカナのみを全角ひらがなに変換          |
+|  'hiragana_fwkatakana'    |  全角ひらがなのみを全角カタカナに変換          |
+|  'hiragana_hwkatakana'    |  全角ひらがなのみを半角カタカナに変換          |
+
+
+### 参考サイト
+http://otndnld.oracle.co.jp/document/products/oracle10g/102/doc_cd/appdev.102/B19245-02/u_i18n.htm#CACIJHFB    
 http://505056310.blogspot.jp/2015/12/oracle.html
 
 ## with
