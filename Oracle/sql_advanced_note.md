@@ -15,18 +15,23 @@ select
    ,UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE('Ａ')),'kana_fwkatakana') as s4 -- Ａ
 from
     dual
-    
-    
-'fwkatakana_hiragana'	：全角カタカナのみを全角ひらがなに変換
-'fwkatakana_hwkatakana'	：全角カタカナのみを半角カタカナに変換
-'hiragana_fwkatakana'	：全角ひらがなのみを全角カタカナに変換
-'hiragana_hwkatakana'	：全角ひらがなのみを半角カタカナに変換
-'hwkatakana_fwkatakana'	：半角カタカナのみを全角カタカナに変換
-'hwkatakana_hiragana'	：半角カタカナのみを全角ひらがなに変換
-'kana_fwkatakana'	：すべてのタイプの仮名文字を全角カタカナに変換
-'kana_hiragana'	：すべてのタイプの仮名文字を全角ひらがなに変換
-'kana_hwkatakana'	：すべてのタイプの仮名文字を半角カタカナに変換
 ```
+
+|    変換名文字列           |      説明                                      |
+|:--------------------------|:-----------------------------------------------|
+|  'kana_fwkatakana'        |  すべてのタイプの仮名文字を全角カタカナに変換  |
+|  'kana_hwkatakana'        |  すべてのタイプの仮名文字を半角カタカナに変換  |
+|  'kana_hiragana'          |  すべてのタイプの仮名文字を全角ひらがなに変換  |
+|  'fwkatakana_hwkatakana'  |  全角カタカナのみを半角カタカナに変換します    |
+|  'fwkatakana_hiragana'    |  全角カタカナのみを全角ひらがなに変換します    |
+|  'hwkatakana_fwkatakana'  |  半角カタカナのみを全角カタカナに変換します    |
+|  'hwkatakana_hiragana'    |  半角カタカナのみを全角ひらがなに変換します    |
+|  'hiragana_fwkatakana'    |  全角ひらがなのみを全角カタカナに変換します    |
+|  'hiragana_hwkatakana'    |  全角ひらがなのみを半角カタカナに変換します    |
+
+
+### 参考サイト
+http://otndnld.oracle.co.jp/document/products/oracle10g/102/doc_cd/appdev.102/B19245-02/u_i18n.htm#CACIJHFB    
 http://505056310.blogspot.jp/2015/12/oracle.html
 
 ## with
