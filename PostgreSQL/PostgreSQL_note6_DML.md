@@ -32,5 +32,17 @@ order by
 select * from table01 order by title limit 3 offset 3;
 ```
 
+```
+concat
+substring
+```
+### ランダム
+```
+select ramdom()
+```
 
+### 無作為に抽出
+```
+select * from table01 order by random() limit 1;
+```
 
