@@ -8,5 +8,6 @@ sqlplus SYSTEM/SYSTEM as SYSDBA
 alter pluggable database orclpdb open;
 alter session set container = orclpdb;
 
+alter pluggable database orclpdb save state;
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
