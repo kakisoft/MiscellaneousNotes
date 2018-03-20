@@ -197,7 +197,7 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
   PROCEDURE MY_PROCEDURE_03 (
                                IN_PARAM1 IN NUMBER
                               ,IN_PARAM2 IN NVARCHAR2
-                              ,OUT_LIST1     OUT SYS_REFCURSOR
+                              ,OUT_LIST      OUT SYS_REFCURSOR
                               ,OUT_RETURN_CD OUT NUMBER
                              ) IS
     f_column01 varchar2(10);
@@ -207,18 +207,18 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     -----------------------
     --  SYS_REFCURSOR（戻り値となるカーソル）に値をセット
     ------------------------
-    open OUT_LIST1 for 
+    open OUT_LIST for 
                 SELECT 'value01' as column01 FROM dual
       union all SELECT 'value02' as column01 FROM dual
     ;
 
     -----< 件数チェック >-----
-    DBMS_OUTPUT.PUT_LINE(OUT_LIST1%ROWCOUNT);
+    DBMS_OUTPUT.PUT_LINE(OUT_LIST%ROWCOUNT);
 
     -----< フェッチ >-----
     LOOP
-      FETCH OUT_LIST1 INTO f_column01;
-      EXIT WHEN OUT_LIST1%NOTFOUND;
+      FETCH OUT_LIST INTO f_column01;
+      EXIT WHEN OUT_LIST%NOTFOUND;
       DBMS_OUTPUT.PUT_LINE('f_column01:' || f_column01);
     END LOOP;
 
