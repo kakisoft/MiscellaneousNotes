@@ -25,7 +25,7 @@ create or replace PACKAGE MY_PACKAGE_01 IS
   PROCEDURE MY_PROCEDURE_03 (
                                IN_PARAM1 IN NUMBER
                               ,IN_PARAM2 IN NVARCHAR2
-                              ,OUT_LIST1     OUT SYS_REFCURSOR
+                              ,OUT_LIST      OUT SYS_REFCURSOR
                               ,OUT_RETURN_CD OUT NUMBER
                             );
 
