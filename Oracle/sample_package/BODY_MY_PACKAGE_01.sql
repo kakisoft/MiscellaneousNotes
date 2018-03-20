@@ -201,6 +201,7 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
                               ,OUT_RETURN_CD OUT NUMBER
                              ) IS
     f_column01 varchar2(10);
+    --f_column01 TABLE01.COLUMN01%TYPE;
 
   BEGIN
 
