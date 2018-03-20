@@ -10,8 +10,8 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     --//////////////
     -- カーソル定義  
     --//////////////
-    CURSOR c_sample01 IS
-        SELECT * FROM dual;
+    CURSOR cur_sample01 IS
+        SELECT 'value01' as column01 FROM dual;
   BEGIN
 
     null;
@@ -24,12 +24,36 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     ------------------
     --   値をセット
     ------------------
-    SELECT 'value01' as column01 INTO privateString  
+    SELECT 'value02' as column02 INTO privateString  
         FROM dual
         WHERE 1=1;
     
     DBMS_OUTPUT.PUT_LINE('privateString:' || privateString );
 
+    ---///////////////////////////////////////
+    --            明示カーソル
+    ---///////////////////////////////////////
+    FOR rec IN cur_sample01 LOOP  
+        --値を抽出          
+        SYS.DBMS_OUTPUT.PUT_LINE(rec.column01);
+
+        --カーソルISOPEN=出力    
+        If (cur_sample01%ISOPEN) THEN    
+            SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=true');    
+        ELSE    
+            SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=false');       
+        END IF;  
+        --カーソルROWCOUNT出力  
+        SYS.DBMS_OUTPUT.PUT_LINE('フェッチした件数:ROWCOUNT=' || cur_sample01%ROWCOUNT);  
+          
+    END LOOP;  
+      
+    --カーソルISOPEN=出力    
+    If (cur_sample01%ISOPEN) THEN    
+        SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=true');    
+    ELSE    
+        SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=false');       
+    END IF;
 
     ------------------
     --    ループ
@@ -64,7 +88,6 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
         SYS.DBMS_OUTPUT.PUT_LINE('ROWCOUNT=' || SQL%ROWCOUNT);  
           
     END LOOP;          
-        
 
   END MY_PROCEDURE_01;
 
