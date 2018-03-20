@@ -5,31 +5,66 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
   --===================================
   PROCEDURE MY_PROCEDURE_01 IS
     privateNumber number        := 100;
-    privateString varchar2(255) := 'varchar2';
+    privateString varchar2(255);
+
+    --//////////////
+    -- カーソル定義  
+    --//////////////
+    CURSOR c_sample01 IS
+        SELECT * FROM dual;
   BEGIN
 
     null;
+    ------------------
+    --  コンソール出力
+    ------------------
     DBMS_OUTPUT.PUT_LINE('Output to console');
-
     DBMS_OUTPUT.PUT_LINE('privateNumber:' || privateNumber );
+    
+    ------------------
+    --   値をセット
+    ------------------
+    SELECT 'value01' as column01 INTO privateString  
+        FROM dual
+        WHERE 1=1;
+    
     DBMS_OUTPUT.PUT_LINE('privateString:' || privateString );
 
 
+    ------------------
+    --    ループ
+    ------------------
     FOR i IN 1..3 LOOP
       DBMS_OUTPUT.PUT_LINE('ループ変数 i = ' || i);
     END LOOP;
 
-    ------------------------------------------
+    ---///////////////////////////////////////
     --  暗黙カーソル（カーソルを宣言しない）
-    ------------------------------------------
-    FOR vRec IN ( select 'data1' COLNAME1 from dual  union all
-                  select 'data2' COLNAME1 from dual
-                ) LOOP
+    ---///////////////////////////////////////
+    FOR icRec IN ( select 'data1' COLNAME1 from dual ) LOOP
 
-        DBMS_OUTPUT.PUT(NVL(TO_CHAR(SQL%ROWCOUNT),'NULL') || ':');
-        DBMS_OUTPUT.PUT_LINE(vRec.COLNAME1);
-    END LOOP;
-
+        --値を抽出
+        DBMS_OUTPUT.PUT_LINE(icRec.COLNAME1);
+        
+        --ISOPEN属性の確認  
+        IF (SQL%ISOPEN) THEN  
+            SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=true');  
+        ELSE  
+            SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=false');  
+        END IF;  
+        
+        --FOUND属性の確認  
+        IF (SQL%FOUND) THEN  
+            SYS.DBMS_OUTPUT.PUT_LINE('FOUND=true');  
+        ELSE  
+            SYS.DBMS_OUTPUT.PUT_LINE('FOUND=false');  
+        END IF;  
+        
+        --ROWCOUNT属性の確認  
+        SYS.DBMS_OUTPUT.PUT_LINE('ROWCOUNT=' || SQL%ROWCOUNT);  
+          
+    END LOOP;          
+        
 
   END MY_PROCEDURE_01;
 
@@ -60,11 +95,13 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
   BEGIN
 
     open OUT_LIST1 for 
-      select
-        *
-      from
-        dual
+                select * from dual
+      union all select * from dual
     ;
+
+
+        DBMS_OUTPUT.PUT_LINE(OUT_LIST1%ROWCOUNT);
+
 
   END MY_PROCEDURE_03;
 
