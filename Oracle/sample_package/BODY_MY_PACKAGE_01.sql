@@ -1,9 +1,9 @@
 create or replace PACKAGE BODY MY_PACKAGE_01 IS
 
   --===================================
-  -- 
+  --
   --          MY_PROCEDURE_01
-  -- 
+  --
   --===================================
   PROCEDURE MY_PROCEDURE_01 IS
     privateNumber number := 100;
@@ -18,9 +18,9 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     --///////////////
     -- カーソル定義２
     --///////////////
-	CURSOR cur_sample02(P_DATA_2 VARCHAR2 := 'CURSOR param') IS
-		          SELECT 'value02' as column02 FROM DUAL
-	    UNION ALL SELECT P_DATA_2  as column02 FROM DUAL ;
+    CURSOR cur_sample02(P_DATA_2 VARCHAR2 := 'CURSOR param') IS
+                  SELECT 'value02' as column02 FROM DUAL
+        UNION ALL SELECT P_DATA_2  as column02 FROM DUAL ;
     vRec_sample02  cur_sample02%ROWTYPE;
   BEGIN
 
@@ -30,14 +30,14 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     ------------------
     DBMS_OUTPUT.PUT_LINE('Output to console');
     DBMS_OUTPUT.PUT_LINE('privateNumber:' || privateNumber );
-    
+
     ------------------
     -- 値をセット(INTO)
     ------------------
     SELECT 'value02' as column02 INTO privateString  
         FROM dual
         WHERE 1=1;
-    
+
     DBMS_OUTPUT.PUT_LINE('privateString:' || privateString );
 
     ------------------
@@ -50,26 +50,26 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     ---///////////////////////////////////////
     --            明示カーソル
     ---///////////////////////////////////////
-    FOR rec IN cur_sample01 LOOP  
-        --値を抽出          
+    FOR rec IN cur_sample01 LOOP
+        --値を抽出
         SYS.DBMS_OUTPUT.PUT_LINE(rec.column01);
 
-        --カーソルISOPEN=出力    
-        If (cur_sample01%ISOPEN) THEN    
-            SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=true');    
-        ELSE    
-            SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=false');       
-        END IF;  
-        --カーソルROWCOUNT出力  
-        SYS.DBMS_OUTPUT.PUT_LINE('フェッチした件数:ROWCOUNT=' || cur_sample01%ROWCOUNT);  
-          
-    END LOOP;  
-      
-    --カーソルISOPEN=出力    
-    If (cur_sample01%ISOPEN) THEN    
-        SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=true');    
-    ELSE    
-        SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=false');       
+        --カーソルISOPEN=出力
+        If (cur_sample01%ISOPEN) THEN
+            SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=true');
+        ELSE
+            SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=false');
+        END IF;
+        --カーソルROWCOUNT出力
+        SYS.DBMS_OUTPUT.PUT_LINE('フェッチした件数:ROWCOUNT=' || cur_sample01%ROWCOUNT);
+
+    END LOOP;
+
+    --カーソルISOPEN=出力
+    If (cur_sample01%ISOPEN) THEN
+        SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=true');
+    ELSE
+        SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=false');
     END IF;
 
 
@@ -80,11 +80,11 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     OPEN cur_sample02('yyy');
     LOOP
       -- カーソルの内容をフェッチ
-      FETCH cur_sample02 INTO vRec_sample02; 
+      FETCH cur_sample02 INTO vRec_sample02;
       EXIT WHEN cur_sample02%NOTFOUND;
       DBMS_OUTPUT.PUT(cur_sample02%ROWCOUNT || ':');
       DBMS_OUTPUT.PUT_LINE(vRec_sample02.column02);
-	END LOOP;
+    END LOOP;
 
 
     ---///////////////////////////////////////
@@ -94,32 +94,32 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
 
         --値を抽出
         DBMS_OUTPUT.PUT_LINE(icRec.COLNAME1);
+
+        --ISOPEN属性の確認
+        IF (SQL%ISOPEN) THEN
+            SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=true');
+        ELSE
+            SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=false');
+        END IF;
         
-        --ISOPEN属性の確認  
-        IF (SQL%ISOPEN) THEN  
-            SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=true');  
-        ELSE  
-            SYS.DBMS_OUTPUT.PUT_LINE('ISOPEN=false');  
-        END IF;  
+        --FOUND属性の確認
+        IF (SQL%FOUND) THEN
+            SYS.DBMS_OUTPUT.PUT_LINE('FOUND=true');
+        ELSE
+            SYS.DBMS_OUTPUT.PUT_LINE('FOUND=false');
+        END IF;
         
-        --FOUND属性の確認  
-        IF (SQL%FOUND) THEN  
-            SYS.DBMS_OUTPUT.PUT_LINE('FOUND=true');  
-        ELSE  
-            SYS.DBMS_OUTPUT.PUT_LINE('FOUND=false');  
-        END IF;  
-        
-        --ROWCOUNT属性の確認  
-        SYS.DBMS_OUTPUT.PUT_LINE('ROWCOUNT=' || SQL%ROWCOUNT);  
-          
-    END LOOP;          
+        --ROWCOUNT属性の確認
+        SYS.DBMS_OUTPUT.PUT_LINE('ROWCOUNT=' || SQL%ROWCOUNT);
+
+    END LOOP;
 
   END MY_PROCEDURE_01;
 
   --===================================
-  -- 
+  --
   --          MY_PROCEDURE_02
-  -- 
+  --
   --===================================
   PROCEDURE MY_PROCEDURE_02 (
                                IN_PARAM1 IN NUMBER
@@ -134,7 +134,7 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     cur_sample01 SYS_REFCURSOR;
     f_COLNAME1 int;
     f_COLNAME2 varchar2(10);
-    
+
     --//////////////
     -- カーソル定義２
     --//////////////
@@ -142,7 +142,7 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     cur_sample02 cur_typ;
     f_COLNAME3 int;
     f_COLNAME4 varchar2(10);
-    
+
   BEGIN
 
     ------------------
@@ -150,9 +150,9 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     ------------------
     CURSORSQL := '';
     CURSORSQL := CURSORSQL || 'CALL DBMS_OUTPUT.PUT_LINE(''動的SQL実行'')';
-    
+
     EXECUTE IMMEDIATE CURSORSQL;
-    
+
     ------------------
     --  動的カーソル１
     ------------------
@@ -190,9 +190,9 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
   END MY_PROCEDURE_02;
 
   --===================================
-  --   
+  --
   --          MY_PROCEDURE_03
-  -- 
+  --
   --===================================
   PROCEDURE MY_PROCEDURE_03 (
                                IN_PARAM1 IN NUMBER
@@ -200,7 +200,7 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
                               ,OUT_LIST1     OUT SYS_REFCURSOR
                               ,OUT_RETURN_CD OUT NUMBER
                              ) IS
-    f_column01 varchar2(10);                             
+    f_column01 varchar2(10);
 
   BEGIN
 
