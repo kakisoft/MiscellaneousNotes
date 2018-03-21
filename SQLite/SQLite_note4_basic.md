@@ -2,7 +2,7 @@
 .help
 
 ## テーブル作成
-```
+```sql
 create table table01 ( id, column01, column02 );
 create table table02 ( 
                         id           integer primary key  autoincrement
@@ -25,7 +25,7 @@ create table users (
 ※integer primary key => rowid    
 
 ## テーブル削除
-```
+```sql
 drop table table01;
 drop table if exists table01;
 ```

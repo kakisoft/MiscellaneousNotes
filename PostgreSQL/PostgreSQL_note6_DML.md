@@ -1,5 +1,5 @@
 ## insert
-```
+```sql
 insert into table01 (title, body) values ('title1','body001');
 
 
@@ -16,7 +16,7 @@ insert into table01 (title, body) values
 select * from table01 order by score limit3;
 ```
 
-```
+```sql
 select 
     * 
 from 
@@ -28,7 +28,7 @@ order by
 ```
 
 ## offset
-```
+```sql
 select * from table01 order by title limit 3 offset 3;
 ```
 
@@ -37,12 +37,12 @@ concat
 substring
 ```
 ### ランダム
-```
+```sql
 select ramdom()
 ```
 
 ### 無作為に抽出
-```
+```sql
 select * from table01 order by random() limit 1;
 ```
 

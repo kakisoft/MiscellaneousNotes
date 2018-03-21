@@ -16,7 +16,7 @@ sqlite3 myapp01.db < external_command_file01.sql
 
 ## テーブル作成
 無ければ作成（以下の例は、「posts」というテーブル名）
-```
+```sql
 CREATE table if not exists posts(
    id     integer primary key
   ,title  text
@@ -34,7 +34,7 @@ alter table table01 rename to table02;
 alter table table01 add column added_column01 text;
 
 ## テーブル作成
-```
+```sql
 create table table01 ( id, column01, column02 );
 create table table02 ( 
                         id           integer primary key
@@ -48,7 +48,7 @@ create table table02 (
 ```
 
 ## view
-```
+```sql
 create view viewname1 as 
    select
        name
@@ -63,12 +63,12 @@ create view viewname1 as
 ;
 ```
 削除
-```
+```sql
 drop view if exists viewname1;
 ```
 
 ## trigger
-```
+```sql
 -- CREATE table if not exists messages (message);
 create trigger new_winner update of score on users when new.score > 100
 begin
@@ -80,18 +80,18 @@ begin
 end;
 ```
 削除
-```
+```sql
 drop trigger <trigger_name>
 ```
 
 ## index
-```
+```sql
 create index score_index on users(score);
 create unique index name_index on users(name);  --重複を許可しない
 検索は早くなるが、更新・挿入は遅くなる
 ```
 確認
-```
+```sql
 .indices [<テーブル名>]
 .schema [<テーブル名>]
 .drop indes if exists <定義名>

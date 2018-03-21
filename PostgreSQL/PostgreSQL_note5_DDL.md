@@ -8,7 +8,7 @@
  \i external_command_file01.sql
 
 ## テーブル作成
-```
+```sql
 create table table01 (
                         id        serial        primary key
                        ,title     varchar(255)  not null
