@@ -33,6 +33,9 @@ vagrant resume
 ### 仮想マシンの終了
 ```
 vagrant halt
+
+vagrant global-status
+vagrant halt <id>
 ```
 再度、立ち上げたい場合、```vagrant up```
 
