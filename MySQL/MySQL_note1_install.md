@@ -3,6 +3,7 @@
 ```
 sudo apt-get update
 sudo apt-get install mysql-server
+※インストール時にrootユーザのパスワードを設定
 ```
 
 ## バージョン確認

@@ -14,8 +14,15 @@ sudo service mysql status
 RedHat系だと「mysqld」？
 ```
 
+## 現在のユーザを表示
+select user();
+
 ## ヘルプ
 help;
+
+
+
+___________________________________________________
 
 ## rootパスワード変更
 /installdir/mysql/bin/mysqladmin -p -u root password NEW_PASSWORD 
