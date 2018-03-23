@@ -127,6 +127,7 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
                              ) IS
     CURSORSQL  varchar2(32767);
     EXECUTESQL varchar2(32767);
+    IN_PARAM2_SEARCH_FORMAT VARCHAR2(1000);
 
     --//////////////
     -- カーソル定義１
@@ -178,6 +179,7 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     CURSORSQL := CURSORSQL || '      union all select 4 as COLNAME3, ''4-1'' as COLNAME4 from dual  ' || NLC;
     CURSORSQL := CURSORSQL || '    )                                                                ' || NLC;
     --CURSORSQL := CURSORSQL || '          AND SUBSTR(col1,1,1) in (' || '''ア''' ||  ')            ' || NLC;
+    --IN_PARAM2_SEARCH_FORMAT := CHR(39) || '%' || UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE(to_char(IN_PARAM2))),'kana_fwkatakana') || '%' ||  CHR(39);
 
     OPEN cur_sample02 FOR CURSORSQL;
     LOOP
