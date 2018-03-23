@@ -169,14 +169,14 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     --  動的カーソル２
     ------------------
     CURSORSQL := '';
-    CURSORSQL := CURSORSQL || 'select                                                               ';
-    CURSORSQL := CURSORSQL || '    COLNAME3                                                         ';
-    CURSORSQL := CURSORSQL || '   ,COLNAME4                                                         ';
-    CURSORSQL := CURSORSQL || 'from                                                                 ';
-    CURSORSQL := CURSORSQL || '    (                                                                ';
-    CURSORSQL := CURSORSQL || '                select 3 as COLNAME3, ''3-1'' as COLNAME4 from dual  ';
-    CURSORSQL := CURSORSQL || '      union all select 4 as COLNAME3, ''4-1'' as COLNAME4 from dual  ';
-    CURSORSQL := CURSORSQL || '    )                                                                ';
+    CURSORSQL := CURSORSQL || 'select                                                               ' || NLC;
+    CURSORSQL := CURSORSQL || '    COLNAME3                                                         ' || NLC;
+    CURSORSQL := CURSORSQL || '   ,COLNAME4                                                         ' || NLC;
+    CURSORSQL := CURSORSQL || 'from                                                                 ' || NLC;
+    CURSORSQL := CURSORSQL || '    (                                                                ' || NLC;
+    CURSORSQL := CURSORSQL || '                select 3 as COLNAME3, ''3-1'' as COLNAME4 from dual  ' || NLC;
+    CURSORSQL := CURSORSQL || '      union all select 4 as COLNAME3, ''4-1'' as COLNAME4 from dual  ' || NLC;
+    CURSORSQL := CURSORSQL || '    )                                                                ' || NLC;
 
     OPEN cur_sample02 FOR CURSORSQL;
     LOOP
@@ -185,6 +185,12 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
       DBMS_OUTPUT.PUT_LINE('f_COLNAME3:' || f_COLNAME3);
       DBMS_OUTPUT.PUT_LINE('f_COLNAME4:' || f_COLNAME4);
     END LOOP;
+
+    -----< カーソルの内容をチェック >-----
+    DBMS_OUTPUT.PUT_LINE(CURSORSQL);
+
+    -----< 件数チェック >-----
+    DBMS_OUTPUT.PUT_LINE(cur_sample02%ROWCOUNT);
 
 
   END MY_PROCEDURE_02;
