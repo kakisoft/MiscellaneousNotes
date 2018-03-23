@@ -177,6 +177,7 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     CURSORSQL := CURSORSQL || '                select 3 as COLNAME3, ''3-1'' as COLNAME4 from dual  ' || NLC;
     CURSORSQL := CURSORSQL || '      union all select 4 as COLNAME3, ''4-1'' as COLNAME4 from dual  ' || NLC;
     CURSORSQL := CURSORSQL || '    )                                                                ' || NLC;
+    --CURSORSQL := CURSORSQL || '          AND SUBSTR(col1,1,1) in (' || '''ア''' ||  ')            ' || NLC;
 
     OPEN cur_sample02 FOR CURSORSQL;
     LOOP
