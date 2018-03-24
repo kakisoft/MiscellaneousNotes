@@ -1,5 +1,7 @@
 create or replace PACKAGE MY_PACKAGE_01 IS
 
+  NLC CONSTANT NVARCHAR2(10) := CHR(13) || CHR(10);
+  
   --===================================
   --
   --          MY_PROCEDURE_01

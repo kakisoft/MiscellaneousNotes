@@ -81,7 +81,7 @@ where  1=1
 ```
 
 ## テーブル一覧をコメント付きで出力
-```
+```sql
 select
     USER_TABLES.TABLE_NAME
    ,USER_TAB_COMMENTS.COMMENTS
@@ -93,7 +93,7 @@ order by 1
 ```
 
 ## カラム一覧をコメント付きで出力
-```
+```sql
 select
     USER_TAB_COLUMNS.COLUMN_ID
    ,USER_TAB_COLUMNS.TABLE_NAME
