@@ -10,8 +10,6 @@
 |  大文字に変換                         |  Ctrl + Shift + u          |
 |  小文字に変換                         |  Ctrl + u                  |
 |  フォルダを指定して検索               |  Ctrl + Shift + f          |
-|  フォルダを指定して検索               |  Ctrl + Shift + f          |
-|  フォルダを指定して検索               |  Ctrl + Shift + f          |
 |  クイックウォッチ                     |  Ctrl d → q               |
 |  リネーム                             |  選択→ r → r             |
 |  メソッド切り出し                     |  選択→ r → m             |
