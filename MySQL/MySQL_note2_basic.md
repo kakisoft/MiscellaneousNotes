@@ -1,5 +1,7 @@
 MySQLのクエリでは、大文字・小文字が区別されない。
 ___________________________
+## ヘルプ
+help;
 
 ## 開始
 sudo service mysql start
@@ -20,17 +22,26 @@ RedHat系だと「mysqld」？
 ## 現在のユーザを表示
 select user();
 
-## ヘルプ
-help;
+## ユーザ作成
+```
+create user dbuser01@localhost identified by 'password';
+create user remoteuser identified by 'password';
+```
 
+## ユーザ一覧確認
+select Host, User, Password from mysql.user;
 
+## ユーザ削除
+drop user dbuser01@localhost;
 
+## 権限付与
+grant all on mydb01.* to dbuser01@localhost;
 ___________________________________________________
 
 ## rootパスワード変更
 /installdir/mysql/bin/mysqladmin -p -u root password NEW_PASSWORD 
 
-
+```
 （インストールディレクトリ検索）
 sudo find / -name "mysqladmin"
 多分、
@@ -44,6 +55,5 @@ sudo find / -name "mysqladmin"
 
 
 sudo find / -name "mysqld.log"
-
-
+```
 https://qiita.com/okuzawats/items/d3cd9f8aca7262715629

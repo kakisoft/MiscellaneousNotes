@@ -8,6 +8,7 @@ https://app.vagrantup.com/ubuntu/boxes/xenial64
 
 
 〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓
+```
 create user remoteuser identified by 'password';
 ※パスワードは'(シングルクォーテーション)で囲む必要があります。
 
@@ -45,9 +46,10 @@ netstat -antu
 
 ## AWS：Redmine での MySQL Workbench起動
 http://kakistamp.hatenadiary.jp/entry/2016/11/08/040357
+```
 
 〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓
-
+```
 create database mydb01;
 create database mydb02;
 create database mydb03;
@@ -58,3 +60,4 @@ create user dbuser01@localhost identified by 'password';
 
 
 〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓
+```

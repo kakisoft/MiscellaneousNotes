@@ -22,3 +22,15 @@ pager less -S
 
 select * from table_name\G
 ```
+
+## 外部ファイルを実行
+```
+（未接続状態から実行）
+mysql -u root -p  < create_myqpp01.sql
+
+（接続状態から実行１）
+ \. ./create_myqpp01.sql
+
+（接続状態から実行２）
+source create_myqpp01.sql
+```
