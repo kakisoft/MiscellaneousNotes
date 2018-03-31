@@ -1,4 +1,7 @@
 【CentOS release 6.6 (Final)】
+## EPEL
+sudo yum -y install epel
+
 ## webサーバ系ツールのインストール
 sudo yum -y install httpd
 
