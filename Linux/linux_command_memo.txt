@@ -154,3 +154,6 @@ tty
 curl -X POST http://kakiaaa.herokuapp.com/challenge_users -d name=tanaka -d email=tanaka@gmail.com
 ______________________________________________________________
 
+## cd
+cd     ホームディレクトリに戻る
+cd -  １つ前に戻る
