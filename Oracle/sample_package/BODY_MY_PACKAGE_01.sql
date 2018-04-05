@@ -220,15 +220,16 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
       union all SELECT 'value02' as column01 FROM dual
     ;
 
-    -----< 件数チェック >-----
-    DBMS_OUTPUT.PUT_LINE(OUT_LIST%ROWCOUNT);
-
     -----< フェッチ >-----
     LOOP
       FETCH OUT_LIST INTO f_column01;
       EXIT WHEN OUT_LIST%NOTFOUND;
       DBMS_OUTPUT.PUT_LINE('f_column01:' || f_column01);
     END LOOP;
+
+    -----< 件数チェック ※フェッチしないと件数が取れないというゴミ仕様 >-----
+    DBMS_OUTPUT.PUT_LINE(OUT_LIST%ROWCOUNT);
+
 
   END MY_PROCEDURE_03;
 
