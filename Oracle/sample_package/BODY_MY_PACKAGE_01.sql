@@ -127,7 +127,6 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
                              ) IS
     CURSORSQL  varchar2(32767);
     EXECUTESQL varchar2(32767);
-    IN_PARAM2_SEARCH_FORMAT VARCHAR2(1000);
 
     --//////////////
     -- カーソル定義１
@@ -179,7 +178,6 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     CURSORSQL := CURSORSQL || '      union all select 4 as COLNAME3, ''4-1'' as COLNAME4 from dual  ' || NLC;
     CURSORSQL := CURSORSQL || '    )                                                                ' || NLC;
     --CURSORSQL := CURSORSQL || '          AND SUBSTR(col1,1,1) in (' || '''ア''' ||  ')            ' || NLC;
-    --IN_PARAM2_SEARCH_FORMAT := CHR(39) || '%' || UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE(to_char(IN_PARAM2))),'kana_fwkatakana') || '%' ||  CHR(39);
 
     OPEN cur_sample02 FOR CURSORSQL;
     LOOP
@@ -232,7 +230,37 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
       DBMS_OUTPUT.PUT_LINE('f_column01:' || f_column01);
     END LOOP;
 
-
   END MY_PROCEDURE_03;
+
+  --===================================
+  --
+  --          MY_PROCEDURE_04
+  --
+  --===================================
+  PROCEDURE MY_PROCEDURE_04 (
+                               IN_PARAM1 IN NUMBER
+                              ,OUT_RETURN_CD OUT NUMBER
+                             ) IS
+    vNum    NUMBER(2);
+  BEGIN
+
+    null;
+    
+    BEGIN
+
+      -- IN_PARAM1 に 0を入れると、ZERO DIVIDE EXCEPTION が発生
+      vNum := 1 / IN_PARAM1;
+    EXCEPTION
+      WHEN OTHERS THEN
+        OUT_RETURN_CD := -1;
+        DBMS_OUTPUT.PUT_LINE('Exception occured. ');
+    END;
+    
+  EXCEPTION
+    WHEN OTHERS THEN
+      RAISE;
+
+  END MY_PROCEDURE_04;
+
 
 END MY_PACKAGE_01;
