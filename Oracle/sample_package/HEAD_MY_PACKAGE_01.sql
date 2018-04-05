@@ -51,4 +51,15 @@ create or replace PACKAGE MY_PACKAGE_01 IS
                               ,NUMBER_OF_RESULT OUT NUMBER
                             );
 
+  --===================================
+  --
+  --          MY_PROCEDURE_06
+  --
+  --===================================
+  PROCEDURE MY_PROCEDURE_06 (
+                               IN_PARAM1         IN NUMBER
+                              ,UPDATE_PLAN_COUNT IN NUMBER
+                              ,NUMBER_OF_RESULT OUT NUMBER
+                            );
+
 END MY_PACKAGE_01;
