@@ -227,7 +227,7 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
       DBMS_OUTPUT.PUT_LINE('f_column01:' || f_column01);
     END LOOP;
 
-    -----< 件数チェック ※フェッチしないと件数が取れないというゴミ仕様 >-----
+    -----< 件数チェック  >-----　　※フェッチしないと件数が取れないというゴミ仕様
     DBMS_OUTPUT.PUT_LINE(OUT_LIST%ROWCOUNT);
 
 
@@ -289,5 +289,46 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     DBMS_OUTPUT.PUT_LINE(NUMBER_OF_RESULT);
 
   END MY_PROCEDURE_05;
+
+  --===================================
+  --
+  --          MY_PROCEDURE_06
+  --
+  --===================================
+  PROCEDURE MY_PROCEDURE_06 (
+                               IN_PARAM1         IN NUMBER
+                              ,UPDATE_PLAN_COUNT IN NUMBER
+                              ,NUMBER_OF_RESULT OUT NUMBER
+                             ) IS
+  BEGIN
+
+  SET TRANSACTION NAME 'MY_PROCEDURE_06'; 
+
+    -----< 何らかの処理 >-----
+    update  TABLE1 
+       set  COLUMN1 = 'updated2'
+     where  1=1
+       and  ID = nvl(IN_PARAM1,ID)
+    ;
+    -----< 処理結果が、更新予定件数と同一ならコミット >-----
+    If SQL%ROWCOUNT = UPDATE_PLAN_COUNT THEN
+      NUMBER_OF_RESULT := SQL%ROWCOUNT;
+      DBMS_OUTPUT.PUT_LINE('コミットしました。');
+      COMMIT;
+    ELSE
+      NUMBER_OF_RESULT := 0;
+      DBMS_OUTPUT.PUT_LINE('ロールバックしました。');
+      ROLLBACK;
+    END IF;
+    
+    DBMS_OUTPUT.PUT_LINE(NUMBER_OF_RESULT);
+    
+  EXCEPTION
+    WHEN OTHERS THEN
+      NUMBER_OF_RESULT := 0;
+      ROLLBACK;
+      RAISE;
+
+  END MY_PROCEDURE_06;
 
 END MY_PACKAGE_01;
