@@ -263,5 +263,31 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
 
   END MY_PROCEDURE_04;
 
+  --===================================
+  --
+  --          MY_PROCEDURE_05
+  --
+  --===================================
+  PROCEDURE MY_PROCEDURE_05 (
+                               IN_PARAM1 IN NUMBER
+                              ,NUMBER_OF_RESULT OUT NUMBER
+                             ) IS
+    vNum    NUMBER(2);
+  BEGIN
+
+    -----< 何らかの処理 >-----
+    update  TABLE1 
+       set  COLUMN1 = 'updated'
+     where  1=1
+       and  ID = nvl(IN_PARAM1,ID)
+    ;
+
+    -----< 処理結果の件数を確認 >-----
+    NUMBER_OF_RESULT := SQL%ROWCOUNT;
+    
+    
+    DBMS_OUTPUT.PUT_LINE(NUMBER_OF_RESULT);
+
+  END MY_PROCEDURE_05;
 
 END MY_PACKAGE_01;
