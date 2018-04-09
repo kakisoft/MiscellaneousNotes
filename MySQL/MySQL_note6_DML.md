@@ -10,3 +10,11 @@ insert into users (id, name, score) values
 ;
 ```
 
+## like
+```
+select * from users where name like 'K%'
+小文字の「k」も検索対象となる。
+
+区別する場合は、binary句を使用する。
+select * from users where name like binary 'K%';
+```
