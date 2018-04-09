@@ -127,7 +127,6 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
                              ) IS
     CURSORSQL  varchar2(32767);
     EXECUTESQL varchar2(32767);
-    IN_PARAM2_SEARCH_FORMAT VARCHAR2(1000);
 
     --//////////////
     -- カーソル定義１
@@ -179,7 +178,6 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     CURSORSQL := CURSORSQL || '      union all select 4 as COLNAME3, ''4-1'' as COLNAME4 from dual  ' || NLC;
     CURSORSQL := CURSORSQL || '    )                                                                ' || NLC;
     --CURSORSQL := CURSORSQL || '          AND SUBSTR(col1,1,1) in (' || '''ア''' ||  ')            ' || NLC;
-    --IN_PARAM2_SEARCH_FORMAT := CHR(39) || '%' || UTL_I18N.TRANSLITERATE(UPPER(TO_MULTI_BYTE(to_char(IN_PARAM2))),'kana_fwkatakana') || '%' ||  CHR(39);
 
     OPEN cur_sample02 FOR CURSORSQL;
     LOOP
@@ -222,9 +220,6 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
       union all SELECT 'value02' as column01 FROM dual
     ;
 
-    -----< 件数チェック >-----
-    DBMS_OUTPUT.PUT_LINE(OUT_LIST%ROWCOUNT);
-
     -----< フェッチ >-----
     LOOP
       FETCH OUT_LIST INTO f_column01;
@@ -232,7 +227,108 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
       DBMS_OUTPUT.PUT_LINE('f_column01:' || f_column01);
     END LOOP;
 
+    -----< 件数チェック  >-----　　※フェッチしないと件数が取れないというゴミ仕様
+    DBMS_OUTPUT.PUT_LINE(OUT_LIST%ROWCOUNT);
+
 
   END MY_PROCEDURE_03;
+
+  --===================================
+  --
+  --          MY_PROCEDURE_04
+  --
+  --===================================
+  PROCEDURE MY_PROCEDURE_04 (
+                               IN_PARAM1 IN NUMBER
+                              ,OUT_RETURN_CD OUT NUMBER
+                             ) IS
+    vNum    NUMBER(2);
+  BEGIN
+
+    null;
+    
+    BEGIN
+
+      -- IN_PARAM1 に 0を入れると、ZERO DIVIDE EXCEPTION が発生
+      vNum := 1 / IN_PARAM1;
+    EXCEPTION
+      WHEN OTHERS THEN
+        OUT_RETURN_CD := -1;
+        DBMS_OUTPUT.PUT_LINE('Exception occured. ');
+    END;
+    
+  EXCEPTION
+    WHEN OTHERS THEN
+      RAISE;
+
+  END MY_PROCEDURE_04;
+
+  --===================================
+  --
+  --          MY_PROCEDURE_05
+  --
+  --===================================
+  PROCEDURE MY_PROCEDURE_05 (
+                               IN_PARAM1 IN NUMBER
+                              ,NUMBER_OF_RESULT OUT NUMBER
+                             ) IS
+    vNum    NUMBER(2);
+  BEGIN
+
+    -----< 何らかの処理 >-----
+    update  TABLE1 
+       set  COLUMN1 = 'updated'
+     where  1=1
+       and  ID = nvl(IN_PARAM1,ID)
+    ;
+
+    -----< 処理結果の件数を確認 >-----
+    NUMBER_OF_RESULT := SQL%ROWCOUNT;
+    
+    
+    DBMS_OUTPUT.PUT_LINE(NUMBER_OF_RESULT);
+
+  END MY_PROCEDURE_05;
+
+  --===================================
+  --
+  --          MY_PROCEDURE_06
+  --
+  --===================================
+  PROCEDURE MY_PROCEDURE_06 (
+                               IN_PARAM1         IN NUMBER
+                              ,UPDATE_PLAN_COUNT IN NUMBER
+                              ,NUMBER_OF_RESULT OUT NUMBER
+                             ) IS
+  BEGIN
+
+  SET TRANSACTION NAME 'MY_PROCEDURE_06'; 
+
+    -----< 何らかの処理 >-----
+    update  TABLE1 
+       set  COLUMN1 = 'updated2'
+     where  1=1
+       and  ID = nvl(IN_PARAM1,ID)
+    ;
+    -----< 処理結果が、更新予定件数と同一ならコミット >-----
+    If SQL%ROWCOUNT = UPDATE_PLAN_COUNT THEN
+      NUMBER_OF_RESULT := SQL%ROWCOUNT;
+      DBMS_OUTPUT.PUT_LINE('コミットしました。');
+      COMMIT;
+    ELSE
+      NUMBER_OF_RESULT := 0;
+      DBMS_OUTPUT.PUT_LINE('ロールバックしました。');
+      ROLLBACK;
+    END IF;
+    
+    DBMS_OUTPUT.PUT_LINE(NUMBER_OF_RESULT);
+    
+  EXCEPTION
+    WHEN OTHERS THEN
+      NUMBER_OF_RESULT := 0;
+      ROLLBACK;
+      RAISE;
+
+  END MY_PROCEDURE_06;
 
 END MY_PACKAGE_01;
