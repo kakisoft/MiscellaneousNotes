@@ -18,3 +18,15 @@ select * from users where name like 'K%'
 区別する場合は、binary句を使用する。
 select * from users where name like binary 'K%';
 ```
+
+## limit
+```
+select * from users limit 3;
+
+（最初の３件を除外して、次の３件を表示）
+select * from users limit 3 offset 3;
+
+（上位３件）
+select * from users order by score desc limit 3;
+```
+
