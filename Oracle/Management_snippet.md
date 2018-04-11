@@ -70,6 +70,15 @@ lsnrctl stop <リスナー名>
 lsnrctl start <リスナー名>
 ```
 
+## DB名とスキーマ名を取得
+```
+select
+     SYS_CONTEXT('USERENV', 'DB_NAME') as DB_NAME      -- DB名
+    ,USER                              as SCHEMA_NAME  -- スキーマ名
+from
+    dual
+```
+
 ## DBの文字コードをチェック
 ```
 select 
@@ -112,3 +121,5 @@ order by
     USER_TAB_COLUMNS.TABLE_NAME
    ,USER_TAB_COLUMNS.COLUMN_ID
 ```
+
+
