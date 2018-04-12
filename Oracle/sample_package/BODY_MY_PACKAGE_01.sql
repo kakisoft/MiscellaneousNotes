@@ -254,6 +254,8 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     EXCEPTION
       WHEN OTHERS THEN
         OUT_RETURN_CD := -1;
+        DBMS_OUTPUT.PUT_LINE('エラーコード:'||SQLCODE);
+        DBMS_OUTPUT.PUT_LINE('エラーメッセージ:'||SQLERRM);
         DBMS_OUTPUT.PUT_LINE('Exception occured. ');
     END;
     
@@ -339,7 +341,7 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
   PROCEDURE MY_PROCEDURE_07 (
                                IN_PARAM1_LIST IN NUM_TYPE_LIST
                               ,IN_PARAM2_LIST IN CHAR_TYPE_LIST
-                             ) IS
+                            ) IS
 
     privateNumberList  NUM_TYPE_LIST;
     
