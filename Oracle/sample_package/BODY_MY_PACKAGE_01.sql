@@ -331,4 +331,34 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
 
   END MY_PROCEDURE_06;
 
+  --===================================
+  --
+  --          MY_PROCEDURE_07
+  --
+  --===================================
+  PROCEDURE MY_PROCEDURE_07 (
+                               IN_PARAM1_LIST IN NUM_TYPE
+                              ,IN_PARAM2_LIST IN CHAR_TYPE
+                             ) IS
+--    CURSORSQL  varchar2(32767);
+    --EXECUTESQL varchar2(32767);
+    privateNumberList  NUM_TYPE;
+    privateCharList    CHAR_TYPE;
+  BEGIN
+
+    privateNumberList(0) := 1;
+    privateNumberList(1) := 22;
+    privateNumberList(2) := 333;
+    
+    -- 配列の要素数分ループする
+    for i in 0..privateNumberList.count -1 loop
+      DBMS_OUTPUT.PUT_LINE('i:' || privateNumberList(i) );
+      --null;
+    end loop;
+    
+    
+    DBMS_OUTPUT.PUT_LINE(IN_PARAM1_LIST.COUNT);
+
+  END MY_PROCEDURE_07;
+
 END MY_PACKAGE_01;
