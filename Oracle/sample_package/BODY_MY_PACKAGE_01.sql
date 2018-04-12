@@ -337,13 +337,15 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
   --
   --===================================
   PROCEDURE MY_PROCEDURE_07 (
-                               IN_PARAM1_LIST IN NUM_TYPE
-                              ,IN_PARAM2_LIST IN CHAR_TYPE
+                               IN_PARAM1_LIST IN NUM_TYPE_LIST
+                              ,IN_PARAM2_LIST IN CHAR_TYPE_LIST
                              ) IS
---    CURSORSQL  varchar2(32767);
-    --EXECUTESQL varchar2(32767);
-    privateNumberList  NUM_TYPE;
-    privateCharList    CHAR_TYPE;
+
+    privateNumberList  NUM_TYPE_LIST;
+    
+    type CHAR_TYPE_LIST_LOCAL is table of varchar2(3);
+    privateCharList CHAR_TYPE_LIST_LOCAL := CHAR_TYPE_LIST_LOCAL('S1','S2','S3'); --※indexは 1から開始！
+
   BEGIN
 
     privateNumberList(0) := 1;
@@ -353,9 +355,16 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     -- 配列の要素数分ループする
     for i in 0..privateNumberList.count -1 loop
       DBMS_OUTPUT.PUT_LINE('i:' || privateNumberList(i) );
-      --null;
     end loop;
     
+
+    -- 配列の要素数分ループする（初期化と同時に値を挿入した配列）
+    for i in 1..privateCharList.count loop
+      DBMS_OUTPUT.PUT_LINE('i:' || privateCharList(i) );
+    end loop;
+
+
+    DBMS_OUTPUT.PUT_LINE(privateCharList.COUNT);
     
     DBMS_OUTPUT.PUT_LINE(IN_PARAM1_LIST.COUNT);
 
