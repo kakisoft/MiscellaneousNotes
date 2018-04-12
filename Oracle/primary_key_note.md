@@ -18,7 +18,7 @@ order by 1,2,3
 
 
 ### USER_CONSTRAINTS
-CONSTRAINT_NAME（制約名）はあるが、カラム名が無い。
+CONSTRAINT_NAME（制約名）はあるが、カラム名が無い。      
 CONSTRAINT_TYPE = 'P'  が主キー。
 
 その他のCONSTRAINT_TYPEで表示される制約定義の種類。
