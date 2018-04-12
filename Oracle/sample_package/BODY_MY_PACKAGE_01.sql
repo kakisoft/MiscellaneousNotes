@@ -363,11 +363,32 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
       DBMS_OUTPUT.PUT_LINE('i:' || privateCharList(i) );
     end loop;
 
-
     DBMS_OUTPUT.PUT_LINE(privateCharList.COUNT);
     
     DBMS_OUTPUT.PUT_LINE(IN_PARAM1_LIST.COUNT);
 
   END MY_PROCEDURE_07;
+
+  --===================================
+  --
+  --       MY_PROCEDURE_07_debug
+  --
+  --===================================
+  PROCEDURE MY_PROCEDURE_07_debug IS
+    argNumberList  NUM_TYPE_LIST;
+    argCharList    CHAR_TYPE_LIST;
+
+  BEGIN
+
+    argNumberList(0) := 1;
+    argNumberList(1) := 22;
+    argNumberList(2) := 333;
+    argNumberList(3) := 4444;
+    argNumberList(4) := 55555;
+
+    MY_PACKAGE_01.MY_PROCEDURE_07(argNumberList, argCharList);
+    
+  END MY_PROCEDURE_07_debug;
+
 
 END MY_PACKAGE_01;
