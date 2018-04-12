@@ -41,3 +41,6 @@ https://blogs.oracle.com/oracle4engineer/oracle-database-v24
 現行のユーザーが所有していて、制約定義に指定されている列を示す。
 
 
+### USER_TAB_COLUMNS
+現行のユーザーが所有する表
+
