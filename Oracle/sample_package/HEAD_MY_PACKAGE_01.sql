@@ -67,10 +67,10 @@ create or replace PACKAGE MY_PACKAGE_01 IS
   --          MY_PROCEDURE_07
   --
   --===================================
-  type NUM_TYPE is table of number index by binary_integer;
-  type CHAR_TYPE is table of VARCHAR2(20) index by binary_integer;
+  type NUM_TYPE_LIST  is table of number index by binary_integer;
+  type CHAR_TYPE_LIST is table of VARCHAR2(20) index by binary_integer;
   PROCEDURE MY_PROCEDURE_07 (
-                               IN_PARAM1_LIST IN NUM_TYPE
-                              ,IN_PARAM2_LIST IN CHAR_TYPE
+                               IN_PARAM1_LIST IN NUM_TYPE_LIST
+                              ,IN_PARAM2_LIST IN CHAR_TYPE_LIST
                             );
 END MY_PACKAGE_01;
