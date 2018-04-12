@@ -73,4 +73,13 @@ create or replace PACKAGE MY_PACKAGE_01 IS
                                IN_PARAM1_LIST IN NUM_TYPE_LIST
                               ,IN_PARAM2_LIST IN CHAR_TYPE_LIST
                             );
+
+
+  --===================================
+  --
+  --       MY_PROCEDURE_07_debug
+  --
+  --===================================
+  PROCEDURE MY_PROCEDURE_07_debug;
+
 END MY_PACKAGE_01;
