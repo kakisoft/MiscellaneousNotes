@@ -9,9 +9,9 @@ from
 
 
 ## 削除
-PURGE RECYCLEBIN
+purge recyclebin
 
 
 ## リサイクルビンを残さずにテーブルを削除
-DROP TABLE XXX PUERGE;
+drop table XXX purge;
 
