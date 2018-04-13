@@ -17,6 +17,7 @@ IN_PARAM2_LIST(i) := '11';
 i := i + 1;
 IN_PARAM1_LIST(i) := 2;
 IN_PARAM2_LIST(i) := '22';
+--select (max(POSITION_CODE) + 0) into IN_PARAM2_LIST(i)  from  USERS;  --外部キー制約あり
 
   MY_PACKAGE_01.MY_PROCEDURE_07(
     IN_PARAM1_LIST => IN_PARAM1_LIST,
