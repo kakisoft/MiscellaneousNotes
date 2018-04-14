@@ -3,4 +3,45 @@ http://www.wind.sannet.ne.jp/m_matsu/developer/a5m2/
 
 EQ図作ったり、定義書作ったり。
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+
+
+〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓
+
+trim
+SET KANRI_CODE = KUIKI_CODE + substring(cast(KANRI_CODE as text), 4, 14)  
+
+-----------------------------------
+
+LPAD(TO_CHAR(WRK_JYUUSYO_LOOP),3,'0');
+ssma_oracle.lpad_varchar(CAST(@WRK_JYUUSYO_LOOP$2 AS varchar(max)), 3, '0')
+format(@WRK_JYUUSYO_LOOP$2, 'D3')
+
+
+ISNULL(ssma_oracle.to_char_date(@WRK_SERVICE_END_DATE, 'MMDD'), '')
+ISNULL(format(@WRK_SERVICE_END_DATE, 'MMDD'), '')
+
+
+
+ssma_oracle.last_day
+eomonth
+
+
+ssma_oracle.trunc_date2(@INPUT_REC$SERVICE_START_DATE, 'mm')
+convert(datetime, left(convert(varchar, dateadd(month, 0, @INPUT_REC$SERVICE_START_DATE), 112), 6) + '01')
+
+
+
+TRUNC(INPUT_REC.SERVICE_START_DATE,'mm');
+ssma_oracle.trunc_date2(@INPUT_REC$SERVICE_START_DATE, 'mm')
+convert(datetime, left(convert(varchar, dateadd(month, 0, @INPUT_REC$SERVICE_START_DATE), 112), 6) + '01')
+
+
+DECODE(TRIM(CODE_KEY),'001',' ' ,NAME_1)
+
+
+WRK_MAEUKE_MEMO  := SUBSTRB(WRK_MAEUKE_MEMO || '　' ||INPUT_REC.MAEUKE_MEMO,1,100)   ;
+
 
