@@ -30,3 +30,27 @@ select * from users limit 3 offset 3;
 select * from users order by score desc limit 3;
 ```
 
+## 組み込み関数
+```
+select
+ round(5.355)    -- 5
+,round(5.355, 1) -- 5.4
+,floor(5.833)    -- 5（切り捨て）
+,ceil(5.238)     -- 6（切り上げ）
+,rand();         -- 0以上1未満のランダムな値
+```
+
+## ランダムな値を抽出
+```
+select * from users order by rand() limit 1;
+```
+
+## 文字列の演算
+select
+ length('Hello')         -- 5
+,substr('Hello', 2)      -- ello
+,substr('Hello', 2, 3)   -- ell
+,upper('Hello')          -- HELLO
+,lower('Hello')          -- hello
+,concat('Hello','World') -- HelloWorld
+;
