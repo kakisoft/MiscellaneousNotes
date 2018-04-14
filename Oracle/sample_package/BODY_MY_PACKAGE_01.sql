@@ -254,6 +254,8 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
     EXCEPTION
       WHEN OTHERS THEN
         OUT_RETURN_CD := -1;
+        DBMS_OUTPUT.PUT_LINE('エラーコード:'||SQLCODE);
+        DBMS_OUTPUT.PUT_LINE('エラーメッセージ:'||SQLERRM);
         DBMS_OUTPUT.PUT_LINE('Exception occured. ');
     END;
     
@@ -330,5 +332,65 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
       RAISE;
 
   END MY_PROCEDURE_06;
+
+  --===================================
+  --
+  --          MY_PROCEDURE_07
+  --
+  --===================================
+  PROCEDURE MY_PROCEDURE_07 (
+                               IN_PARAM1_LIST IN NUM_TYPE_LIST
+                              ,IN_PARAM2_LIST IN CHAR_TYPE_LIST
+                            ) IS
+
+    privateNumberList  NUM_TYPE_LIST;
+    
+    type CHAR_TYPE_LIST_LOCAL is table of varchar2(3);
+    privateCharList CHAR_TYPE_LIST_LOCAL := CHAR_TYPE_LIST_LOCAL('S1','S2','S3'); --※indexは 1から開始！
+
+  BEGIN
+
+    privateNumberList(0) := 1;
+    privateNumberList(1) := 22;
+    privateNumberList(2) := 333;
+    
+    -- 配列の要素数分ループする
+    for i in 0..privateNumberList.count -1 loop
+      DBMS_OUTPUT.PUT_LINE('i:' || privateNumberList(i) );
+    end loop;
+    
+
+    -- 配列の要素数分ループする（初期化と同時に値を挿入した配列）
+    for i in 1..privateCharList.count loop
+      DBMS_OUTPUT.PUT_LINE('i:' || privateCharList(i) );
+    end loop;
+
+    DBMS_OUTPUT.PUT_LINE(privateCharList.COUNT);
+    
+    DBMS_OUTPUT.PUT_LINE(IN_PARAM1_LIST.COUNT);
+
+  END MY_PROCEDURE_07;
+
+  --===================================
+  --
+  --       MY_PROCEDURE_07_debug
+  --
+  --===================================
+  PROCEDURE MY_PROCEDURE_07_debug IS
+    argNumberList  NUM_TYPE_LIST;
+    argCharList    CHAR_TYPE_LIST;
+
+  BEGIN
+
+    argNumberList(0) := 1;
+    argNumberList(1) := 22;
+    argNumberList(2) := 333;
+    argNumberList(3) := 4444;
+    argNumberList(4) := 55555;
+
+    MY_PACKAGE_01.MY_PROCEDURE_07(argNumberList, argCharList);
+    
+  END MY_PROCEDURE_07_debug;
+
 
 END MY_PACKAGE_01;

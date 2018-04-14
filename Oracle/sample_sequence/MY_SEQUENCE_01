@@ -30,3 +30,6 @@ select
 from 
     dual
 ```
+
+## デフォルトをシーケンスに設定
+https://github.com/kakisoft/MiscellaneousNotes/blob/master/Oracle/sample_create_table/12/04_2_create_table02.sql

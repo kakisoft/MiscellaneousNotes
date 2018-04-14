@@ -12,6 +12,17 @@ TimeToCountDown
 elapsedTime ： 経過時間
 timeLeft：残り時間
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                       ShowDialogWithLoadingMessage
+処理中ダイアログ終了    CloseProccssingDialog
+処理中ダイアログ表示    ShowProccssingDialog
+
+
+GetIniFile
+GetPrivateProfileString
+SetPrivateProfileString
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 検索条件：SearchExpression
 
 ## 「検索条件」
