@@ -14,6 +14,10 @@ BEGIN
 
 ROLLBACK;
 
+delete from TABLE2;
+delete from TABLE1;
+commit;
+
 i := i + 1;
 IN_NUM_LIST_PARAM_1(i)       := 1;
 IN_CHAR_LIST_PARAM_1(i)      := '11';
