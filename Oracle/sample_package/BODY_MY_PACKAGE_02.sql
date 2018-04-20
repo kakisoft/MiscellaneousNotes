@@ -26,7 +26,7 @@ create or replace PACKAGE BODY MY_PACKAGE_02 IS
     --トランザクション開始
     SET TRANSACTION NAME 'TRANSACTION_MY_PROCEDURE_02_1'; 
 
-    --窓口購入情報を登録
+    --ヘッダ情報を登録
     INSERT INTO TABLE1
       ( 
          ID
@@ -38,7 +38,7 @@ create or replace PACKAGE BODY MY_PACKAGE_02 IS
         ,IN_CHAR_LIST_PARAM_1(headerIndex)
       );
 
-    --窓口購入座席を登録　　※MADO_ORDER_ZASEKI_CODE は、テーブル定義にてデフォルト値を「SQ_MADO_ORDER_ZASEKI.NEXTVAL」とする事で対応しています。
+    --明細情報を登録（バルクinsert）
     forall i in headerIndex..IN_NUM_LIST_PARAM_1.count
       INSERT INTO TABLE2
         ( 
@@ -53,6 +53,18 @@ create or replace PACKAGE BODY MY_PACKAGE_02 IS
           --,IN_TIMESTAMP_LIST_PARAM_1(i)
           ,null
         );
+
+    --更新（まとめてupdate）
+    forall i in headerIndex..IN_NUM_LIST_PARAM_1.count
+      update  TABLE2
+         set  COLUMN2 = IN_NUM_LIST_PARAM_1(i)
+             ,COLUMN3 = IN_CHAR_LIST_PARAM_1(i) 
+       where  1=1
+         and  COLUMN1 = IN_CHAR_LIST_PARAM_1(i)
+         and  COLUMN4 is null
+       ;
+  
+
 
     COMMIT;
 
