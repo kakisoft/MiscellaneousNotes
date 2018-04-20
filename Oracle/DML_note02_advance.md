@@ -1,3 +1,25 @@
+## まとめて insert
+
+カラム指定
+```
+insert all
+into TABLE1 (ID, COLUMN1, COLUMN2) values (101, 1101, '22201')
+into TABLE1 (ID, COLUMN1, COLUMN2) values (102, 1102, '22202')
+into TABLE1 (ID, COLUMN1, COLUMN2) values (103, 1103, '22203')
+select * from dual; --(select insert の体に見せかけるため、select句は必須)
+--commit;
+```
+
+カラム省略
+```
+insert all
+into TABLE1 values (201, 2201, '33301', null, null, null)
+into TABLE1 values (202, 2202, '33302', null, null, null)
+into TABLE1 values (203, 2203, '33303', null, null, null)
+select * from dual;
+```
+
+
 ## 大文字/小文字　半角/全角　ひらがな/カタカナ
 ```sql
 select
