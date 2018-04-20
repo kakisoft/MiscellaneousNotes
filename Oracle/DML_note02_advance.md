@@ -1,7 +1,7 @@
 ## まとめて insert
 
 カラム指定
-```
+```sql
 insert all
 into TABLE1 (ID, COLUMN1, COLUMN2) values (101, 1101, '22201')
 into TABLE1 (ID, COLUMN1, COLUMN2) values (102, 1102, '22202')
@@ -11,7 +11,7 @@ select * from dual; --(select insert の体に見せかけるため、select句�
 ```
 
 カラム省略
-```
+```sql
 insert all
 into TABLE1 values (201, 2201, '33301', null, null, null)
 into TABLE1 values (202, 2202, '33302', null, null, null)
