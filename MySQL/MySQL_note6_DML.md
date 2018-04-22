@@ -3,12 +3,13 @@
 insert into users (id, name, score) values (1, 'kaki'  , 5.8 );
 
 
-insert into users (id, name, score) values 
-    (2, 'ogawa' , 8.2 )
-   ,(3, 'yamato', 6.1 )
-   ,(4, 'fukui' , null)
+insert into users (id, name, score, rank) values 
+    (2, 'ogawa' , 8.2, 'gold'  )
+   ,(3, 'yamato', 6.1, 'silver')
+   ,(4, 'fukui' , 1.0,  3 )
 ;
 ```
+enumへの insertは数値でも可。（1～　開始する）
 
 ## like
 ```
