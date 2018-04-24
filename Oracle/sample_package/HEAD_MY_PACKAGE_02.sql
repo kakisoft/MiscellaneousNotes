@@ -18,4 +18,12 @@ create or replace PACKAGE MY_PACKAGE_02 IS
     ,OUT_SQLCODE                OUT NUMBER
   );
 
+  --//////////////////////
+  --         参照
+  --//////////////////////
+  PROCEDURE MY_PROCEDURE_02_2 (
+     IN_NUM_LIST_PARAM_1        IN  TYPE_NUM_LIST
+    ,OUT_RETURN_CODE            OUT NUMBER
+  );
+
 END MY_PACKAGE_02;
