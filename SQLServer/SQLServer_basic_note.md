@@ -97,7 +97,10 @@ SET @string1 = N'UniCodeの文字列'
 SET @string2 = '非UniCodeの文字列'
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
---＜with副問い合わせ＞
+```
+
+## ＜with副問い合わせ＞
+```sql
 
 with alias1 as (
                   select
@@ -117,9 +120,10 @@ from
     alias1
     left join alias2 on alias1.code_a = alias2.code_a
 where  1=1
+```
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
---＜結合前にテーブルのレコードを絞る＞
+## ＜結合前にテーブルのレコードを絞る＞
+```sql
 from
    table1   
    left join table2 on table1.code_A  = table2.code_A
@@ -130,8 +134,6 @@ from
 -- Oracleの
 --    table2.colomn1(+) = '0000'
 -- に相当。
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 
