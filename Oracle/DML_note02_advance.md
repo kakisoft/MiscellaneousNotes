@@ -195,7 +195,7 @@ when not MATCHED then
 ```
 
 ## case の null判定
-```
+```sql
 select
   -- nvarchar2 は、caseでの空文字比較がちゃんとできない？
   case n''
