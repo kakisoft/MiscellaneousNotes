@@ -1,8 +1,8 @@
 create or replace PACKAGE BODY MY_PACKAGE_02 IS
 
-  --//////////////////////
-  --         登録
-  --//////////////////////
+  --/////////////////////////////
+  --             登録
+  --/////////////////////////////
   PROCEDURE MY_PROCEDURE_02_1 (
      IN_NUM_LIST_PARAM_1        IN  TYPE_NUM_LIST
     ,IN_CHAR_LIST_PARAM_1       IN  TYPE_CHAR_LIST
@@ -77,9 +77,9 @@ create or replace PACKAGE BODY MY_PACKAGE_02 IS
 
   END MY_PROCEDURE_02_1;
 
-  --//////////////////////
-  --         登録
-  --//////////////////////
+  --/////////////////////////////
+  --             参照
+  --/////////////////////////////
   PROCEDURE MY_PROCEDURE_02_2 (
      IN_NUM_LIST_PARAM_1        IN  TYPE_NUM_LIST
     ,OUT_RETURN_CODE            OUT NUMBER
@@ -126,5 +126,69 @@ create or replace PACKAGE BODY MY_PACKAGE_02 IS
       ROLLBACK;
 
   END MY_PROCEDURE_02_2;
+
+  --/////////////////////////////
+  --  配列をデータをINに渡して参照
+  --/////////////////////////////
+  PROCEDURE MY_PROCEDURE_02_3 (
+     IN_NUM_LIST_PARAM_1        IN  TYPE_NUM_LIST
+    ,OUT_RETURN_CODE            OUT NUMBER
+  ) IS
+
+      f_column01 NUMBER;
+      OUT_LIST    SYS_REFCURSOR;
+
+  BEGIN
+
+    open OUT_LIST for 
+      SELECT * FROM TABLE(IN_NUM_LIST_PARAM_1)
+    ;
+
+
+    -----< フェッチ >-----
+    LOOP
+      FETCH OUT_LIST INTO f_column01;
+      EXIT WHEN OUT_LIST%NOTFOUND;
+      DBMS_OUTPUT.PUT_LINE('f_column01:' || f_column01);
+    END LOOP;
+
+   -----< 件数チェック  >-----　　※フェッチしないと件数が取れないというゴミ仕様
+    DBMS_OUTPUT.PUT_LINE(OUT_LIST%ROWCOUNT);
+
+
+  EXCEPTION
+    WHEN OTHERS THEN
+      --DBMS_OUTPUT.PUT_LINE(SQLERRM);
+      OUT_RETURN_CODE := -1;
+      ROLLBACK;
+
+  END MY_PROCEDURE_02_3;
+
+  --/////////////////////////////
+  --  配列をデータをINに渡して参照
+  --/////////////////////////////
+  PROCEDURE MY_PROCEDURE_02_4 (
+     IN_NUM_LIST      IN  TYPE_NUM_LIST
+    ,OUT_LIST         OUT SYS_REFCURSOR     
+    ,OUT_RETURN_CODE  OUT NUMBER
+  ) IS
+
+  BEGIN
+
+    open OUT_LIST for 
+      select
+          *
+      from
+          TABLE1
+      where  1=1
+        and  ID in (SELECT * FROM TABLE(IN_NUM_LIST) )
+    ;
+
+  EXCEPTION
+    WHEN OTHERS THEN
+      OUT_RETURN_CODE := -1;
+      ROLLBACK;
+
+  END MY_PROCEDURE_02_4;
 
 END MY_PACKAGE_02;
