@@ -1,0 +1,39 @@
+create or replace FUNCTION MY_FUNCTION_DEBUG_FOR_MY_PACKAGE_02_4
+RETURN NUMBER IS
+  i number := 0;  --indexを1から開始させる
+
+  IN_NUM_LIST        KAKIP2.MY_PACKAGE_02.TYPE_NUM_LIST;
+  OUT_RETURN_CODE            NUMBER;
+  OUT_LIST SYS_REFCURSOR;
+  
+BEGIN
+
+ROLLBACK;
+
+i := i + 1;
+IN_NUM_LIST(i)       := 99;
+
+i := i + 1;
+IN_NUM_LIST(i)       := 98;
+
+i := i + 1;
+IN_NUM_LIST(i)       := 2;
+
+i := i + 1;
+IN_NUM_LIST(i)       := 1;
+
+
+  MY_PACKAGE_02.MY_PROCEDURE_02_4(
+    IN_NUM_LIST => IN_NUM_LIST,
+    OUT_LIST => OUT_LIST,
+    OUT_RETURN_CODE => OUT_RETURN_CODE
+  );
+
+  RETURN  SQLCODE;
+
+EXCEPTION
+    WHEN OTHERS THEN
+    --DBMS_OUTPUT.PUT_LINE('エラーコード:'||SQLCODE);
+    --DBMS_OUTPUT.PUT_LINE(SQLERRM);
+    RETURN SQLCODE;
+END;
