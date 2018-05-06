@@ -26,6 +26,7 @@ CREATE table if not exists posts(
   ,other  
 );
 ```
+real は小数を扱える。
 
 ## テーブル名変更
 alter table table01 rename to table02;
