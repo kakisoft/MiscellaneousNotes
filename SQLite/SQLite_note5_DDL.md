@@ -20,7 +20,7 @@ sqlite3 myapp01.db < external_command_file01.sql
 CREATE table if not exists posts(
    id     integer primary key
   ,title  text
-  ,body   text
+  ,body   text default 'no name'
   ,size   realINTEGER    
   ,image  blb  
   ,other  
