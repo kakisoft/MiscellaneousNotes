@@ -58,3 +58,14 @@ from
 |  改行(Linux)  |  CHR(10)              |        |
 
 
+## like検索：任意の文字を指定
+変数を指定可
+```sql
+select
+*
+from
+ TABLE1
+where  1=1
+  and  COLUMN2 like '%' || '検索文字' || '%'
+```
+

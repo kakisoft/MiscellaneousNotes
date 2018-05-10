@@ -20,12 +20,18 @@ sqlite3 myapp01.db < external_command_file01.sql
 CREATE table if not exists posts(
    id     integer primary key
   ,title  text
-  ,body   text
-  ,size   real
+  ,body   text default 'no name'
+  ,size   realINTEGER    
   ,image  blb  
   ,other  
 );
 ```
+ * real：小数を扱える
+ * INTEGER：符号付整数。1, 2, 3, 4, 6, or 8 バイトで格納
+ * TEXT：テキスト。UTF-8, UTF-16BE or UTF-16-LEのいずれかで格納
+ * BLOG：Binary Large OBject。入力データをそのまま格納
+ * NULL：NULL値
+
 
 ## テーブル名変更
 alter table table01 rename to table02;

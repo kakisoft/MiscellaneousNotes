@@ -9,3 +9,7 @@ weblioポップアップ英和辞典
 Lighthouse  ウェブサイトのパフォーマンスチェック
 
 イメージマジック
+
+
+## インターネット回線の速度テスト | Fast.com
+https://fast.com/ja/

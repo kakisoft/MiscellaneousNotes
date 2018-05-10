@@ -193,3 +193,42 @@ when not MATCHED then
      ,DUMMY.UPDATE_COLUMN2
    )
 ```
+
+## case の null判定
+```sql
+select
+  -- nvarchar2 は、caseでの空文字比較がちゃんとできない？
+  case n''
+    when n'' then n'1'  
+    else n'2'  
+  end as x1
+
+
+  -- ・・・と思ったら、nullがイケてなかった。
+ ,case null
+    when null then n'1'  
+    else n'2'  
+  end as x2
+
+  -- こんな感じで。
+  ,case
+     when '' is null then n'1'
+     else n'2'  
+   end x3
+
+  -- 通常の文字は当然OK
+ ,case '1'
+    when '1' then n'1'  
+    else n'2'  
+  end as x4
+
+from
+ dual
+```
+実行結果
+
+| X1 | X2 | X3 | X4 |
+|:--:|:--:|:--:|:--:|
+| 2  | 2  | 1  |  1 |
+
+

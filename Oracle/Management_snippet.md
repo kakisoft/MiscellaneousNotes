@@ -71,7 +71,7 @@ lsnrctl start <リスナー名>
 ```
 
 ## DB名とスキーマ名を取得
-```
+```sql
 select
      SYS_CONTEXT('USERENV', 'DB_NAME') as DB_NAME      -- DB名
     ,USER                              as SCHEMA_NAME  -- スキーマ名
@@ -80,7 +80,7 @@ from
 ```
 
 ## DBの文字コードをチェック
-```
+```sql
 select 
  *
 from 
@@ -122,4 +122,20 @@ order by
    ,USER_TAB_COLUMNS.COLUMN_ID
 ```
 
-
+## カラムの定義内容を参照
+```
+select
+    TABLE_NAME
+   ,COLUMN_ID
+   ,COLUMN_NAME
+   ,DATA_TYPE
+   ,DATA_LENGTH
+   ,NULLABLE
+from
+    USER_TAB_COLUMNS
+where  1=1
+  and  TABLE_NAME = 'TABLE1'
+order by
+    TABLE_NAME
+   ,COLUMN_ID
+```

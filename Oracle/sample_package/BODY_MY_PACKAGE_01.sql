@@ -304,7 +304,7 @@ create or replace PACKAGE BODY MY_PACKAGE_01 IS
                              ) IS
   BEGIN
 
-  SET TRANSACTION NAME 'MY_PROCEDURE_06'; 
+  SET TRANSACTION NAME 'MY_PROCEDURE_06';  --NAME は省略可。
 
     -----< 何らかの処理 >-----
     update  TABLE1 
