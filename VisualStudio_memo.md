@@ -27,6 +27,7 @@ Common Language Runtime Exceptions（共通言語ランタイム例外）
 |  大文字に変換                         |  Ctrl + Shift + u          |
 |  小文字に変換                         |  Ctrl + u                  |
 |  フォルダを指定して検索               |  Ctrl + Shift + f          |
+|  置換                                 |  Ctrl + h                  |
 |  クイックウォッチ                     |  Ctrl d → q               |
 |  リネーム                             |  選択→ Ctrl + r → r      |
 |  メソッド切り出し                     |  選択→ Ctrl +  r → m     |
