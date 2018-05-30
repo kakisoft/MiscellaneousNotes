@@ -8,6 +8,7 @@ Trailing Commas：後続カンマ
 レポートを印刷する：print_report、create_report
 確保する：hold, keep
 配置：Exhibit
+画面遷移時の値をセット：SetParametersAtScreenTransition
 
 TimeToCountDown
 elapsedTime ： 経過時間
